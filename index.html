@@ -203,6 +203,35 @@
   </script>
 </body>
 </html>
+<script>
+  const slider = document.querySelector('.hero-slider');
+  const slides = document.querySelectorAll('.hero-slide');
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  // Clone the first slide and append it at the end (for smooth loop)
+  const firstClone = slides[0].cloneNode(true);
+  slider.appendChild(firstClone);
+
+  setInterval(() => {
+    currentIndex++;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    slider.style.transition = "transform 1.8s ease";
+
+    if (currentIndex === totalSlides) {
+      setTimeout(() => {
+        slider.style.transition = "none";
+        slider.style.transform = "translateX(0)";
+        currentIndex = 0;
+      }, 1800); // match the transition time
+    }
+  }, 4000); // ⏳ Slide change every 4 seconds
+</script>
+
+
+
+
 
 
 
