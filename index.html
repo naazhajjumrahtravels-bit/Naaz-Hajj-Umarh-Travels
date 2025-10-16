@@ -5,20 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Naaz Hajj Umrah Travels | Best Hajj & Umrah Packages from India 2025-26</title>
 
-  <!-- ✅ Primary SEO Meta Tags -->
+  <!-- ✅ SEO Meta Tags -->
   <meta name="title" content="Naaz Hajj Umrah Travels | Best Hajj & Umrah Packages from India 2025-26" />
   <meta name="description" content="Naaz Hajj Umrah Travels offers affordable Hajj & Umrah packages with visa, flights, ziyarat tours, hotel booking & 24x7 support. Weekly & monthly group departures." />
   <meta name="keywords" content="Naaz Hajj Umrah Travels, hajj umrah travels, hajj umrah packages, umrah packages 2025, umrah visa online, umrah visa print, Hajj Packages 2025, Umrah Packages India, Islamic Tours, Umrah from India, Makkah Madinah Ziyarat" />
-  <meta name="author" content="Naaz Hajj Umrah Travels" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://naazhajjumrahtravels.in/" />
-
-  <!-- 🌐 Language & Geo Tags -->
-  <meta http-equiv="Content-Language" content="en">
-  <meta name="geo.region" content="IN" />
-  <meta name="geo.placename" content="Vijayapura, India" />
-  <meta name="geo.position" content="16.8298;75.71" />
-  <meta name="ICBM" content="16.8298, 75.71" />
 
   <!-- 🌍 Open Graph -->
   <meta property="og:type" content="website" />
@@ -40,7 +32,7 @@
   <!-- 🕋 Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- ✨ CSS -->
+  <!-- ✨ External CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -64,48 +56,17 @@
   </header>
 
   <!-- 🕋 Hero Section -->
-<!-- 🕋 Hero Section -->
-<section class="hero">
-  <div class="hero-slider" id="heroSlider">
-    <div class="hero-slide" style="background-image:url('MADINA.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('MAKKAH.jpg')"></div>
-    <div class="hero-slide" style="background-image:url('yatri.jpg')"></div>
-  </div>
-  <div class="hero-content">
-    <h1>Naaz Hajj & Umrah Tourism</h1>
-    <p>Every Week & Every Month Group Departure 2025-26</p>
-  </div>
-</section>
-
-<script>
-  const slider = document.getElementById('heroSlider');
-  const slides = document.querySelectorAll('.hero-slide');
-
-  let currentIndex = 0;
-  const totalSlides = slides.length;
-
-  // ✅ Clone first slide and append at the end for smooth infinite loop
-  const firstClone = slides[0].cloneNode(true);
-  slider.appendChild(firstClone);
-
-  function moveToNextSlide() {
-    currentIndex++;
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    slider.style.transition = "transform 1s ease";
-
-    // 🔁 When it reaches the cloned slide, reset instantly
-    if (currentIndex === totalSlides) {
-      setTimeout(() => {
-        slider.style.transition = "none";
-        slider.style.transform = "translateX(0)";
-        currentIndex = 0;
-      }, 1000); // same as transition duration
-    }
-  }
-
-  setInterval(moveToNextSlide, 4000);
-</script>
-
+  <section class="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide" style="background-image:url('MADINA.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('MAKKAH.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('yatri.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Naaz Hajj & Umrah Tourism</h1>
+      <p>Every Week & Every Month Group Departure 2025-26</p>
+    </div>
+  </section>
 
   <!-- 🟡 Packages -->
   <section class="packages" id="packages">
@@ -165,33 +126,30 @@
     <a href="mailto:naazhajjumrahtravels@gmail.com" class="email">naazhajjumrahtravels@gmail.com</a>
   </section>
 
-  <!-- ✅ JAVASCRIPT -->
+  <!-- ✅ JavaScript -->
   <script>
     // 🕋 Infinite Hero Slider
-    const slider = document.querySelector('.hero-slider');
+    const slider = document.getElementById('heroSlider');
     const slides = document.querySelectorAll('.hero-slide');
-    const totalSlides = slides.length;
     let currentIndex = 0;
-
-    // Clone first slide to end for seamless looping
+    const totalSlides = slides.length;
     const firstClone = slides[0].cloneNode(true);
     slider.appendChild(firstClone);
 
-    function startSlider() {
+    function moveSlider() {
       currentIndex++;
+      slider.style.transition = "transform 1.5s ease";
       slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      slider.style.transition = "transform 1.8s ease";
 
       if (currentIndex === totalSlides) {
         setTimeout(() => {
           slider.style.transition = "none";
           slider.style.transform = "translateX(0)";
           currentIndex = 0;
-        }, 1800);
+        }, 1500);
       }
     }
-
-    setInterval(startSlider, 4000);
+    setInterval(moveSlider, 4000);
 
     // 🍔 Mobile Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -205,4 +163,3 @@
   </script>
 </body>
 </html>
-
