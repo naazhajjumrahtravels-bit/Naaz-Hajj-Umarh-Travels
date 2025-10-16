@@ -21,7 +21,7 @@ header {
   width: 100%;
   z-index: 100;
   padding: 10px 0;
-  transition: background 0.1s ease;
+  transition: background 0.9s ease;
 }
 
 header.scrolled {
@@ -57,7 +57,7 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  transition: color 0.1s;
+  transition: color 0.3s;
 }
 
 header.scrolled nav a {
@@ -106,20 +106,40 @@ nav.active ul {
 /* 🕋 HERO SLIDER */
 .hero {
   position: relative;
+  height: 65vh;
   overflow: hidden;
-  height: 80vh;
+  border-bottom: 4px solid var(--gold);
 }
 
 .hero-slider {
   display: flex;
-  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
 }
 
 .hero-slide {
   min-width: 100%;
-  height: 80vh;
   background-size: cover;
   background-position: center;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
 }
 
 /* 🌟 Section Titles */
@@ -532,4 +552,3 @@ nav.active ul {
     width: 90%;
   }
 }
-
