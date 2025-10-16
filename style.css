@@ -57,7 +57,7 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  transition: color 0.3s;
+  transition: color 0.1s;
 }
 
 header.scrolled nav a {
@@ -114,7 +114,7 @@ nav.active ul {
 .hero-slider {
   display: flex;
   height: 100%;
-  transition: transform 1s ease;
+  transition: transform 1.8s ease;
 }
 
 .hero-slide {
@@ -552,3 +552,4 @@ nav.active ul {
     width: 90%;
   }
 }
+
