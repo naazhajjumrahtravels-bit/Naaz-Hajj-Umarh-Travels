@@ -64,17 +64,48 @@
   </header>
 
   <!-- 🕋 Hero Section -->
-  <section class="hero">
-    <div class="hero-slider" id="heroSlider">
-      <div class="hero-slide" style="background-image:url('MADINA.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('MAKKAH.jpg')"></div>
-      <div class="hero-slide" style="background-image:url('yatri.jpg')"></div>
-    </div>
-    <div class="hero-content">
-      <h1>Naaz Hajj & Umrah Tourism</h1>
-      <p>Every Week & Every Month Group Departure 2025-26</p>
-    </div>
-  </section>
+<!-- 🕋 Hero Section -->
+<section class="hero">
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide" style="background-image:url('MADINA.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('MAKKAH.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('yatri.jpg')"></div>
+  </div>
+  <div class="hero-content">
+    <h1>Naaz Hajj & Umrah Tourism</h1>
+    <p>Every Week & Every Month Group Departure 2025-26</p>
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById('heroSlider');
+  const slides = document.querySelectorAll('.hero-slide');
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  // ✅ Clone first slide and append at the end for smooth infinite loop
+  const firstClone = slides[0].cloneNode(true);
+  slider.appendChild(firstClone);
+
+  function moveToNextSlide() {
+    currentIndex++;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    slider.style.transition = "transform 1s ease";
+
+    // 🔁 When it reaches the cloned slide, reset instantly
+    if (currentIndex === totalSlides) {
+      setTimeout(() => {
+        slider.style.transition = "none";
+        slider.style.transform = "translateX(0)";
+        currentIndex = 0;
+      }, 1000); // same as transition duration
+    }
+  }
+
+  setInterval(moveToNextSlide, 4000);
+</script>
+
 
   <!-- 🟡 Packages -->
   <section class="packages" id="packages">
@@ -174,3 +205,4 @@
   </script>
 </body>
 </html>
+
