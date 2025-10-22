@@ -7,29 +7,28 @@
 
   <!-- Primary SEO Meta Tags -->
   <meta name="title" content="Naaz Hajj Umrah Travels | Best Hajj & Umrah Packages from India 2025-26" />
-  <meta name="description" content="Naaz Hajj Umrah Travels offers thoughtfully crafted Hajj & Umrah packages from India with visa, flights, ziyarat, hotels, insurance and 24x7 support. Book with trusted guides." />
+  <meta name="description" content="Naaz Hajj Um Umrah Travels offers thoughtfully crafted Hajj & Umrah packages from India with visa, flights, ziyarat, hotels, insurance and 24x7 support. Book with trusted guides." />
   <meta name="keywords" content="Naaz Hajj Umrah Travels, Hajj Packages 2025, Umrah Packages India, Umrah Visa, Islamic Tours, Makkah Madinah Ziyarat, Vijayapur Karnataka" />
-  <meta name="author" content="Naaz Hajj Umrah Travels" />
+  <meta name="author" content="Naaz Hajj Omrah Travels" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://naazhajjumrahtravels.in/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://naazhajjumrahtravels.in/" />
-  <meta property="og:title" content="Naaz Hajj Umrah Travels | Best Hajj & Umrah Packages 2025-26" />
+  <meta property="og:title" content="Naaz Hajj & Umrah Travels | Best Hajj & Umrah Packages 2025-26" />
   <meta property="og:description" content="Affordable Hajj & Umrah packages with flights, visa, ziyarat, hotels & 24x7 support. Book your blessed journey now!" />
   <meta property="og:image" content="https://naazhajjumrahtravels.in/LOGO.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Naaz Hajj Umrah Travels | Best Hajj & Umrah Packages 2025-26" />
+  <meta name="twitter:title" content="Naaz Hajj & Umrah Travels | Best Hajj & Umrah Packages 2025-26" />
   <meta name="twitter:description" content="Affordable Hajj & Umrah packages with flights, visa, ziyarat, hotels & 24x7 support." />
   <meta name="twitter:image" content="https://naazhajjumrahtravels.in/LOGO.png" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New&display=swap" rel="stylesheet">
 
-  <!-- Styles (embedded for copy-paste) -->
   <style>
     :root{
       --green: #0b8c0b;
@@ -43,16 +42,18 @@
       --radius:16px;
       --card-shadow: 0 20px 40px rgba(10,20,10,0.06);
       --fast: 200ms cubic-bezier(.2,.9,.3,1);
+      --header-height:72px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:"Poppins",system-ui,Arial,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
     a{color:inherit}
+    img{max-width:100%;height:auto;display:block}
 
     /* Page wrapper */
     .wrap{max-width:var(--max-width);margin:0 auto;padding:0 20px}
 
-    /* Top bar with Arabic phrase and contact quick-links */
+    /* Top bar */
     .topbar{
       background: linear-gradient(90deg, rgba(11,140,11,0.06), rgba(212,175,55,0.02));
       color: #1b3b1b;
@@ -64,46 +65,66 @@
     .topbar small{opacity:.95}
 
     /* Header */
-    header{position:sticky;top:0;left:0;right:0;z-index:1200;padding:12px 0;transition:all var(--fast);background:transparent}
+    header{
+      position:sticky;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1200;
+      padding:10px 0;
+      transition:all var(--fast);
+      background:transparent;
+      backdrop-filter: blur(6px);
+    }
     header.scrolled{background:rgba(255,255,255,0.96);box-shadow:0 8px 30px rgba(0,0,0,0.06);border-bottom:4px solid var(--gold)}
     .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--max-width);margin:0 auto;padding:0 18px}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
     .brand img{width:110px;height:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.12))}
     .brand .arabic{font-family:'Scheherazade New', serif;color:var(--gold-deep);font-size:18px;line-height:1;margin-left:6px}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-    nav a{color:#000000;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:color var(--fast),transform var(--fast)}
+    nav{display:flex;align-items:center;gap:12px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{color:#000000;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:color var(--fast),transform var(--fast);display:inline-block}
     header.scrolled nav a{color:var(--text)}
     nav a:hover{color:var(--gold);transform:translateY(-2px)}
 
-    /* Quick contact icons on header */
+    /* Header contacts */
     .header-contacts{display:flex;gap:12px;align-items:center}
-    .contact-pill{background:rgba(255,255,255,0.08);padding:8px 10px;border-radius:10px;color:#fff;font-weight:700;display:inline-flex;gap:8px;align-items:center}
-    header.scrolled .contact-pill{background:transparent;color:var(--text);border:1px solid rgba(0,0,0,0.03)}
+    .contact-pill{background:rgba(11,140,11,0.9);padding:8px 10px;border-radius:10px;color:#fff;font-weight:700;display:inline-flex;gap:8px;align-items:center;text-decoration:none}
+    header.scrolled .contact-pill{background:rgba(11,140,11,0.12);color:var(--text);border:1px solid rgba(0,0,0,0.03)}
 
     /* mobile toggle */
     .menu-toggle{display:none;background:transparent;border:0;cursor:pointer;padding:6px;border-radius:8px}
-    .menu-toggle .bar{width:28px;height:3px;background:#fff;border-radius:3px;display:block;margin:5px 0}
+    .menu-toggle .bar{width:28px;height:3px;background:#fff;border-radius:3px;display:block;margin:5px 0;transition:background var(--fast),transform var(--fast)}
     header.scrolled .menu-toggle .bar{background:var(--text)}
 
     /* Hero */
-    .hero{height:70vh;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;border-bottom:6px solid var(--gold);overflow:hidden;
+    .hero{
+      height:70vh;
+      min-height:420px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      border-bottom:6px solid var(--gold);
+      overflow:hidden;
       background:
         linear-gradient(180deg, rgba(3,10,6,0.65), rgba(10,20,10,0.33)),
         url('yatri.jpg') center/cover no-repeat;
     }
     .hero::before{content:"";position:absolute;inset:0;background-image:url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png');opacity:0.12;mix-blend-mode:overlay;pointer-events:none}
     .hero::after{content:"";position:absolute;inset:0;background: linear-gradient(180deg, rgba(255,210,120,0.03), rgba(0,0,0,0.18));mix-blend-mode:soft-light;pointer-events:none}
-    .hero-inner{position:relative;z-index:5;padding:28px;max-width:1080px}
-    .hero-title{font-family:'Playfair Display',serif;color:#fff;font-size:3.6rem;line-height:1;margin:0 0 12px;text-shadow:0 12px 36px rgba(0,0,0,0.7)}
-    .hero-sub{color:#f6f6f6;margin:0 0 18px;font-size:1.15rem;max-width:920px;margin-left:auto;margin-right:auto}
+    .hero-inner{position:relative;z-index:5;padding:28px 16px;max-width:1080px}
+    .hero-title{font-family:'Playfair Display',serif;color:#fff;font-size:3.2rem;line-height:1;margin:0 0 12px;text-shadow:0 12px 36px rgba(0,0,0,0.7)}
+    .hero-sub{color:#f6f6f6;margin:0 0 18px;font-size:1.05rem;max-width:920px;margin-left:auto;margin-right:auto}
     .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-    .cta-note{font-size:14px;color:#fff;opacity:0.9;margin-top:10px}
+    .cta-note{font-size:14px;color:#fff;opacity:0.95;margin-top:10px}
 
     /* Buttons */
-    .btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform var(--fast),box-shadow var(--fast)}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform var(--fast),box-shadow var(--fast);border:0}
     .btn:focus{outline:3px solid rgba(11,140,11,0.12);outline-offset:2px}
     .btn-primary{background:var(--accent-gold);color:#231f12;box-shadow:0 16px 40px rgba(212,175,55,0.12);border:1px solid rgba(0,0,0,0.04)}
-    .btn-primary:hover{transform:translateY(-5px)}
+    .btn-primary:hover{transform:translateY(-4px)}
     .btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.9)}
     header.scrolled .btn-ghost{color:var(--text);border-color:var(--gold)}
 
@@ -115,63 +136,60 @@
     .section-sub{color:var(--muted);max-width:920px;margin:12px auto 0}
 
     /* Packages grid */
-    .package-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:50px;max-width:1580px;margin:28px auto 0;padding:0 18px}
-    .card{background:linear-gradient(180deg,#fff,#fffaf0);border-radius:16px;padding:22px;border:2px solid rgba(212,175,55,0.12);box-shadow:var(--card-shadow);transition:transform .28s ease,box-shadow .28s ease;position:relative;overflow:hidden}
-    .card:hover{transform:translateY(-12px);box-shadow:0 30px 60px rgba(0,0,0,0.12)}
-    .card .top-img{width:100%;height:200px;border-radius:12px;overflow:hidden;margin-bottom:14px;background:#000}
+    .package-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1580px;margin:28px auto 0;padding:0 18px}
+    .card{background:linear-gradient(180deg,#fff,#fffaf0);border-radius:16px;padding:18px;border:2px solid rgba(212,175,55,0.12);box-shadow:var(--card-shadow);transition:transform .28s ease,box-shadow .28s ease;position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.12)}
+    .card .top-img{width:100%;height:200px;border-radius:12px;overflow:hidden;margin-bottom:12px;background:#000}
     .card .top-img img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(.95) saturate(.9)}
     .card h3{font-family:'Playfair Display',serif;margin:6px 0;color:var(--green)}
-    .price{font-weight:900;color:var(--gold);font-size:1.25rem;margin:8px 0}
+    .price{font-weight:900;color:var(--gold);font-size:1.15rem;margin:8px 0}
     .card p{color:var(--muted);margin:10px 0 14px;line-height:1.45}
     .card .ornament{position:absolute;left:14px;right:14px;top:14px;height:10px;border-radius:8px;background:linear-gradient(90deg,rgba(212,175,55,0.1),rgba(212,175,55,0.02))}
 
-    /* EMI pill & custom package */
+    /* Qist pill & custom package */
     .flex-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .emi-pill{background:linear-gradient(90deg,rgba(11,140,11,0.06),rgba(11,140,11,0.02));padding:8px 12px;border-radius:999px;font-weight:700;color:var(--green);border:1px solid rgba(11,140,11,0.06)}
+    .qist-pill{background:linear-gradient(90deg,rgba(11,140,11,0.06),rgba(11,140,11,0.02));padding:8px 12px;border-radius:999px;font-weight:700;color:var(--green);border:1px solid rgba(11,140,11,0.06)}
     .custom-pill{background:linear-gradient(90deg,rgba(212,175,55,0.06),rgba(212,175,55,0.02));padding:8px 12px;border-radius:999px;font-weight:700;color:var(--gold-deep);border:1px solid rgba(212,175,55,0.06)}
 
     /* Services */
-    .services-list{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px}
-    .badge{background:linear-gradient(90deg,rgba(11,140,11,0.06),rgba(11,140,11,0.02));color:var(--green);padding:10px 16px;border-radius:999px;font-weight:700;border:1px solid rgba(11,140,11,0.06)}
+    .services-list{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:20px}
+    .badge{background:linear-gradient(90deg,rgba(11,140,11,0.06),rgba(11,140,11,0.02));color:var(--green);padding:10px 14px;border-radius:999px;font-weight:700;border:1px solid rgba(11,140,11,0.06)}
 
-    .service-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:50px;max-width:2500px;margin:15px auto;padding:0 18px}
+    .service-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300,1fr));gap:22px;max-width:1200px;margin:15px auto;padding:0 18px}
     .service-card{background:linear-gradient(180deg,#fff,#fffef8);padding:18px;border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.06)}
     .service-card h4{margin:0 0 8px;color:var(--green)}
 
     /* INCLUDES expanded visual */
-    .includes-grid{display:grid;grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));gap:26px;max-width:1280px;margin:28px auto 0;padding:0 18px;align-items:start;}
-    .include-card{background:linear-gradient(180deg,#fff,#fffef7);border-radius:14px;padding:18px;box-shadow:0 18px 36px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.06);display:flex;gap:14px;align-items:flex-start}
-    .include-icon{width:72px;height:72px;border-radius:12px;flex:0 0 72px;background:linear-gradient(180deg,#fff8e6,#fff9f0);display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--gold-deep)}
-    .include-body h4{margin:0 0 6px;font-size:18px;color:var(--green)}
+    .includes-grid{display:grid;grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));gap:20px;max-width:1280px;margin:28px auto 0;padding:0 18px;align-items:start;}
+    .include-card{background:linear-gradient(180deg,#fff,#fffef7);border-radius:14px;padding:14px;box-shadow:0 18px 36px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.06);display:flex;gap:12px;align-items:flex-start}
+    .include-icon{width:64px;height:64px;border-radius:12px;flex:0 0 64px;background:linear-gradient(180deg,#fff8e6,#fff9f0);display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--gold-deep)}
+    .include-body h4{margin:0 0 6px;font-size:16px;color:var(--green)}
     .include-body p{margin:0;color:var(--muted);line-height:1.45}
 
-    /* Big luxury gallery */
-    .includes-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:1280px;margin:28px auto;padding:0 18px}
+    /* Big gallery */
+    .includes-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1280px;margin:28px auto;padding:0 18px}
     .gallery-item{position:relative;border-radius:14px;overflow:hidden;border:4px solid rgba(212,175,55,0.10);box-shadow:0 22px 48px rgba(0,0,0,0.09);background:#000}
-    .gallery-item img{display:block;width:100%;height:420px;object-fit:cover;filter:contrast(.95) saturate(.9)}
-    .gallery-caption{position:absolute;left:16px;right:16px;bottom:18px;padding:12px;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);color:#fff;font-weight:700;border-radius:8px;text-align:center}
+    .gallery-item img{display:block;width:100%;height:320px;object-fit:cover;filter:contrast(.95) saturate(.9)}
+    .gallery-caption{position:absolute;left:12px;right:12px;bottom:12px;padding:10px;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);color:#fff;font-weight:700;border-radius:8px;text-align:center}
 
-    /* Contact / Get In Touch — more Islamic visuals */
+    /* Contact / Get In Touch */
     .get-touch{
       background: linear-gradient(180deg, rgba(12,36,20,0.02), rgba(255,255,255,0.02));
-      padding:28px 18px;border-radius:14px;border:1px solid rgba(0,0,0,0.03);box-shadow:0 14px 40px rgba(0,0,0,0.04);margin-top:18px;
-      display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      padding:18px;border-radius:14px;border:1px solid rgba(0,0,0,0.03);box-shadow:0 14px 40px rgba(0,0,0,0.04);margin-top:18px;
+      display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;
     }
-    .get-touch .mosque{
-      flex:0 0 220px;height:140px;background:linear-gradient(180deg,#fff,#fffef8);border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;
-      box-shadow:0 10px 30px rgba(0,0,0,0.06);
-    }
-    .mosque svg{width:180px;height:auto;opacity:0.95}
-    .branch-list{flex:1;min-width:260px}
+    .get-touch .mosque{flex:0 0 200px;height:120px;background:linear-gradient(180deg,#fff,#fffef8);border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+    .mosque svg{width:160px;height:auto;opacity:0.95}
+    .branch-list{flex:1;min-width:220px}
     .branch{background:linear-gradient(180deg,#fff,#fffef8);padding:12px;border-radius:10px;border:1px solid rgba(212,175,55,0.06);margin-bottom:12px}
     .branch strong{color:var(--green)}
     .branch small{display:block;color:var(--muted);margin-top:6px}
-    .touch-cta{display:flex;gap:10px;align-items:center;margin-top:10px}
+    .touch-cta{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
 
     /* Modal / EMI */
     .overlay{position:fixed;inset:0;background:rgba(228, 223, 223, 0);display:none;align-items:center;justify-content:center;z-index:2200;padding:18px}
-    .overlay.open{display:flex}
-    .modal{background:#ffffff;border-radius:12px;padding:18px;max-width:820px;width:100%;box-shadow:0 30px 60px rgba(0, 0, 0, 0.473);outline:none}
+    .overlay.open{display:flex;background:rgba(0,0,0,0.45)}
+    .modal{background:#ffffff;border-radius:12px;padding:18px;max-width:820px;width:100%;box-shadow:0 30px 60px rgba(0, 0, 0, 0.5);outline:none}
     .modal-header{display:flex;align-items:center;justify-content:space-between;gap:10px}
     .modal .modal-body{margin-top:12px;color:var(--muted)}
     .modal .modal-footer{display:flex;gap:12px;justify-content:flex-end;margin-top:16px}
@@ -179,39 +197,44 @@
     .form-row input, .form-row select{padding:8px 10px;border-radius:8px;border:1px solid #ddd;min-width:120px}
     .emi-result{margin-top:12px;padding:10px;border-radius:8px;background:linear-gradient(90deg,#fffaf0,#fffdf8);border:1px solid rgba(212,175,55,0.06);font-weight:700;color:var(--green)}
 
-    /* Footer with ornate pattern and Arabic footer phrase */
-    footer{
-      background: linear-gradient(90deg,var(--green),#126f1a);
-      color:#fff;padding:28px 18px;text-align:center;font-weight:700;position:relative;
-      overflow:hidden;
-    }
-    footer::before{
-      content:"";
-      position:absolute;left:12px;top:12px;width:220px;height:80px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="220" height="80"><rect width="220" height="80" fill="none"/><path d="M10 40 q30 -28 60 0 t60 0 t60 0" stroke="%23ffd77a" stroke-width="1" fill="none" opacity="0.12" /></svg>');
-      opacity:0.85;
-    }
+    /* Footer */
+    footer{background: linear-gradient(90deg,var(--green),#126f1a);color:#fff;padding:28px 18px;text-align:center;font-weight:700;position:relative;overflow:hidden}
+    footer::before{content:"";position:absolute;left:12px;top:12px;width:220px;height:80px;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="220" height="80"><rect width="220" height="80" fill="none"/><path d="M10 40 q30 -28 60 0 t60 0 t60 0" stroke="%23ffd77a" stroke-width="1" fill="none" opacity="0.12" /></svg>');opacity:0.85}
     .footer-arabic{font-family:'Scheherazade New', serif;font-size:20px;color:rgba(255,245,200,0.95);margin-bottom:8px}
+    .social-links{display:flex;gap:10px;justify-content:center;margin-top:12px}
+    .social-links a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.12);color:#fff;text-decoration:none;font-weight:700}
 
     /* Responsive */
     @media (max-width:1100px){
-      .hero-title{font-size:2.8rem}
-      .gallery-item img{height:360px}
+      .hero-title{font-size:2.4rem}
+      .gallery-item img{height:280px}
       .card .top-img{height:160px}
       .get-touch{flex-direction:column;align-items:stretch}
     }
     @media (max-width:820px){
+      .header-inner{align-items:center}
       nav ul{display:none}
       .menu-toggle{display:block}
+      .header-contacts{display:flex;gap:8px}
+      .brand img{width:92px}
+      #navMenu.mobile-open ul{display:flex;flex-direction:column;gap:8px;padding:12px}
+      #navMenu.mobile-open{position:fixed;top: calc( var(--header-height) + 8px );right:12px;background:rgba(255,255,255,0.98);border-radius:12px;box-shadow:0 30px 60px rgba(0,0,0,0.12);z-index:1400;max-width:320px;width:calc(100% - 28px)}
+      nav a{color:var(--text);padding:10px 12px}
       .package-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-      .gallery-item img{height:320px}
       .includes-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+      .hero{min-height:46vh}
+      .hero-title{font-size:1.6rem}
+      .hero-sub{font-size:.98rem;padding:0 12px}
+      .btn{padding:10px 14px}
+      .gallery-item img{height:220px}
     }
     @media (max-width:520px){
-      .hero-title{font-size:1.8rem}
-      .hero-sub{font-size:.98rem;padding:0 12px}
-      .gallery-item img{height:260px}
+      .hero-title{font-size:1.4rem}
       .card .top-img{height:140px}
       .include-icon{width:56px;height:56px;font-size:22px}
+      .gallery-item img{height:180px}
+      .brand .arabic{display:none}
+      .header-contacts{gap:6px}
     }
 
     /* entrance animation */
@@ -220,12 +243,12 @@
   </style>
 </head>
 <body>
-  <!-- Topbar with Arabic phrase -->
+  <!-- Topbar -->
   <div class="topbar">
     <small>بِسْمِ ٱللَّٰهِ — Journey with peace (Naaz Hajj & Umrah Travels)</small>
   </div>
 
-  <header id="siteHeader" aria-hidden="false">
+  <header id="siteHeader" aria-hidden="false" style="--header-height:72px;">
     <div class="header-inner wrap">
       <a class="brand" href="#" aria-label="Naaz Hajj & Umrah Travels">
         <img src="LOGO.png" alt="Naaz Logo" loading="lazy">
@@ -244,7 +267,7 @@
         </button>
       </div>
 
-      <nav id="navMenu" class="nav" aria-label="Primary">
+      <nav id="navMenu" class="nav" aria-label="Primary" role="navigation">
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#packages">Packages</a></li>
@@ -286,7 +309,7 @@
           <div class="price">₹75,000</div>
           <p>Bus transfer • Economy hotels near Haram • Full guided ziyarat • Buffet meals & Zam Zam water</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="silver">View & Calculate</button>
           </div>
         </article>
@@ -299,7 +322,7 @@
           <div class="price">₹85,000</div>
           <p>Comfort hotels • AC transfers • Family-friendly itinerary • Travel insurance included</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="golden">View & Calculate</button>
           </div>
         </article>
@@ -312,7 +335,7 @@
           <div class="price">₹90,000</div>
           <p>Closer hotels to Haram • VIP transport • Priority services • Private ziyarat tour</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="diamond">View & Calculate</button>
           </div>
         </article>
@@ -325,7 +348,7 @@
           <div class="price">₹95,000</div>
           <p>Direct flights • Seasonal spiritual programs • Guided sessions and ziyarat</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="rabi">View & Calculate</button>
           </div>
         </article>
@@ -338,12 +361,12 @@
           <div class="price">₹1,15,000</div>
           <p>Luxury hotels • Private guide • VIP transport • Personal concierge & buffet meals</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="deluxe">View & Calculate</button>
           </div>
         </article>
 
-        <!-- New Card: Family -->
+        <!-- Card: Family -->
         <article class="card" data-key="family">
           <div class="ornament" aria-hidden="true"></div>
           <div class="top-img"><img src="my p 6.jpg" alt="Family image"></div>
@@ -351,12 +374,12 @@
           <div class="price">From ₹1,75,000 (per family)</div>
           <p>Group discounts • Rooming flexibility • Kids program & family-friendly guides</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="family">View & Calculate</button>
           </div>
         </article>
 
-        <!-- New Card: Senior Care -->
+        <!-- Card: Senior -->
         <article class="card" data-key="senior">
           <div class="ornament" aria-hidden="true"></div>
           <div class="top-img"><img src="my p 5.jpg" alt="Senior image"></div>
@@ -364,7 +387,7 @@
           <div class="price">From ₹95,000</div>
           <p>Medical assistance, gentle pace itinerary, wheelchair-friendly transfers and dedicated helpers.</p>
           <div class="flex-row" style="margin-bottom:8px;">
-            <span class="emi-pill">Interest-free instalments</span>
+            <span class="qist-pill">Qist (قِسْط) Instalments</span>
             <button class="btn btn-primary open-package" data-key="senior">View & Calculate</button>
           </div>
         </article>
@@ -408,7 +431,7 @@
         </div>
 
         <div style="margin-top:28px" class="service-cards fade-up" id="serviceCards">
-          <div class="service-card">
+          <div class="service-card">  
             <h4>Visa & Paperwork</h4>
             <p>Complete help from forms to medical insurance copy, submission and follow-up — we provide document checklists & in-person support.</p>
           </div>
@@ -432,7 +455,7 @@
       </div>
     </section>
 
-    <!-- What the Package Includes (expanded visual) -->
+    <!-- Includes -->
     <section id="includes" aria-labelledby="includesTitle">
       <div class="section-head">
         <h2 id="includesTitle" class="section-title">What the Package Includes</h2>
@@ -505,10 +528,9 @@
         </div>
       </div>
 
-      <!-- Large gallery -->
       <div class="includes-gallery fade-up" aria-hidden="false">
         <div class="gallery-item">
-          <img src="MAKKAH.jpg 02.jpg" alt="Makkah Ziyarat" loading="lazy">
+          <img src="MAKKAH.jpg" alt="Makkah Ziyarat" loading="lazy">
           <div class="gallery-caption">Makkah — The heart of pilgrimage</div>
         </div>
         <div class="gallery-item">
@@ -522,7 +544,7 @@
       </div>
     </section>
 
-    <!-- Contact / Get In Touch with more Islamic visuals -->
+    <!-- Contact -->
     <section id="contact" aria-labelledby="contactTitle">
       <div class="section-head">
         <h2 id="contactTitle" class="section-title">Get In Touch — We Are Here For You</h2>
@@ -579,10 +601,19 @@
       <div class="footer-arabic">وَسِعْنَا لَكُمُ السَّبِيلَ</div>
       Trusted Pilgrimage Services — Naaz Hajj & Umrah Travels • © 2025
       <div style="margin-top:10px;font-size:13px;opacity:0.9">Office: Near Itagi Petrol Pump, Old Takke Road, Vijayapura, Karnataka 586101 • Branch: Shop No. 5, New Bus Stand, Old Market Road</div>
+
+      <!-- Social links — update the URLs if you use different handles -->
+      <div class="social-links" aria-label="Social media links">
+        <a href="https://facebook.com/naazhajjumrahtravels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/naaz_hajj_umrah_travels?igsh=MWl3dm1reW5iaWg5OQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">ig</a>
+        <a href="www.youtube.com/@NaazHajjUmrahTravels" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+        <a href="https://x.com/naazhajjumrahtravels" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">x</a>
+        <a href="mailto:naazhajjumrahtravels@gmail.com" aria-label="Email" title="Email">✉</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Package Modal + EMI (interest-free) -->
+  <!-- Modal -->
   <div id="packageOverlay" class="overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal" role="document">
       <div class="modal-header">
@@ -591,14 +622,14 @@
       </div>
 
       <div class="modal-body" id="modalBody">
-        <p id="modalSummary">Select a package to view details, itinerary and interest-free instalment options.</p>
+        <p id="modalSummary">Select a package to view details, itinerary and Qist (قِسْط) instalment options.</p>
 
         <pre id="modalItinerary" style="white-space:pre-wrap;margin-top:12px;color:var(--muted)"></pre>
 
-        <!-- Interest-free instalment calculator -->
+        <!-- Instalment calculator -->
         <div style="margin-top:16px;border-top:1px dashed #eee;padding-top:14px">
-          <h4 style="margin:0 0 8px">Interest-free Instalment Calculator</h4>
-          <div style="font-size:14px;color:var(--muted)">No interest — we offer installment plans to make travel easier. Choose tenure and see monthly amount.</div>
+          <h4 style="margin:0 0 8px">Qist (قِسْط) Instalment Calculator</h4>
+          <div style="font-size:14px;color:var(--muted)">Choose tenure and see monthly amount. (No interest charged.)</div>
 
           <div class="form-row" style="margin-top:10px">
             <label style="font-weight:700">Package Price (₹)</label>
@@ -611,7 +642,7 @@
               <option value="12">12</option>
               <option value="18">18</option>
             </select>
-            <button id="calcEmi" class="btn btn-primary" style="margin-left:6px">Calculate (Interest-Free)</button>
+            <button id="calcEmi" class="btn btn-primary" style="margin-left:6px">Calculate</button>
           </div>
 
           <div id="emiResult" class="emi-result" aria-live="polite" style="display:none"></div>
@@ -627,7 +658,14 @@
 
   <!-- Inline JS -->
   <script>
-    // Package data (extended)
+    // Primary contact details (single source of truth)
+    const CONTACT = {
+      phoneDisplay: "+91 77954 83452",
+      phoneE164: "+917795483452",
+      email: "naazhajjumrahtravels@gmail.com"
+    };
+
+    // Package data
     const packages = {
       silver: {
         title: "Silver Umrah Package",
@@ -712,7 +750,7 @@ Day 15: Departure`
       }
     };
 
-    // Header scroll
+    // Header scroll effect
     const header = document.getElementById('siteHeader');
     const onScroll = () => { if (window.scrollY > 30) header.classList.add('scrolled'); else header.classList.remove('scrolled'); };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -726,10 +764,30 @@ Day 15: Departure`
         const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
         menuToggle.setAttribute('aria-expanded', String(!expanded));
         navMenu.classList.toggle('mobile-open');
+        if (navMenu.classList.contains('mobile-open')) {
+          const firstLink = navMenu.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
+      });
+
+      // close mobile menu on outside click or Escape
+      document.addEventListener('click', (ev) => {
+        if (!navMenu.classList.contains('mobile-open')) return;
+        const within = ev.target.closest('#navMenu') || ev.target.closest('#menuToggle');
+        if (!within) {
+          navMenu.classList.remove('mobile-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      document.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Escape' && navMenu.classList.contains('mobile-open')) {
+          navMenu.classList.remove('mobile-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
       });
     }
 
-    // Simple fade-up observer
+    // Fade-up observer
     const observeFade = () => {
       const els = document.querySelectorAll('.fade-up');
       const observer = new IntersectionObserver((entries) => {
@@ -739,7 +797,7 @@ Day 15: Departure`
     };
     observeFade();
 
-    // Modal & instalment (interest-free) logic
+    // Modal & instalment logic (fixed whatsapp/mail redirect)
     const overlay = document.getElementById('packageOverlay');
     const modalTitle = document.getElementById('modalTitle');
     const modalSummary = document.getElementById('modalSummary');
@@ -761,21 +819,25 @@ Day 15: Departure`
       emiPrice.value = pkg.price ? String(pkg.price) : "";
       emiMonths.value = "6";
       emiResult.style.display = 'none';
-      const phone = '+917795483452';
+
+      // build WhatsApp and mailto links properly
+      const phoneDigits = CONTACT.phoneE164.replace(/\D/g,''); // e.g. 917795483452
       const message = `Assalamu alaikum, I'm interested in the "${pkg.title}". Please share details & availability.`;
-      modalBook.href = `https://wa.me/${phone.replace(/\D/g,'')}?text=${encodeURIComponent(message)}`;
-      modalEmail.href = `mailto:naazhajjumrahtravels@gmail.com?subject=${encodeURIComponent('Enquiry: '+pkg.title)}&body=${encodeURIComponent('I would like more info about '+pkg.title)}`;
+      modalBook.href = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(message)}`;
+      modalEmail.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Enquiry: ' + pkg.title)}&body=${encodeURIComponent('I would like more info about ' + pkg.title)}`;
+
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden','false');
-      calcEmi.focus();
+
+      // focus management for accessibility
+      setTimeout(() => closeModalBtn.focus(), 40);
     }
 
-    // Attach package/view buttons
+    // attach package buttons
     document.querySelectorAll('.open-package').forEach(btn => {
       btn.addEventListener('click', (e) => { const key = e.currentTarget.dataset.key; openModal(key); });
     });
 
-    // Custom package request button opens modal with custom content
     document.querySelectorAll('.open-custom').forEach(btn => {
       btn.addEventListener('click', (e) => { openModal('custom'); });
     });
@@ -785,7 +847,7 @@ Day 15: Departure`
     overlay.addEventListener('click', (ev) => { if (ev.target === overlay) closeModal(); });
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
-    // Interest-free instalment calculation (simple division)
+    // Qist instalment calculation (simple division)
     function calculateInterestFreeInstalment(P, months) {
       P = Number(P) || 0;
       const n = Number(months) || 1;
@@ -804,7 +866,7 @@ Day 15: Departure`
         }
         const monthly = calculateInterestFreeInstalment(P, months);
         emiResult.style.display = 'block';
-        emiResult.textContent = `Interest-free monthly instalment for ₹${P.toLocaleString()} over ${months} months = ₹${Number(monthly).toLocaleString()}. (No interest charged)`;
+        emiResult.textContent = `Qist instalment for ₹${P.toLocaleString()} over ${months} months = ₹${Number(monthly).toLocaleString()} per month. (No interest charged)`;
       });
     }
 
@@ -826,7 +888,16 @@ Day 15: Departure`
       });
     });
 
-    // Note: Replace MAKKAH.jpg and LOGO.png with optimized webp assets for best visual quality & performance.
+    // Update top contact links programmatically (keeps them consistent)
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => a.setAttribute('href', 'tel:' + CONTACT.phoneE164));
+    document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.setAttribute('href', 'mailto:' + CONTACT.email));
+    // top whatsapp link (if present)
+    const topWA = document.querySelector('.header-contacts a[href*="wa.me"]');
+    if (topWA) topWA.setAttribute('href', `https://wa.me/${CONTACT.phoneE164.replace(/\D/g,'')}`);
+
+    // Notes:
+    // - Replace local image filenames (LOGO.png, MAKKAH.jpg 02.jpg etc.) with optimized webp versions for best performance.
+    // - Update social media URLs in the footer if your actual handles/URLs are different.
   </script>
 </body>
 </html>
