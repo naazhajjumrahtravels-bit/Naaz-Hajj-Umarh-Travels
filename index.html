@@ -15,6 +15,7 @@
 </script>
 
 
+
   <!-- Primary SEO Meta Tags -->
   <meta name="title" content="Naaz Hajj Umrah Travels | Best Hajj & Umrah Packages from India 2025-26" />
   <meta name="description" content="Naaz Hajj Um Umrah Travels offers thoughtfully crafted Hajj & Umrah packages from India with visa, 
@@ -42,7 +43,7 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New&display=swap" rel="stylesheet">
-
+ <link rel="stylesheet" href="gallery.html">
   <style>
     :root{
       --green: #0b8c0b;
@@ -111,28 +112,260 @@
     .menu-toggle .bar{width:28px;height:3px;background:#fff;border-radius:3px;display:block;margin:5px 0;transition:background var(--fast),transform var(--fast)}
     header.scrolled .menu-toggle .bar{background:var(--text)}
 
-    /* Hero */
-    .hero{
-      height:70vh;
-      min-height:420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
-      border-bottom:6px solid var(--gold);
-      overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(3,10,6,0.65), rgba(10,20,10,0.33)),
-        url('yatri.jpg') center/cover no-repeat;
-    }
-    .hero::before{content:"";position:absolute;inset:0;background-image:url('https://www.toptal.com/designers/subtlepatterns/uploads/moroccan-flower.png');opacity:0.12;mix-blend-mode:overlay;pointer-events:none}
-    .hero::after{content:"";position:absolute;inset:0;background: linear-gradient(180deg, rgba(255,210,120,0.03), rgba(0,0,0,0.18));mix-blend-mode:soft-light;pointer-events:none}
-    .hero-inner{position:relative;z-index:5;padding:28px 16px;max-width:1080px}
-    .hero-title{font-family:'Playfair Display',serif;color:#fff;font-size:3.2rem;line-height:1;margin:0 0 12px;text-shadow:0 12px 36px rgba(0,0,0,0.7)}
-    .hero-sub{color:#f6f6f6;margin:0 0 18px;font-size:1.05rem;max-width:920px;margin-left:auto;margin-right:auto}
-    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-    .cta-note{font-size:14px;color:#fff;opacity:0.95;margin-top:10px}
+   .hero {
+  position: relative;
+  height: 75vh;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  border-bottom: 6px solid var(--gold);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hero-slider, .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1.5s ease-in-out, transform 6s ease-in-out;
+}
+
+.slide {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 18px;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.hero-sub {
+  margin: 12px auto;
+  color: #f3f3f3;
+  max-width: 700px;
+  font-weight: 400;
+}
+
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.cta-note {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2rem; }
+  .hero-sub { font-size: 0.95rem; }
+}
+/* ============================================
+   🕋 NAAZ HAJJ & UMRAH GALLERY — LUXURY ARABIC STYLE
+   ============================================ */
+/* ============================================
+   🕋 PREMIUM ARABIC GALLERY + LIGHTBOX
+   ============================================ */
+:root {
+  --green-deep: #0b6f3a;
+  --gold: #d4af37;
+}
+
+.gallery-section {
+  text-align: center;
+  padding: 60px 0;
+  background: linear-gradient(180deg, #ffffff, #f9fff8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle geometric pattern background */
+.gallery-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('islamic_pattern_gold.svg') center/280px repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* Premium Arabic heading */
+.gallery-section .section-title {
+  font-family: 'Scheherazade New', serif;
+  font-size: 2.4rem;
+  color: var(--green-deep);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+  z-index: 1;
+}
+
+.gallery-section .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, #d4af37, #a97c27);
+  border-radius: 3px;
+}
+
+/* GRID */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.gallery-grid figure {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(11, 111, 58, 0.15);
+}
+
+/* Golden gradient glow on hover */
+.gallery-grid figure::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(212,175,55,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.gallery-grid figure:hover::after {
+  opacity: 1;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-grid figure:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-grid figcaption {
+  padding: 10px;
+  font-weight: 700;
+  color: var(--green-deep);
+  background: linear-gradient(90deg, #fffdf5, #f8fff6);
+  border-top: 1px solid rgba(11,111,58,0.08);
+  font-family: "Cairo", sans-serif;
+  letter-spacing: 0.3px;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 25, 10, 0.94);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease;
+  flex-direction: column;
+  text-align: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(207,174,50,0.4), 0 0 15px rgba(255,255,255,0.1);
+  animation: zoomIn 0.5s ease;
+}
+
+/* Golden shimmer animation */
+@keyframes glowLoop {
+  0% { box-shadow: 0 0 35px rgba(207,174,50,0.3); }
+  50% { box-shadow: 0 0 60px rgba(207,174,50,0.45); }
+  100% { box-shadow: 0 0 35px rgba(207,174,50,0.3); }
+}
+.lightbox.active img {
+  animation: zoomIn 0.5s ease, glowLoop 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes zoomIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox.active {
+  display: flex;
+  cursor: zoom-out;
+}
+
+/* Caption inside lightbox */
+.lightbox-caption {
+  margin-top: 16px;
+  color: #f1e9c7;
+  font-family: "Cairo", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  background: rgba(212,175,55,0.08);
+  padding: 10px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.3);
+}
+
+
 
     /* Buttons */
     .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform var(--fast),box-shadow var(--fast);border:0}
@@ -257,6 +490,7 @@
   </style>
 </head>
 <body>
+  
   <!-- Topbar -->
   <div class="topbar">
     <small>بِسْمِ ٱللَّٰهِ — Journey with peace (Naaz Hajj & Umrah Travels)</small>
@@ -288,24 +522,42 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#includes">Includes</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#gallery">gallery</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+
     <!-- Hero -->
-    <section class="hero" role="region" aria-label="Hero">
-      <div class="hero-inner">
-        <h1 class="hero-title">Naaz Hajj & Umrah — Blessed Journeys</h1>
-        <p class="hero-sub">Trusted guides • Thoughtful itineraries • Heartfelt ziyarat. We take care of everything so you travel with peace and spiritual focus.</p>
-        <div class="hero-ctas">
-          <a href="#packages" class="btn btn-primary">Explore Packages</a>
-          <a href="#contact" class="btn btn-ghost">Contact Us</a>
-        </div>
-        <div class="cta-note">Weekly & Monthly departures • Local guides • Language support: English / Urdu / Kannada</div>
-      </div>
-    </section>
+<section class="hero" role="region" aria-label="Hero">
+  <div class="hero-slider">
+    <!-- First image loads immediately -->
+    <div class="slide active" style="background-image: url('mk02.jpg');"></div>
+
+    <!-- Other slides load lazily -->
+    <div class="slide" data-src="yatri.jpg"></div>
+    <div class="slide" data-src="g4.jpg"></div>
+  </div>
+
+  <div class="hero-inner">
+    <h1 class="hero-title">Naaz Hajj & Umrah — Blessed Journeys</h1>
+    <p class="hero-sub">
+      Trusted guides • Thoughtful itineraries • Heartfelt ziyarat.
+      We take care of everything so you travel with peace and spiritual focus.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#packages" class="btn btn-primary">Explore Packages</a>
+      <a href="#contact" class="btn btn-ghost">Contact Us</a>
+    </div>
+
+    <div class="cta-note">
+      Weekly & Monthly departures • Local guides • Language support: English / Urdu / Kannada
+    </div>
+  </div>
+</section>
+
 
     <!-- Packages -->
     <section id="packages" aria-labelledby="packagesTitle">
@@ -444,30 +696,83 @@
           <div class="badge">Custom Itineraries</div>
         </div>
 
-        <div style="margin-top:28px" class="service-cards fade-up" id="serviceCards">
-          <div class="service-card">  
-            <h4>Visa & Paperwork</h4>
-            <p>Complete help from forms to medical insurance copy, submission and follow-up — we provide document checklists & in-person support.</p>
-          </div>
-          <div class="service-card">
-            <h4>Guided Ziyarat & Spiritual Programs</h4>
-            <p>Qualified group leaders and scholars lead ziyarat, dua sessions and short lectures that enrich your journey.</p>
-          </div>
-          <div class="service-card">
-            <h4>Senior & Medical Assistance</h4>
-            <p>Priority transfers, wheelchair-friendly transport, and local medical coordination for elderly pilgrims.</p>
-          </div>
-          <div class="service-card">
-            <h4>Family & Kids Program</h4>
-            <p>Family-friendly hotels, children's activity packs and separate check-ins where possible for convenience.</p>
-          </div>
-          <div class="service-card">
-            <h4>Custom Package Design</h4>
-            <p>Tell us dates, group size and priorities — we will draft a bespoke itinerary and quote within 48 hours.</p>
-          </div>
-        </div>
-      </div>
     </section>
+    <!-- ============================================
+     🕋 NAAZ HAJJ & UMRAH GALLERY SECTION
+     ============================================ -->
+<section id="gallery" class="gallery-section">
+  <h2 class="section-title">Our Spiritual Journey Gallery</h2>
+
+  <div class="gallery-grid">
+    <!-- Each figure = one gallery item -->
+    <figure>
+      <img src="Pilgrims at the Holy Kaaba.jpg" alt="Pilgrims at the Holy Kaaba">
+      <figcaption>Pilgrims at the Holy Kaaba</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Madina – Prophet’s Mosque at sunset.jpg" alt="Madina – Prophet’s Mosque at sunset">
+      <figcaption>Prophet’s Mosque at Sunset – Madinah</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Group photo during Umrah trip.jpg" alt="Group photo during Umrah trip">
+      <figcaption>Group Photo during Umrah</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Luxury accommodation for pilgrims.jpg" alt="Luxury accommodation for pilgrims">
+      <figcaption>Luxury Accommodation for Pilgrims</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Guided ziyarat tour in Madina.jpg" alt="Guided ziyarat tour in Madina">
+      <figcaption>Guided Ziyarat Tour – Madinah</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Peaceful Tawaf around Kaaba.png" alt="Peaceful Tawaf around Kaaba">
+      <figcaption>Peaceful Tawaf around Kaaba</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Naaz Hajj & Umrah team assisting travelers.jpg" alt="Naaz Hajj & Umrah team assisting travelers">
+      <figcaption>Our Team Assisting Pilgrims</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Evening view of Makkah.jpg" alt="Evening view of Makkah">
+      <figcaption>Evening View of Makkah</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Spiritual moment near Maqam Ibrahim.jpg" alt="Spiritual moment near Maqam Ibrahim">
+      <figcaption>Spiritual Moment near Maqam Ibrahim</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Group prayer and reflection.jpg" alt="Group prayer and reflection">
+      <figcaption>Group Prayer and Reflection</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Pilgrims boarding flight to Jeddah.jpeg" alt="Pilgrims boarding flight to Jeddah">
+      <figcaption>Pilgrims Boarding Flight to Jeddah</figcaption>
+    </figure>
+
+    <figure>
+      <img src="Cultural ziyarat landmarks.jpg" alt="Cultural ziyarat landmarks">
+      <figcaption>Cultural Ziyarat Landmarks</figcaption>
+    </figure>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Expanded View">
+    <div class="lightbox-caption"></div>
+  </div>
+</section>
+
 
     <!-- Includes -->
     <section id="includes" aria-labelledby="includesTitle">
@@ -671,6 +976,35 @@
   </div>
 
   <!-- Inline JS -->
+   <script>
+  const slides = document.querySelectorAll('.hero-slider .slide');
+  let current = 0;
+
+  // Lazy-load function
+  function lazyLoadSlide(slide) {
+    const src = slide.getAttribute('data-src');
+    if (src && !slide.style.backgroundImage) {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        slide.style.backgroundImage = `url('${src}')`;
+        slide.removeAttribute('data-src');
+      };
+    }
+  }
+
+  // Switch slides
+  function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    lazyLoadSlide(slides[current]); // load next slide if not loaded yet
+    slides[current].classList.add('active');
+  }
+
+  // Start auto sliding
+  setInterval(nextSlide, 5000);
+</script>
+
   <script>
     // Primary contact details (single source of truth)
     const CONTACT = {
@@ -763,6 +1097,23 @@ Day 15: Departure`
         itinerary: "Custom itinerary will be prepared after consultation."
       }
     };
+    
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const galleryItems = document.querySelectorAll('.gallery-grid img');
+
+galleryItems.forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('active');
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+
 
     // Header scroll effect
     const header = document.getElementById('siteHeader');
@@ -883,6 +1234,7 @@ Day 15: Departure`
         emiResult.textContent = `Qist instalment for ₹${P.toLocaleString()} over ${months} months = ₹${Number(monthly).toLocaleString()} per month. (No interest charged)`;
       });
     }
+    
 
     // Smooth internal link scroll & close mobile nav
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -901,6 +1253,7 @@ Day 15: Departure`
         }
       });
     });
+    
 
     // Update top contact links programmatically (keeps them consistent)
     document.querySelectorAll('a[href^="tel:"]').forEach(a => a.setAttribute('href', 'tel:' + CONTACT.phoneE164));
@@ -909,12 +1262,36 @@ Day 15: Departure`
     const topWA = document.querySelector('.header-contacts a[href*="wa.me"]');
     if (topWA) topWA.setAttribute('href', `https://wa.me/${CONTACT.phoneE164.replace(/\D/g,'')}`);
 
+
+
     // Notes:
+    
     // - Replace local image filenames (LOGO.png, MAKKAH.jpg 02.jpg etc.) with optimized webp versions for best performance.
     // - Update social media URLs in the footer if your actual handles/URLs are different.
+    
   </script>
 </body>
 </html>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+  const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+
+  document.querySelectorAll('.gallery-grid figure').forEach(figure => {
+    figure.addEventListener('click', () => {
+      const src = figure.querySelector('img').src;
+      const caption = figure.querySelector('figcaption').innerText;
+      lightboxImg.src = src;
+      lightboxCaption.innerText = caption;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+</script>
+
 
 
 
