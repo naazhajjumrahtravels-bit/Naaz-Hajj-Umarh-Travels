@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": "USR001",
+      "username": "ZAMEER",
+      "password": "ZAMEER@5252",
+      "type": "admin",
+      "name": "Admin User",
+      "dashboard": "admin_dashboard.html",
+      "permissions": ["full_access", "user_management", "system_settings"]
+    },
+    {
+      "id": "USR002",
+      "username": "ABDUL",
+      "password": "ABDUL123",
+      "type": "agent",
+      "name": "Abdul Rajak",
+      "dashboard": "agent_dashboard.html",
+      "permissions": ["client_management", "booking_management", "commission_view"]
+    },
+    {
+      "id": "USR003",
+      "username": "AYAN",
+      "password": "AYAN123",
+      "type": "agent",
+      "name": "Ayan Mulla",
+      "dashboard": "agent_dashboard.html",
+      "permissions": ["client_management", "booking_management", "commission_view"]
+    },
+    {
+      "id": "USR004",
+      "username": "BASEER",
+      "password": "BASEER123",
+      "type": "member",
+      "name": "BASEER AHAMAD MAKANDAR",
+      "dashboard": "member_dashboard.html",
+      "permissions": ["view_bookings", "profile_management"]
+    },
+    {
+      "id": "USR005",
+      "username": "FAIROZ",
+      "password": "FAIROZ123",
+      "type": "member",
+      "name": "Fairoz Jagirdar",
+      "dashboard": "member_dashboard.html",
+      "permissions": ["view_bookings", "profile_management"]
+    }
+  ]
+}

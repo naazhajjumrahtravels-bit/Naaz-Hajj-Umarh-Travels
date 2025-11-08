@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Dashboard - Naaz Hajj Umrah Travels</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New:wght@400;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --green: #0a5f38;
+      --green-dark: #063d24;
+      --green-light: #1a7f54;
+      --gold: #d4af37;
+      --gold-light: #f2d36b;
+      --gold-dark: #b8941f;
+      --text: #222;
+      --muted: #6f6f6f;
+      --bg: #f7f8f6;
+      --white: #ffffff;
+      --accent-gold: linear-gradient(90deg, #cfae32, #f2d36b);
+      --accent-green: linear-gradient(90deg, #0a5f38, #1a7f54);
+      --max-width: 1400px;
+      --radius: 16px;
+      --card-shadow: 0 20px 40px rgba(10, 20, 10, 0.06);
+      --fast: 200ms cubic-bezier(.2, .9, .3, 1);
+      --header-height: 80px;
+      --topbar-height: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Cairo", "Poppins", system-ui, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Page wrapper */
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar - FIXED */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(10, 95, 56, 0.95), rgba(212, 175, 55, 0.9));
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 14px;
+      z-index: 1300;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .topbar small {
+      opacity: 1;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* Header - FIXED POSITION */
+    header {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      padding: 15px 0;
+      transition: all var(--fast);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    .brand img {
+      width: 120px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+
+    .brand .arabic {
+      font-family: 'Scheherazade New', serif;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1;
+      margin-left: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+      order: 2;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all var(--fast);
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: all var(--fast);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* User Menu */
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      order: 3;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      background: rgba(10, 95, 56, 0.05);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--fast);
+    }
+
+    .user-info:hover {
+      background: rgba(10, 95, 56, 0.1);
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #231f12;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .user-dropdown {
+      position: relative;
+    }
+
+    .user-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      min-width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .user-dropdown-content a {
+      color: var(--text);
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background-color var(--fast);
+      font-weight: 500;
+    }
+
+    .user-dropdown-content a:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .user-dropdown:hover .user-dropdown-content {
+      display: block;
+    }
+
+    .logout-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .logout-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Dashboard Container */
+    .dashboard-container {
+      padding-top: calc(var(--header-height) + var(--topbar-height) + 30px);
+      min-height: 100vh;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 20px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .welcome-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .welcome-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .welcome-text p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .welcome-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Dashboard Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .dashboard-card {
+      background: linear-gradient(180deg, #fff, #fffaf0);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      transition: all var(--fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dashboard-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gold);
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--gold);
+    }
+
+    .card-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.5rem;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .card-content {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--fast);
+    }
+
+    .card-action:hover {
+      color: var(--gold);
+    }
+
+    /* Recent Bookings */
+    .bookings-list {
+      margin-top: 20px;
+    }
+
+    .booking-item {
+      background: rgba(10, 95, 56, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all var(--fast);
+    }
+
+    .booking-item:hover {
+      background: rgba(10, 95, 56, 0.1);
+    }
+
+    .booking-info h4 {
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .booking-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .booking-status {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .status-confirmed {
+      background: rgba(76, 175, 80, 0.1);
+      color: #4CAF50;
+    }
+
+    .status-pending {
+      background: rgba(255, 152, 0, 0.1);
+      color: #FF9800;
+    }
+
+    .status-completed {
+      background: rgba(33, 150, 243, 0.1);
+      color: #2196F3;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .action-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all var(--fast);
+      border: none;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Notifications */
+    .notifications-panel {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .notification-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      background: rgba(10, 95, 56, 0.05);
+      transition: all var(--fast);
+    }
+
+    .notification-item:hover {
+      background: rgba(10, 95, 56, 0.1);
+    }
+
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #231f12;
+      flex-shrink: 0;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-title {
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .notification-time {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Progress Section */
+    .progress-section {
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 30px 0;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .progress-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.8rem;
+      color: var(--green);
+    }
+
+    .progress-percentage {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .progress-bar {
+      height: 20px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gold);
+      border-radius: 10px;
+      transition: width 1s ease;
+      width: 65%;
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .welcome-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .welcome-stats {
+        justify-content: center;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Top bar - FIXED -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <small><i class="fas fa-mosque"></i> بِسْمِ ٱللَّهِ — Journey with peace (Naaz Hajj Umrah Travels)</small>
+    </div>
+  </div>
+
+  <!-- Header - FIXED POSITION -->
+  <header id="siteHeader">
+    <div class="header-inner wrap">
+      <!-- Logo - Left Side -->
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Naaz Hajj & Umrah Travels">
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+          <div style="font-weight: bold; font-size: 18px; font-family: 'Cairo', sans-serif; color: #0a5f38;">Naaz Hajj Umrah Travels</div>
+          <div style="font-family: 'Scheherazade New', serif; font-size: 20px; color: #d4af37;">رحلة مباركة</div>
+        </div>
+      </a>
+
+      <!-- Navigation - Middle -->
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="packages.html"><i class="fas fa-box"></i> Packages</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- User Menu - Right Side -->
+      <div class="user-menu">
+        <div class="user-info user-dropdown">
+          <div class="user-avatar">MA</div>
+          <div class="user-name">Mohammed Ahmed</div>
+        </div>
+        <div class="user-dropdown-content">
+          <a href="#"><i class="fas fa-user"></i> My Profile</a>
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+        </div>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <div class="wrap">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <div class="welcome-content">
+          <div class="welcome-text">
+            <h1>Welcome back, Mohammed!</h1>
+            <p>Your spiritual journey continues. Track your bookings, manage your profile, and prepare for your pilgrimage.</p>
+          </div>
+          <div class="welcome-stats">
+            <div class="stat-item">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Total Bookings</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">1</div>
+              <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">1</div>
+              <div class="stat-label">Upcoming</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- My Bookings Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-suitcase"></i>
+            </div>
+            <h3 class="card-title">My Bookings</h3>
+          </div>
+          <div class="card-content">
+            <p>View and manage your Hajj and Umrah bookings. Check status, download documents, and make payments.</p>
+          </div>
+          <div class="bookings-list">
+            <div class="booking-item">
+              <div class="booking-info">
+                <h4>Golden Umrah Package</h4>
+                <p>Dec 15, 2024 - Dec 29, 2024</p>
+              </div>
+              <div class="booking-status status-confirmed">Confirmed</div>
+            </div>
+            <div class="booking-item">
+              <div class="booking-info">
+                <h4>Hajj Package 2025</h4>
+                <p>Jun 10, 2025 - Jul 20, 2025</p>
+              </div>
+              <div class="booking-status status-pending">Pending</div>
+            </div>
+          </div>
+          <a href="#" class="card-action">
+            View All Bookings <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Documents Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h3 class="card-title">Documents</h3>
+          </div>
+          <div class="card-content">
+            <p>Access your travel documents, visa copies, and important certificates. Download or upload files as needed.</p>
+          </div>
+          <div class="quick-actions">
+            <button class="action-btn">
+              <i class="fas fa-download"></i> Download All
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-upload"></i> Upload New
+            </button>
+          </div>
+        </div>
+
+        <!-- Payments Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <h3 class="card-title">Payments</h3>
+          </div>
+          <div class="card-content">
+            <p>Manage your payments, view transaction history, and set up installment plans for your bookings.</p>
+          </div>
+          <div class="quick-actions">
+            <button class="action-btn">
+              <i class="fas fa-money-bill-wave"></i> Make Payment
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-history"></i> View History
+            </button>
+          </div>
+        </div>
+
+        <!-- Notifications Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3 class="card-title">Notifications</h3>
+          </div>
+          <div class="card-content">
+            <p>Stay updated with important announcements, booking confirmations, and travel reminders.</p>
+          </div>
+          <div class="notifications-panel">
+            <div class="notification-item">
+              <div class="notification-icon">
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="notification-content">
+                <div class="notification-title">Booking Confirmed</div>
+                <div class="notification-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="notification-item">
+              <div class="notification-icon">
+                <i class="fas fa-plane"></i>
+              </div>
+              <div class="notification-content">
+                <div class="notification-title">Flight Details Updated</div>
+                <div class="notification-time">1 day ago</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="card-action">
+            View All <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Progress Section -->
+      <section class="progress-section">
+        <div class="progress-header">
+          <h3 class="progress-title">Your Journey Progress</h3>
+          <div class="progress-percentage">65%</div>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-labels">
+          <span>Documents Submitted</span>
+          <span>Payment Completed</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Logout function
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        // In real implementation, this would clear session and redirect
+        alert('Logging out... Redirecting to home page.');
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => { 
+      const header = document.getElementById('siteHeader');
+      header.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Simulate real-time updates
+    setTimeout(() => {
+      const progressFill = document.querySelector('.progress-fill');
+      if (progressFill) {
+        progressFill.style.width = '75%';
+      }
+    }, 2000);
+
+    // Animate progress bar on page load
+    window.addEventListener('load', () => {
+      const progressFill = document.querySelector('.progress-fill');
+      if (progressFill) {
+        setTimeout(() => {
+          progressFill.style.width = '65%';
+        }, 500);
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Naaz Hajj Umrah Travels</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New:wght@400;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --green: #0a5f38;
+      --green-dark: #063d24;
+      --green-light: #1a7f54;
+      --gold: #d4af37;
+      --gold-light: #f2d36b;
+      --gold-dark: #b8941f;
+      --text: #222;
+      --muted: #6f6f6f;
+      --bg: #f7f8f6;
+      --white: #ffffff;
+      --accent-gold: linear-gradient(90deg, #cfae32, #f2d36b);
+      --accent-green: linear-gradient(90deg, #0a5f38, #1a7f54);
+      --max-width: 1400px;
+      --radius: 16px;
+      --card-shadow: 0 20px 40px rgba(10, 20, 10, 0.06);
+      --fast: 200ms cubic-bezier(.2, .9, .3, 1);
+      --header-height: 80px;
+      --topbar-height: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Cairo", "Poppins", system-ui, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Page wrapper */
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar - FIXED */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(10, 95, 56, 0.95), rgba(212, 175, 55, 0.9));
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 14px;
+      z-index: 1300;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .topbar small {
+      opacity: 1;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* Header - FIXED POSITION */
+    header {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      padding: 15px 0;
+      transition: all var(--fast);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    .brand img {
+      width: 120px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+
+    .brand .arabic {
+      font-family: 'Scheherazade New', serif;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1;
+      margin-left: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+      order: 2;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all var(--fast);
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: all var(--fast);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* Back to Home */
+    .back-home {
+      position: fixed;
+      top: calc(var(--topbar-height) + var(--header-height) + 100px);
+      left: 20px;
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      z-index: 1100;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .back-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Login Container */
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 80px;
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230a5f38' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .login-wrapper {
+      background: linear-gradient(180deg, #fff, #fffaf0);
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      border: 2px solid rgba(212, 175, 55, 0.15);
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--accent-gold);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .login-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .login-subtitle {
+      color: var(--muted);
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    
+    /* Login Form */
+    .login-form {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 18px;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all var(--fast);
+      background: #fff;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+    }
+
+    .form-group .input-icon {
+      position: absolute;
+      right: 18px;
+      top: 52px;
+      color: var(--muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color var(--fast);
+    }
+
+    .form-group .input-icon:hover {
+      color: var(--gold);
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--fast);
+    }
+
+    .forgot-link:hover {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent-gold);
+      color: #231f12;
+      border: none;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--fast);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #e0e0e0;
+    }
+
+    .divider span {
+      padding: 0 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .social-login {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .social-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      font-size: 1.3rem;
+    }
+
+    .social-btn.google {
+      background: #db4437;
+      color: white;
+    }
+
+    .social-btn.facebook {
+      background: #3b5998;
+      color: white;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Help Section */
+    .help-section {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .help-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .help-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .help-link {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--fast);
+      font-weight: 500;
+    }
+
+    .help-link:hover {
+      color: var(--gold);
+    }
+
+    /* Footer - Full Width */
+    footer {
+      background: linear-gradient(90deg, var(--green), #063d24);
+      color: #fff;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .footer-top {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 25px 0;
+    }
+
+    .footer-top-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--fast);
+      font-size: 1.1rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-main {
+      padding: 60px 0;
+    }
+
+    .footer-main-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+
+    .footer-section h3 {
+      color: var(--gold-light);
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: var(--gold-light);
+    }
+
+    .footer-section p, .footer-section li {
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .footer-section ul li i {
+      margin-right: 15px;
+      color: var(--gold-light);
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 25px 0;
+      text-align: center;
+    }
+
+    .footer-bottom-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all var(--fast);
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .login-wrapper {
+        padding: 30px 20px;
+      }
+
+      .login-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand .arabic { display: none; }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Top bar - FIXED -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <small><i class="fas fa-mosque"></i> بِسْمِ ٱللَّهِ — Journey with peace (Naaz Hajj Umrah Travels)</small>
+    </div>
+  </div>
+
+  <!-- Header - FIXED POSITION -->
+  <header id="siteHeader">
+    <div class="header-inner wrap">
+      <!-- Logo - Left Side -->
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Naaz Hajj & Umrah Travels">
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+          <div style="font-weight: bold; font-size: 18px; font-family: 'Cairo', sans-serif; color: #0a5f38;">Naaz Hajj Umrah Travels</div>
+          <div style="font-family: 'Scheherazade New', serif; font-size: 20px; color: #d4af37;">رحلة مباركة</div>
+        </div>
+      </a>
+
+      <!-- Navigation - Middle -->
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="packages.html"><i class="fas fa-box"></i> Packages</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Back to Home -->
+  <a href="index.html" class="back-home">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </a>
+
+  <!-- Login Container -->
+  <div class="login-container">
+    <div class="login-wrapper">
+      <div class="login-header">
+        <h1 class="login-title">Welcome Back</h1>
+        <p class="login-subtitle">Enter your credentials to access your account</p>
+      </div>
+
+      <!-- UNIFIED LOGIN FORM -->
+      <div class="login-form">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <i class="fas fa-eye input-icon" onclick="togglePassword('password')"></i>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" name="remember"> Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </form>
+
+        <div class="divider">
+          <span>OR</span>
+        </div>
+
+        <div class="social-login">
+          <a href="#" class="social-btn google" title="Login with Google">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#" class="social-btn facebook" title="Login with Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Help Section -->
+      <div class="help-section">
+        <h3 class="help-title">Need Help?</h3>
+        <div class="help-links">
+          <a href="#" class="help-link">Login Issues</a>
+          <a href="#" class="help-link">Account Recovery</a>
+          <a href="#" class="help-link">Contact Support</a>
+          <a href="tel:+917795483452" class="help-link">Call: +91 77954 83452</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-top-content">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="packages.html">Packages</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <h3 class="footer-arabic" style="font-family: 'Scheherazade New', serif; font-size: 24px; color: rgba(255, 245, 200, 0.95);">وَسِعْنَا لَكُمُ السَّبِيلَ</h3>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-main">
+      <div class="footer-main-content">
+        <div class="footer-section">
+          <h3>About Naaz Hajj & Umrah</h3>
+          <p>We are a trusted travel agency specializing in Hajj and Umrah pilgrimages. With years of experience, we provide comprehensive services to make your spiritual journey comfortable and memorable.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><i class="fas fa-angle-right"></i> <a href="packages.html">Hajj Packages</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="packages.html">Umrah Packages</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#">Services</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#">Gallery</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Information</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Near Itagi Petrol Pump, Old Takke Road, Vijayapura, Karnataka 586101</li>
+            <li><i class="fas fa-phone-alt"></i> +91 77954 83452</li>
+            <li><i class="fas fa-envelope"></i> naazhajjumrahtravels@gmail.com</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://facebook.com/naazhajjumrahtravels" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/naaz_hajj_umrah_travels" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@NaazHajjUmrahTravels" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          © 2025 Naaz Hajj & Umrah Travels. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle password visibility
+    function togglePassword(inputId) {
+      const input = document.getElementById(inputId);
+      const icon = event.currentTarget;
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    // Load users from JSON file
+    async function loadUsers() {
+      try {
+        const response = await fetch('users.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log("Users loaded successfully:", data.users); // Debugging line
+        return data.users;
+      } catch (error) {
+        console.error('Error loading users:', error);
+        alert('Failed to load user data. Please check your connection or contact support.');
+        return [];
+      }
+    }
+
+    // Handle form submission
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      // Prevent form from actually submitting and refreshing the page
+      e.preventDefault(); 
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Authenticating...';
+      
+      // Load users from JSON
+      const users = await loadUsers();
+      
+      // Find user with matching credentials
+      const user = users.find(u => u.username === username && u.password === password);
+      
+      // Use a small timeout to show the "Authenticating..." message
+      setTimeout(() => {
+        if (user) {
+          // Store user session
+          sessionStorage.setItem('currentUser', JSON.stringify(user));
+          
+          alert(`Welcome back, ${user.name}! Redirecting to your dashboard...`);
+          
+          // --- THIS IS THE IMPORTANT PART ---
+          // Log to console to see where we are trying to go
+          console.log("Attempting to redirect to:", user.dashboard); 
+          
+          // Use window.location.href for redirection
+          window.location.href = user.dashboard;
+          
+        } else {
+          alert('Invalid username or password. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login';
+        }
+      }, 1000); // 1 second delay
+    });
+
+    // Social login handlers
+    document.querySelectorAll('.social-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const platform = this.classList.contains('google') ? 'Google' : 'Facebook';
+        alert(`${platform} login would be initiated here. In a real implementation, this would redirect to OAuth authentication.`);
+      });
+    });
+
+    // Forgot password handler
+    document.querySelector('.forgot-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Password reset link would be sent to your registered email. In a real implementation, this would open a password recovery form.');
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => { 
+      const header = document.getElementById('siteHeader');
+      header.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

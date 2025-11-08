@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Dashboard - Naaz Hajj Umrah Travels</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New:wght@400;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --green: #0a5f38;
+      --green-dark: #063d24;
+      --green-light: #1a7f54;
+      --gold: #d4af37;
+      --gold-light: #f2d36b;
+      --gold-dark: #b8941f;
+      --text: #222;
+      --muted: #6f6f6f;
+      --bg: #f7f8f6;
+      --white: #ffffff;
+      --accent-gold: linear-gradient(90deg, #cfae32, #f2d36b);
+      --accent-green: linear-gradient(90deg, #0a5f38, #1a7f54);
+      --max-width: 1400px;
+      --radius: 16px;
+      --card-shadow: 0 20px 40px rgba(10, 20, 10, 0.06);
+      --fast: 200ms cubic-bezier(.2, .9, .3, 1);
+      --header-height: 80px;
+      --topbar-height: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Cairo", "Poppins", system-ui, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Page wrapper */
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar - FIXED */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(10, 95, 56, 0.95), rgba(212, 175, 55, 0.9));
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 14px;
+      z-index: 1300;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .topbar small {
+      opacity: 1;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* Header - FIXED POSITION */
+    header {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      padding: 15px 0;
+      transition: all var(--fast);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    .brand img {
+      width: 120px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+
+    .brand .arabic {
+      font-family: 'Scheherazade New', serif;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1;
+      margin-left: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+      order: 2;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all var(--fast);
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: all var(--fast);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* User Menu */
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      order: 3;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      background: rgba(10, 95, 56, 0.05);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all var(--fast);
+    }
+
+    .user-info:hover {
+      background: rgba(10, 95, 56, 0.1);
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #231f12;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .user-dropdown {
+      position: relative;
+    }
+
+    .user-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      min-width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .user-dropdown-content a {
+      color: var(--text);
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background-color var(--fast);
+      font-weight: 500;
+    }
+
+    .user-dropdown-content a:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .user-dropdown:hover .user-dropdown-content {
+      display: block;
+    }
+
+    .logout-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .logout-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Dashboard Container */
+    .dashboard-container {
+      padding-top: calc(var(--header-height) + var(--topbar-height) + 30px);
+      min-height: 100vh;
+    }
+
+    /* Welcome Section */
+    .welcome-section {
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 20px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .welcome-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .welcome-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .welcome-text p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .welcome-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Dashboard Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .dashboard-card {
+      background: linear-gradient(180deg, #fff, #fffaf0);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      transition: all var(--fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dashboard-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gold);
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--gold);
+    }
+
+    .card-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.5rem;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .card-content {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color var(--fast);
+      cursor: pointer;
+    }
+
+    .card-action:hover {
+      color: var(--gold);
+    }
+
+    /* Client Bookings */
+    .client-bookings {
+      margin-top: 20px;
+    }
+
+    .booking-item {
+      background: rgba(10, 95, 56, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all var(--fast);
+    }
+
+    .booking-item:hover {
+      background: rgba(10, 95, 56, 0.1);
+    }
+
+    .booking-info h4 {
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .booking-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .booking-commission {
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    /* Commission Stats */
+    .commission-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .commission-item {
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .commission-amount {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+
+    .commission-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Marketing Materials */
+    .marketing-materials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .material-item {
+      background: rgba(10, 95, 56, 0.05);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--fast);
+    }
+
+    .material-item:hover {
+      background: rgba(10, 95, 56, 0.1);
+    }
+
+    .material-icon {
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .material-name {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .action-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all var(--fast);
+      border: none;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Performance Chart */
+    .performance-chart {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(10, 95, 56, 0.1), rgba(212, 175, 55, 0.1));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      margin: 5% auto;
+      padding: 0;
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: slideIn 0.3s;
+      overflow: hidden;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      background: var(--accent-green);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .close {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--fast);
+    }
+
+    .close:hover {
+      opacity: 0.7;
+    }
+
+    .modal-body {
+      padding: 30px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+      transition: var(--fast);
+    }
+
+    .form-control:focus {
+      border-color: var(--gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    }
+
+    select.form-control {
+      cursor: pointer;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .modal-footer {
+      padding: 20px 30px;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--fast);
+      border: none;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .btn-primary {
+      background: var(--accent-green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-secondary {
+      background: #e9ecef;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #dee2e6;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: rgba(10, 95, 56, 0.05);
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: rgba(212, 175, 55, 0.05);
+    }
+
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .status-pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .status-confirmed {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .status-completed {
+      background-color: #d1ecf1;
+      color: #0c5460;
+    }
+
+    .notification {
+      position: fixed;
+      top: calc(var(--header-height) + var(--topbar-height) + 20px);
+      right: 20px;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 1500;
+      animation: slideInRight 0.3s;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    .notification.success {
+      border-left: 4px solid var(--green);
+    }
+
+    .notification.error {
+      border-left: 4px solid #dc3545;
+    }
+
+    .notification i {
+      font-size: 1.2rem;
+    }
+
+    .notification.success i {
+      color: var(--green);
+    }
+
+    .notification.error i {
+      color: #dc3545;
+    }
+
+    /* Data Table Modal Styles */
+    .data-table-container {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-top: 20px;
+    }
+
+    .data-table-tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .data-tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      transition: all var(--fast);
+    }
+
+    .data-tab.active {
+      color: var(--green);
+      border-bottom-color: var(--gold);
+    }
+
+    .data-tab:hover {
+      color: var(--green);
+    }
+
+    .data-table-content {
+      display: none;
+    }
+
+    .data-table-content.active {
+      display: block;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--gold);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .welcome-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .welcome-stats {
+        justify-content: center;
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Top bar - FIXED -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <small><i class="fas fa-mosque"></i> بِسْمِ ٱللَّهِ — Journey with peace (Naaz Hajj Umrah Travels)</small>
+    </div>
+  </div>
+
+  <!-- Header - FIXED POSITION -->
+  <header id="siteHeader">
+    <div class="header-inner wrap">
+      <!-- Logo - Left Side -->
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Naaz Hajj & Umrah Travels">
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+          <div style="font-weight: bold; font-size: 18px; font-family: 'Cairo', sans-serif; color: #0a5f38;">Naaz Hajj Umrah Travels</div>
+          <div style="font-family: 'Scheherazade New', serif; font-size: 20px; color: #d4af37;">رحلة مباركة</div>
+        </div>
+      </a>
+
+      <!-- Navigation - Middle -->
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="packages.html"><i class="fas fa-box"></i> Packages</a></li>
+          <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- User Menu - Right Side -->
+      <div class="user-menu">
+        <div class="user-info user-dropdown">
+          <div class="user-avatar">AK</div>
+          <div class="user-name">Ayan Mulla</div>
+        </div>
+        <div class="user-dropdown-content">
+          <a href="#" onclick="openModal('profileModal')"><i class="fas fa-user"></i> My Profile</a>
+          <a href="#" onclick="openModal('settingsModal')"><i class="fas fa-cog"></i> Settings</a>
+          <a href="#" onclick="openModal('helpModal')"><i class="fas fa-question-circle"></i> Help</a>
+          <a href="#" onclick="openModal('dataTableModal')"><i class="fas fa-database"></i> View Saved Data</a>
+        </div>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+    <div class="wrap">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <div class="welcome-content">
+          <div class="welcome-text">
+            <h1>Welcome back, Ayan Mulla!</h1>
+            <p>Manage your clients, track commissions, and grow your business with our comprehensive agent portal.</p>
+          </div>
+          <div class="welcome-stats">
+            <div class="stat-item">
+              <div class="stat-number">15</div>
+              <div class="stat-label">Total Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">23</div>
+              <div class="stat-label">Bookings</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">₹1.2L</div>
+              <div class="stat-label">Total Commission</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <!-- Client Bookings Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="card-title">Client Bookings</h3>
+          </div>
+          <div class="card-content">
+            <p>View and manage all client bookings. Track status, manage payments, and provide support.</p>
+          </div>
+          <div class="client-bookings">
+            <div class="booking-item">
+              <div class="booking-info">
+                <h4>Family Package - Ahmed Family</h4>
+                <p>Dec 20, 2024 - Jan 5, 2025</p>
+              </div>
+              <div class="booking-commission">₹15,000</div>
+            </div>
+            <div class="booking-item">
+              <div class="booking-info">
+                <h4>Golden Package - Sunita</h4>
+                <p>Nov 15, 2024 - Nov 29, 2024</p>
+              </div>
+              <div class="booking-commission">₹8,500</div>
+            </div>
+            <div class="booking-item">
+              <div class="booking-info">
+                <h4>Diamond Package - Rajesh</h4>
+                <p>Oct 10, 2024 - Oct 25, 2024</p>
+              </div>
+              <div class="booking-commission">₹9,000</div>
+            </div>
+          </div>
+          <a href="#" class="card-action" onclick="openModal('allBookingsModal')">
+            View All Bookings <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Commission Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="card-title">Commission Overview</h3>
+          </div>
+          <div class="card-content">
+            <p>Track your earnings and commission payouts. View detailed reports and payment history.</p>
+          </div>
+          <div class="commission-stats">
+            <div class="commission-item">
+              <div class="commission-amount">₹45,000</div>
+              <div class="commission-label">This Month</div>
+            </div>
+            <div class="commission-item">
+              <div class="commission-amount">₹280,000</div>
+              <div class="commission-label">This Year</div>
+            </div>
+            <div class="commission-item">
+              <div class="commission-amount">₹12,000</div>
+              <div class="commission-label">Pending</div>
+            </div>
+          </div>
+          <a href="#" class="card-action" onclick="openModal('reportsModal')">
+            View Reports <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Marketing Materials Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <h3 class="card-title">Marketing Materials</h3>
+          </div>
+          <div class="card-content">
+            <p>Access brochures, banners, and promotional materials to grow your business.</p>
+          </div>
+          <div class="marketing-materials">
+            <div class="material-item">
+              <div class="material-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="material-name">Brochures</div>
+            </div>
+            <div class="material-item">
+              <div class="material-icon">
+                <i class="fas fa-image"></i>
+              </div>
+              <div class="material-name">Banners</div>
+            </div>
+            <div class="material-item">
+              <div class="material-icon">
+                <i class="fas fa-video"></i>
+              </div>
+              <div class="material-name">Videos</div>
+            </div>
+          </div>
+          <a href="#" class="card-action" onclick="openModal('downloadModal')">
+            Download All <i class="fas fa-download"></i>
+          </a>
+        </div>
+
+        <!-- Performance Card -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <div class="card-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="card-title">Performance</h3>
+          </div>
+          <div class="card-content">
+            <p>Your performance metrics and rankings among agents.</p>
+          </div>
+          <div class="performance-chart">
+            <div class="chart-placeholder">
+              <div>Performance Chart</div>
+            </div>
+          </div>
+          <div class="quick-actions">
+            <button class="action-btn" onclick="openModal('exportModal')">
+              <i class="fas fa-download"></i> Export Report
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions Section -->
+      <section style="background: linear-gradient(135deg, #fff, #f9fff8); border-radius: 20px; padding: 40px; margin: 30px 0;">
+        <h3 style="font-family: 'Cairo', sans-serif; font-size: 1.8rem; color: var(--green); text-align: center; margin-bottom: 30px;">Quick Actions</h3>
+        <div class="quick-actions">
+          <button class="action-btn" onclick="openModal('addClientModal')">
+            <i class="fas fa-user-plus"></i> Add Client
+          </button>
+          <button class="action-btn" onclick="openModal('newBookingModal')">
+            <i class="fas fa-suitcase"></i> New Booking
+          </button>
+          <button class="action-btn" onclick="openModal('invoiceModal')">
+            <i class="fas fa-file-invoice"></i> Generate Invoice
+          </button>
+          <button class="action-btn" onclick="openModal('supportModal')">
+            <i class="fas fa-headset"></i> Support Ticket
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div id="notification" class="notification">
+    <i class="fas fa-check-circle"></i>
+    <span id="notificationText">Action completed successfully!</span>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>My Profile</h2>
+        <span class="close" onclick="closeModal('profileModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="profileName">Full Name</label>
+          <input type="text" id="profileName" class="form-control" value="Ayan Mulla">
+        </div>
+        <div class="form-group">
+          <label for="profileEmail">Email</label>
+          <input type="email" id="profileEmail" class="form-control" value="agent.khan@naaztravels.com">
+        </div>
+        <div class="form-group">
+          <label for="profilePhone">Phone</label>
+          <input type="tel" id="profilePhone" class="form-control" value="+91 9876543210">
+        </div>
+        <div class="form-group">
+          <label for="profileBio">Bio</label>
+          <textarea id="profileBio" class="form-control">Experienced travel agent specializing in Hajj and Umrah packages with over 5 years of experience.</textarea>
+        </div>
+        <div class="form-group">
+          <label for="profileAgency">Agency</label>
+          <input type="text" id="profileAgency" class="form-control" value="Naaz Hajj Umrah Travels">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('profileModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <span class="close" onclick="closeModal('settingsModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="settingLanguage">Language</label>
+          <select id="settingLanguage" class="form-control">
+            <option value="en" selected>English</option>
+            <option value="ar">Arabic</option>
+            <option value="ur">Urdu</option>
+            <option value="hi">Hindi</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="settingCurrency">Currency</label>
+          <select id="settingCurrency" class="form-control">
+            <option value="inr" selected>Indian Rupee (₹)</option>
+            <option value="usd">US Dollar ($)</option>
+            <option value="sar">Saudi Riyal (SAR)</option>
+            <option value="aed">UAE Dirham (AED)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="settingTimezone">Timezone</label>
+          <select id="settingTimezone" class="form-control">
+            <option value="ist" selected>India Standard Time (IST)</option>
+            <option value="gst">Gulf Standard Time (GST)</option>
+            <option value="utc">Coordinated Universal Time (UTC)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Notification Preferences</label>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox" checked> Email notifications for new bookings
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox" checked> SMS alerts for payment confirmations
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox"> Weekly performance reports
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="settingPassword">Change Password</label>
+          <input type="password" id="settingPassword" class="form-control" placeholder="Enter new password">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('settingsModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help Modal -->
+  <div id="helpModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Help & Support</h2>
+        <span class="close" onclick="closeModal('helpModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="helpCategory">How can we help you?</label>
+          <select id="helpCategory" class="form-control">
+            <option value="">Select a category</option>
+            <option value="booking">Booking Issues</option>
+            <option value="payment">Payment Problems</option>
+            <option value="account">Account Access</option>
+            <option value="technical">Technical Support</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="helpSubject">Subject</label>
+          <input type="text" id="helpSubject" class="form-control" placeholder="Brief description of your issue">
+        </div>
+        <div class="form-group">
+          <label for="helpMessage">Message</label>
+          <textarea id="helpMessage" class="form-control" placeholder="Please provide details about your issue or question"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="helpEmail">Contact Email</label>
+          <input type="email" id="helpEmail" class="form-control" value="agent.khan@naaztravels.com">
+        </div>
+        <div class="form-group">
+          <label>FAQs</label>
+          <div style="background: rgba(10, 95, 56, 0.05); padding: 15px; border-radius: 8px; margin-top: 10px;">
+            <p style="margin-bottom: 10px;"><strong>Q: How do I reset my password?</strong></p>
+            <p style="margin-bottom: 15px;">A: Go to Settings and enter your new password in the "Change Password" field.</p>
+            
+            <p style="margin-bottom: 10px;"><strong>Q: When will I receive my commission?</strong></p>
+            <p style="margin-bottom: 15px;">A: Commissions are processed within 7-10 business days after the client's full payment is received.</p>
+            
+            <p style="margin-bottom: 10px;"><strong>Q: How can I access marketing materials?</strong></p>
+            <p>A: Navigate to the Marketing Materials section in your dashboard to download brochures, banners, and videos.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('helpModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="submitHelp()">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Bookings Modal -->
+  <div id="allBookingsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>All Bookings</h2>
+        <span class="close" onclick="closeModal('allBookingsModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="bookingSearch">Search Bookings</label>
+          <input type="text" id="bookingSearch" class="form-control" placeholder="Search by client name, package, or booking ID">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookingFilterStatus">Status</label>
+            <select id="bookingFilterStatus" class="form-control">
+              <option value="">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookingFilterDate">Date Range</label>
+            <select id="bookingFilterDate" class="form-control">
+              <option value="">All Time</option>
+              <option value="today">Today</option>
+              <option value="week">This Week</option>
+              <option value="month">This Month</option>
+              <option value="year">This Year</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Client Name</th>
+                <th>Package</th>
+                <th>Travel Dates</th>
+                <th>Status</th>
+                <th>Commission</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#BK001</td>
+                <td>Ahmed Family</td>
+                <td>Family Package</td>
+                <td>Dec 20, 2024 - Jan 5, 2025</td>
+                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                <td>₹15,000</td>
+                <td>
+                  <button style="background: none; border: none; color: var(--green); cursor: pointer;" onclick="viewBooking('BK001')">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#BK002</td>
+                <td>Sunita</td>
+                <td>Golden Package</td>
+                <td>Nov 15, 2024 - Nov 29, 2024</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td>₹8,500</td>
+                <td>
+                  <button style="background: none; border: none; color: var(--green); cursor: pointer;" onclick="viewBooking('BK002')">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#BK003</td>
+                <td>Rajesh</td>
+                <td>Diamond Package</td>
+                <td>Oct 10, 2024 - Oct 25, 2024</td>
+                <td><span class="status-badge status-completed">Completed</span></td>
+                <td>₹9,000</td>
+                <td>
+                  <button style="background: none; border: none; color: var(--green); cursor: pointer;" onclick="viewBooking('BK003')">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#BK004</td>
+                <td>Sharma Family</td>
+                <td>Premium Package</td>
+                <td>Sep 5, 2024 - Sep 20, 2024</td>
+                <td><span class="status-badge status-completed">Completed</span></td>
+                <td>₹12,500</td>
+                <td>
+                  <button style="background: none; border: none; color: var(--green); cursor: pointer;" onclick="viewBooking('BK004')">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('allBookingsModal')">Close</button>
+        <button type="button" class="btn btn-primary" onclick="exportBookings()">Export to Excel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reports Modal -->
+  <div id="reportsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Commission Reports</h2>
+        <span class="close" onclick="closeModal('reportsModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="reportType">Report Type</label>
+            <select id="reportType" class="form-control">
+              <option value="monthly">Monthly Report</option>
+              <option value="quarterly">Quarterly Report</option>
+              <option value="yearly">Yearly Report</option>
+              <option value="custom">Custom Date Range</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="reportYear">Year</label>
+            <select id="reportYear" class="form-control">
+              <option value="2024" selected>2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" id="customDateRange" style="display: none;">
+          <div class="form-group">
+            <label for="reportStartDate">Start Date</label>
+            <input type="date" id="reportStartDate" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="reportEndDate">End Date</label>
+            <input type="date" id="reportEndDate" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Commission Summary</label>
+          <div style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: 8px; margin-top: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span>Total Bookings:</span>
+              <strong>23</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span>Total Commission:</span>
+              <strong>₹280,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span>Paid Commission:</span>
+              <strong>₹268,000</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Pending Commission:</span>
+              <strong>₹12,000</strong>
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Bookings</th>
+                <th>Commission</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>January 2024</td>
+                <td>3</td>
+                <td>₹35,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>February 2024</td>
+                <td>2</td>
+                <td>₹28,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>March 2024</td>
+                <td>4</td>
+                <td>₹42,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>April 2024</td>
+                <td>3</td>
+                <td>₹31,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>May 2024</td>
+                <td>2</td>
+                <td>₹25,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>June 2024</td>
+                <td>3</td>
+                <td>₹38,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>July 2024</td>
+                <td>2</td>
+                <td>₹29,000</td>
+                <td><span class="status-badge status-completed">Paid</span></td>
+              </tr>
+              <tr>
+                <td>August 2024</td>
+                <td>1</td>
+                <td>₹12,000</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('reportsModal')">Close</button>
+        <button type="button" class="btn btn-primary" onclick="generateReport()">Generate Report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download Modal -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Download Marketing Materials</h2>
+        <span class="close" onclick="closeModal('downloadModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Select Materials to Download</label>
+          <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(10, 95, 56, 0.05); border-radius: 8px;">
+              <input type="checkbox" id="downloadBrochures" checked>
+              <label for="downloadBrochures" style="display: flex; align-items: center; gap: 10px; font-weight: normal; cursor: pointer; margin: 0;">
+                <i class="fas fa-file-pdf" style="color: var(--green);"></i>
+                <div>
+                  <div style="font-weight: 600;">Brochures</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">Complete package brochures in PDF format</div>
+                </div>
+              </label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(10, 95, 56, 0.05); border-radius: 8px;">
+              <input type="checkbox" id="downloadBanners" checked>
+              <label for="downloadBanners" style="display: flex; align-items: center; gap: 10px; font-weight: normal; cursor: pointer; margin: 0;">
+                <i class="fas fa-image" style="color: var(--green);"></i>
+                <div>
+                  <div style="font-weight: 600;">Banners</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">Promotional banners in various sizes</div>
+                </div>
+              </label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(10, 95, 56, 0.05); border-radius: 8px;">
+              <input type="checkbox" id="downloadVideos" checked>
+              <label for="downloadVideos" style="display: flex; align-items: center; gap: 10px; font-weight: normal; cursor: pointer; margin: 0;">
+                <i class="fas fa-video" style="color: var(--green);"></i>
+                <div>
+                  <div style="font-weight: 600;">Videos</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">Promotional videos and testimonials</div>
+                </div>
+              </label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(10, 95, 56, 0.05); border-radius: 8px;">
+              <input type="checkbox" id="downloadSocial">
+              <label for="downloadSocial" style="display: flex; align-items: center; gap: 10px; font-weight: normal; cursor: pointer; margin: 0;">
+                <i class="fas fa-share-alt" style="color: var(--green);"></i>
+                <div>
+                  <div style="font-weight: 600;">Social Media Kit</div>
+                  <div style="font-size: 0.85rem; color: var(--muted);">Ready-to-use social media posts and templates</div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="downloadFormat">Download Format</label>
+          <select id="downloadFormat" class="form-control">
+            <option value="zip">ZIP Archive</option>
+            <option value="individual">Individual Files</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('downloadModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="downloadMaterials()">Download Selected</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Export Modal -->
+  <div id="exportModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Export Performance Report</h2>
+        <span class="close" onclick="closeModal('exportModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exportType">Export Type</label>
+          <select id="exportType" class="form-control">
+            <option value="performance">Performance Report</option>
+            <option value="bookings">Bookings Report</option>
+            <option value="commission">Commission Report</option>
+            <option value="clients">Clients Report</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="exportFormat">File Format</label>
+            <select id="exportFormat" class="form-control">
+              <option value="excel">Excel (.xlsx)</option>
+              <option value="pdf">PDF</option>
+              <option value="csv">CSV</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exportPeriod">Time Period</label>
+            <select id="exportPeriod" class="form-control">
+              <option value="month">This Month</option>
+              <option value="quarter">This Quarter</option>
+              <option value="year">This Year</option>
+              <option value="custom">Custom Range</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row" id="exportCustomRange" style="display: none;">
+          <div class="form-group">
+            <label for="exportStartDate">Start Date</label>
+            <input type="date" id="exportStartDate" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="exportEndDate">End Date</label>
+            <input type="date" id="exportEndDate" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Include in Report</label>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox" checked> Performance metrics
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox" checked> Commission details
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox"> Client information
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; font-weight: normal;">
+              <input type="checkbox" checked> Charts and graphs
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('exportModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="exportReport()">Export Report</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Client Modal -->
+  <div id="addClientModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Client</h2>
+        <span class="close" onclick="closeModal('addClientModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="clientFirstName">First Name *</label>
+            <input type="text" id="clientFirstName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="clientLastName">Last Name *</label>
+            <input type="text" id="clientLastName" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="clientEmail">Email *</label>
+          <input type="email" id="clientEmail" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="clientPhone">Phone *</label>
+          <input type="tel" id="clientPhone" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="clientAddress">Address</label>
+          <textarea id="clientAddress" class="form-control"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="clientCity">City</label>
+            <input type="text" id="clientCity" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="clientState">State</label>
+            <input type="text" id="clientState" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="clientPincode">Pincode</label>
+            <input type="text" id="clientPincode" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="clientNotes">Notes</label>
+          <textarea id="clientNotes" class="form-control" placeholder="Any special requirements or notes about the client"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('addClientModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="addClient()">Add Client</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Booking Modal -->
+  <div id="newBookingModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create New Booking</h2>
+        <span class="close" onclick="closeModal('newBookingModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="bookingClient">Select Client *</label>
+          <select id="bookingClient" class="form-control" required>
+            <option value="">Select a client</option>
+            <option value="1">Ahmed Family</option>
+            <option value="2">Sunita</option>
+            <option value="3">Rajesh</option>
+            <option value="4">Sharma Family</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bookingPackage">Select Package *</label>
+          <select id="bookingPackage" class="form-control" required>
+            <option value="">Select a package</option>
+            <option value="economy">Economy Package - ₹75,000</option>
+            <option value="standard">Standard Package - ₹95,000</option>
+            <option value="golden">Golden Package - ₹1,25,000</option>
+            <option value="diamond">Diamond Package - ₹1,50,000</option>
+            <option value="premium">Premium Package - ₹2,00,000</option>
+            <option value="family">Family Package - ₹3,50,000</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bookingStartDate">Start Date *</label>
+            <input type="date" id="bookingStartDate" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="bookingEndDate">End Date *</label>
+            <input type="date" id="bookingEndDate" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="bookingTravelers">Number of Travelers *</label>
+          <input type="number" id="bookingTravelers" class="form-control" min="1" value="1" required>
+        </div>
+        <div class="form-group">
+          <label for="bookingSpecial">Special Requirements</label>
+          <textarea id="bookingSpecial" class="form-control" placeholder="Any special requests or requirements"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="bookingNotes">Booking Notes</label>
+          <textarea id="bookingNotes" class="form-control" placeholder="Internal notes for this booking"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('newBookingModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="createBooking()">Create Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Invoice Modal -->
+  <div id="invoiceModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Generate Invoice</h2>
+        <span class="close" onclick="closeModal('invoiceModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="invoiceBooking">Select Booking *</label>
+          <select id="invoiceBooking" class="form-control" required>
+            <option value="">Select a booking</option>
+            <option value="BK001">#BK001 - Ahmed Family - Family Package</option>
+            <option value="BK002">#BK002 - Sunita - Golden Package</option>
+            <option value="BK003">#BK003 - Rajesh - Diamond Package</option>
+            <option value="BK004">#BK004 - Sharma Family - Premium Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="invoiceType">Invoice Type</label>
+          <select id="invoiceType" class="form-control">
+            <option value="full">Full Payment</option>
+            <option value="partial">Partial Payment</option>
+            <option value="balance">Balance Payment</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="invoiceAmount">Amount (₹)</label>
+          <input type="number" id="invoiceAmount" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+          <label for="invoiceDueDate">Due Date</label>
+          <input type="date" id="invoiceDueDate" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="invoiceNotes">Invoice Notes</label>
+          <textarea id="invoiceNotes" class="form-control" placeholder="Additional notes to appear on the invoice"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Invoice Preview</label>
+          <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-top: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+              <div>
+                <h3 style="margin: 0; color: var(--green);">Naaz Hajj Umrah Travels</h3>
+                <p style="margin: 5px 0; color: var(--muted);">123, Main Street, Delhi, India</p>
+                <p style="margin: 5px 0; color: var(--muted);">Phone: +91 1234567890</p>
+              </div>
+              <div style="text-align: right;">
+                <h3 style="margin: 0;">INVOICE</h3>
+                <p style="margin: 5px 0; color: var(--muted);">Invoice #: INV-2024-001</p>
+                <p style="margin: 5px 0; color: var(--muted);">Date: <span id="invoiceDatePreview"></span></p>
+              </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+              <p style="margin: 5px 0;"><strong>Bill To:</strong> <span id="invoiceClientPreview">Client Name</span></p>
+              <p style="margin: 5px 0;"><strong>Booking ID:</strong> <span id="invoiceBookingPreview">BK000</span></p>
+            </div>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+              <thead>
+                <tr style="background: rgba(10, 95, 56, 0.05);">
+                  <th style="padding: 10px; text-align: left;">Description</th>
+                  <th style="padding: 10px; text-align: right;">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 10px;">Package Name</td>
+                  <td style="padding: 10px; text-align: right;" id="invoicePackagePreview">₹0</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px;">GST (5%)</td>
+                  <td style="padding: 10px; text-align: right;" id="invoiceGSTPreview">₹0</td>
+                </tr>
+                <tr style="font-weight: bold;">
+                  <td style="padding: 10px;">Total</td>
+                  <td style="padding: 10px; text-align: right;" id="invoiceTotalPreview">₹0</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 30px; color: var(--muted);">
+              <p>Thank you for choosing Naaz Hajj Umrah Travels!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('invoiceModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="generateInvoice()">Generate Invoice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Modal -->
+  <div id="supportModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create Support Ticket</h2>
+        <span class="close" onclick="closeModal('supportModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="supportCategory">Issue Category *</label>
+          <select id="supportCategory" class="form-control" required>
+            <option value="">Select a category</option>
+            <option value="booking">Booking Issue</option>
+            <option value="payment">Payment Problem</option>
+            <option value="account">Account Issue</option>
+            <option value="technical">Technical Issue</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="supportSubject">Subject *</label>
+          <input type="text" id="supportSubject" class="form-control" placeholder="Brief description of your issue" required>
+        </div>
+        <div class="form-group">
+          <label for="supportMessage">Message *</label>
+          <textarea id="supportMessage" class="form-control" placeholder="Please provide details about your issue" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="supportPriority">Priority</label>
+          <select id="supportPriority" class="form-control">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="supportAttachment">Attachment (Optional)</label>
+          <input type="file" id="supportAttachment" class="form-control">
+          <small style="color: var(--muted);">You can upload screenshots or documents related to your issue</small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('supportModal')">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="createTicket()">Create Ticket</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Table Modal -->
+  <div id="dataTableModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Saved Form Data</h2>
+        <span class="close" onclick="closeModal('dataTableModal')">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="data-table-tabs">
+          <div class="data-tab active" onclick="switchTab('profile')">Profile</div>
+          <div class="data-tab" onclick="switchTab('settings')">Settings</div>
+          <div class="data-tab" onclick="switchTab('clients')">Clients</div>
+          <div class="data-tab" onclick="switchTab('bookings')">Bookings</div>
+          <div class="data-tab" onclick="switchTab('invoices')">Invoices</div>
+          <div class="data-tab" onclick="switchTab('support')">Support</div>
+        </div>
+        
+        <!-- Profile Data -->
+        <div id="profile-data" class="data-table-content active">
+          <div class="data-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                  <th>Date Saved</th>
+                </tr>
+              </thead>
+              <tbody id="profile-table-body">
+                <!-- Profile data will be inserted here -->
+              </tbody>
+            </table>
+            <div id="profile-empty-state" class="empty-state" style="display: none;">
+              <i class="fas fa-user"></i>
+              <p>No profile data saved yet</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Settings Data -->
+        <div id="settings-data" class="data-table-content">
+          <div class="data-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                  <th>Date Saved</th>
+                </tr>
+              </thead>
+              <tbody id="settings-table-body">
+                <!-- Settings data will be inserted here -->
+              </tbody>
+            </table>
+            <div id="settings-empty-state" class="empty-state" style="display: none;">
+              <i class="fas fa-cog"></i>
+              <p>No settings data saved yet</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Clients Data -->
+        <div id="clients-data" class="data-table-content">
+          <div class="data-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Date Added</th>
+                </tr>
+              </thead>
+              <tbody id="clients-table-body">
+                <!-- Clients data will be inserted here -->
+              </tbody>
+            </table>
+            <div id="clients-empty-state" class="empty-state" style="display: none;">
+              <i class="fas fa-users"></i>
+              <p>No clients added yet</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bookings Data -->
+        <div id="bookings-data" class="data-table-content">
+          <div class="data-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Package</th>
+                  <th>Travel Dates</th>
+                  <th>Date Created</th>
+                </tr>
+              </thead>
+              <tbody id="bookings-table-body">
+                <!-- Bookings data will be inserted here -->
+              </tbody>
+            </table>
+            <div id="bookings-empty-state" class="empty-state" style="display: none;">
+              <i class="fas fa-suitcase"></i>
+              <p>No bookings created yet</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Invoices Data -->
+        <div id="invoices-data" class="data-table-content">
+          <div class="data-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Booking ID</th>
+                  <th>Client</th>
+                  <th>Amount</th>
+                  <th>Date Generated</th>
+                </tr>
+              </thead>
+              <tbody id="invoices-table-body">
+                <!-- Invoices data will be inserted here -->
+              </tbody>
+            </table>
+            <div id="invoices-empty-state" class="empty-state" style="display: none;">
+              <i class="fas fa-file-invoice"></i>
+              <p>No invoices generated yet</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Support Data -->
+        <div id="support-data" class="data-table-content">
+          <div class="data-table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Subject</th>
+                  <th>Priority</th>
+                  <th>Date Created</th>
+                </tr>
+              </thead>
+              <tbody id="support-table-body">
+                <!-- Support data will be inserted here -->
+              </tbody>
+            </table>
+            <div id="support-empty-state" class="empty-state" style="display: none;">
+              <i class="fas fa-headset"></i>
+              <p>No support tickets created yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="clearAllData()">Clear All Data</button>
+        <button type="button" class="btn btn-secondary" onclick="closeModal('dataTableModal')">Close</button>
+        <button type="button" class="btn btn-primary" onclick="exportAllData()">Export All Data</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize data storage
+    const storageKeys = {
+      profile: 'naaz_profile_data',
+      settings: 'naaz_settings_data',
+      clients: 'naaz_clients_data',
+      bookings: 'naaz_bookings_data',
+      invoices: 'naaz_invoices_data',
+      support: 'naaz_support_data'
+    };
+
+    // Modal functions
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'block';
+      
+      // Special handling for invoice modal
+      if (modalId === 'invoiceModal') {
+        // Set today's date in the invoice preview
+        const today = new Date();
+        document.getElementById('invoiceDatePreview').textContent = today.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        
+        // Set default due date to 15 days from now
+        const dueDate = new Date();
+        dueDate.setDate(dueDate.getDate() + 15);
+        document.getElementById('invoiceDueDate').value = dueDate.toISOString().split('T')[0];
+      }
+      
+      // Load saved data when opening data table modal
+      if (modalId === 'dataTableModal') {
+        loadAllData();
+      }
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    }
+
+    // Show notification
+    function showNotification(message, type = 'success') {
+      const notification = document.getElementById('notification');
+      const notificationText = document.getElementById('notificationText');
+      
+      notificationText.textContent = message;
+      notification.className = 'notification ' + type;
+      notification.style.display = 'flex';
+      
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000);
+    }
+
+    // Data storage functions
+    function saveData(key, data) {
+      try {
+        const existingData = JSON.parse(localStorage.getItem(key) || '[]');
+        existingData.push({
+          ...data,
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem(key, JSON.stringify(existingData));
+        return true;
+      } catch (error) {
+        console.error('Error saving data:', error);
+        return false;
+      }
+    }
+
+    function getData(key) {
+      try {
+        return JSON.parse(localStorage.getItem(key) || '[]');
+      } catch (error) {
+        console.error('Error retrieving data:', error);
+        return [];
+      }
+    }
+
+    function clearData(key) {
+      try {
+        localStorage.removeItem(key);
+        return true;
+      } catch (error) {
+        console.error('Error clearing data:', error);
+        return false;
+      }
+    }
+
+    // Tab switching for data table modal
+    function switchTab(tabName) {
+      // Update tab active state
+      const tabs = document.querySelectorAll('.data-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.querySelector(`.data-tab:nth-child(${getTabIndex(tabName)})`).classList.add('active');
+      
+      // Update content visibility
+      const contents = document.querySelectorAll('.data-table-content');
+      contents.forEach(content => content.classList.remove('active'));
+      document.getElementById(`${tabName}-data`).classList.add('active');
+    }
+
+    function getTabIndex(tabName) {
+      const tabs = ['profile', 'settings', 'clients', 'bookings', 'invoices', 'support'];
+      return tabs.indexOf(tabName) + 1;
+    }
+
+    // Load all data into tables
+    function loadAllData() {
+      // Load profile data
+      const profileData = getData(storageKeys.profile);
+      const profileTableBody = document.getElementById('profile-table-body');
+      const profileEmptyState = document.getElementById('profile-empty-state');
+      
+      if (profileData.length > 0) {
+        profileTableBody.innerHTML = '';
+        profileData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>Profile</td>
+            <td>${item.name}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString()}</td>
+          `;
+          profileTableBody.appendChild(row);
+        });
+        profileEmptyState.style.display = 'none';
+      } else {
+        profileTableBody.innerHTML = '';
+        profileEmptyState.style.display = 'block';
+      }
+      
+      // Load settings data
+      const settingsData = getData(storageKeys.settings);
+      const settingsTableBody = document.getElementById('settings-table-body');
+      const settingsEmptyState = document.getElementById('settings-empty-state');
+      
+      if (settingsData.length > 0) {
+        settingsTableBody.innerHTML = '';
+        settingsData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>Settings</td>
+            <td>Language: ${item.language}, Currency: ${item.currency}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString()}</td>
+          `;
+          settingsTableBody.appendChild(row);
+        });
+        settingsEmptyState.style.display = 'none';
+      } else {
+        settingsTableBody.innerHTML = '';
+        settingsEmptyState.style.display = 'block';
+      }
+      
+      // Load clients data
+      const clientsData = getData(storageKeys.clients);
+      const clientsTableBody = document.getElementById('clients-table-body');
+      const clientsEmptyState = document.getElementById('clients-empty-state');
+      
+      if (clientsData.length > 0) {
+        clientsTableBody.innerHTML = '';
+        clientsData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.firstName} ${item.lastName}</td>
+            <td>${item.email}</td>
+            <td>${item.phone}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString()}</td>
+          `;
+          clientsTableBody.appendChild(row);
+        });
+        clientsEmptyState.style.display = 'none';
+      } else {
+        clientsTableBody.innerHTML = '';
+        clientsEmptyState.style.display = 'block';
+      }
+      
+      // Load bookings data
+      const bookingsData = getData(storageKeys.bookings);
+      const bookingsTableBody = document.getElementById('bookings-table-body');
+      const bookingsEmptyState = document.getElementById('bookings-empty-state');
+      
+      if (bookingsData.length > 0) {
+        bookingsTableBody.innerHTML = '';
+        bookingsData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.clientName}</td>
+            <td>${item.packageName}</td>
+            <td>${item.startDate} - ${item.endDate}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString()}</td>
+          `;
+          bookingsTableBody.appendChild(row);
+        });
+        bookingsEmptyState.style.display = 'none';
+      } else {
+        bookingsTableBody.innerHTML = '';
+        bookingsEmptyState.style.display = 'block';
+      }
+      
+      // Load invoices data
+      const invoicesData = getData(storageKeys.invoices);
+      const invoicesTableBody = document.getElementById('invoices-table-body');
+      const invoicesEmptyState = document.getElementById('invoices-empty-state');
+      
+      if (invoicesData.length > 0) {
+        invoicesTableBody.innerHTML = '';
+        invoicesData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.bookingId}</td>
+            <td>${item.clientName}</td>
+            <td>₹${item.amount}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString()}</td>
+          `;
+          invoicesTableBody.appendChild(row);
+        });
+        invoicesEmptyState.style.display = 'none';
+      } else {
+        invoicesTableBody.innerHTML = '';
+        invoicesEmptyState.style.display = 'block';
+      }
+      
+      // Load support data
+      const supportData = getData(storageKeys.support);
+      const supportTableBody = document.getElementById('support-table-body');
+      const supportEmptyState = document.getElementById('support-empty-state');
+      
+      if (supportData.length > 0) {
+        supportTableBody.innerHTML = '';
+        supportData.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.category}</td>
+            <td>${item.subject}</td>
+            <td>${item.priority}</td>
+            <td>${new Date(item.timestamp).toLocaleDateString()}</td>
+          `;
+          supportTableBody.appendChild(row);
+        });
+        supportEmptyState.style.display = 'none';
+      } else {
+        supportTableBody.innerHTML = '';
+        supportEmptyState.style.display = 'block';
+      }
+    }
+
+    // Clear all data
+    function clearAllData() {
+      if (confirm('Are you sure you want to clear all saved data? This action cannot be undone.')) {
+        Object.values(storageKeys).forEach(key => {
+          clearData(key);
+        });
+        loadAllData();
+        showNotification('All data cleared successfully!');
+      }
+    }
+
+    // Export all data
+    function exportAllData() {
+      const allData = {};
+      Object.entries(storageKeys).forEach(([name, key]) => {
+        allData[name] = getData(key);
+      });
+      
+      const dataStr = JSON.stringify(allData, null, 2);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      
+      const exportFileDefaultName = `naaz_dashboard_data_${new Date().toISOString().split('T')[0]}.json`;
+      
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+      
+      showNotification('Data exported successfully!');
+    }
+
+    // Logout function
+    function logout() {
+      if (confirm('Are you sure you want to logout?')) {
+        showNotification('Logging out... Redirecting to home page.');
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
+      }
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => { 
+      const header = document.getElementById('siteHeader');
+      header.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Simulate real-time updates
+    setTimeout(() => {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      if (statNumbers[0]) statNumbers[0].textContent = '16';
+      if (statNumbers[1]) statNumbers[1].textContent = '25';
+      if (statNumbers[2]) statNumbers[2].textContent = '₹1.35L';
+    }, 3000);
+
+    // Animate commission stats
+    window.addEventListener('load', () => {
+      const commissionAmounts = document.querySelectorAll('.commission-amount');
+      commissionAmounts.forEach((amount, index) => {
+        setTimeout(() => {
+          amount.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            amount.style.transform = 'scale(1)';
+          }, 200);
+        }, index * 200);
+      });
+    });
+
+    // Form submission handlers with auto-save
+    function saveProfile() {
+      const profileData = {
+        name: document.getElementById('profileName').value,
+        email: document.getElementById('profileEmail').value,
+        phone: document.getElementById('profilePhone').value,
+        bio: document.getElementById('profileBio').value,
+        agency: document.getElementById('profileAgency').value
+      };
+      
+      if (saveData(storageKeys.profile, profileData)) {
+        showNotification('Profile updated and saved successfully!');
+        closeModal('profileModal');
+      } else {
+        showNotification('Error saving profile data', 'error');
+      }
+    }
+
+    function saveSettings() {
+      const settingsData = {
+        language: document.getElementById('settingLanguage').value,
+        currency: document.getElementById('settingCurrency').value,
+        timezone: document.getElementById('settingTimezone').value,
+        password: document.getElementById('settingPassword').value
+      };
+      
+      if (saveData(storageKeys.settings, settingsData)) {
+        showNotification('Settings saved successfully!');
+        closeModal('settingsModal');
+      } else {
+        showNotification('Error saving settings', 'error');
+      }
+    }
+
+    function submitHelp() {
+      const helpData = {
+        category: document.getElementById('helpCategory').value,
+        subject: document.getElementById('helpSubject').value,
+        message: document.getElementById('helpMessage').value,
+        email: document.getElementById('helpEmail').value
+      };
+      
+      if (saveData(storageKeys.support, helpData)) {
+        showNotification('Help request submitted and saved successfully! We will contact you soon.');
+        closeModal('helpModal');
+      } else {
+        showNotification('Error submitting help request', 'error');
+      }
+    }
+
+    function viewBooking(bookingId) {
+      // In a real application, this would open the booking details
+      showNotification(`Opening details for booking ${bookingId}...`);
+    }
+
+    function exportBookings() {
+      // In a real application, this would export the bookings data
+      showNotification('Bookings exported successfully!');
+    }
+
+    function generateReport() {
+      // In a real application, this would generate and download the report
+      showNotification('Report generated successfully! Download will start shortly.');
+      closeModal('reportsModal');
+    }
+
+    function downloadMaterials() {
+      // In a real application, this would download the selected materials
+      showNotification('Marketing materials download started!');
+      closeModal('downloadModal');
+    }
+
+    function exportReport() {
+      // In a real application, this would export the performance report
+      showNotification('Performance report exported successfully!');
+      closeModal('exportModal');
+    }
+
+    function addClient() {
+      const clientData = {
+        firstName: document.getElementById('clientFirstName').value,
+        lastName: document.getElementById('clientLastName').value,
+        email: document.getElementById('clientEmail').value,
+        phone: document.getElementById('clientPhone').value,
+        address: document.getElementById('clientAddress').value,
+        city: document.getElementById('clientCity').value,
+        state: document.getElementById('clientState').value,
+        pincode: document.getElementById('clientPincode').value,
+        notes: document.getElementById('clientNotes').value
+      };
+      
+      if (saveData(storageKeys.clients, clientData)) {
+        showNotification('New client added and saved successfully!');
+        closeModal('addClientModal');
+      } else {
+        showNotification('Error adding client', 'error');
+      }
+    }
+
+    function createBooking() {
+      const bookingClientSelect = document.getElementById('bookingClient');
+      const bookingPackageSelect = document.getElementById('bookingPackage');
+      
+      const bookingData = {
+        clientName: bookingClientSelect.options[bookingClientSelect.selectedIndex].text,
+        packageName: bookingPackageSelect.options[bookingPackageSelect.selectedIndex].text,
+        startDate: document.getElementById('bookingStartDate').value,
+        endDate: document.getElementById('bookingEndDate').value,
+        travelers: document.getElementById('bookingTravelers').value,
+        special: document.getElementById('bookingSpecial').value,
+        notes: document.getElementById('bookingNotes').value
+      };
+      
+      if (saveData(storageKeys.bookings, bookingData)) {
+        showNotification('New booking created and saved successfully!');
+        closeModal('newBookingModal');
+      } else {
+        showNotification('Error creating booking', 'error');
+      }
+    }
+
+    function generateInvoice() {
+      const invoiceBookingSelect = document.getElementById('invoiceBooking');
+      
+      const invoiceData = {
+        bookingId: invoiceBookingSelect.value,
+        clientName: invoiceBookingSelect.options[invoiceBookingSelect.selectedIndex].text.split(' - ')[1],
+        amount: document.getElementById('invoiceAmount').value,
+        type: document.getElementById('invoiceType').value,
+        dueDate: document.getElementById('invoiceDueDate').value,
+        notes: document.getElementById('invoiceNotes').value
+      };
+      
+      if (saveData(storageKeys.invoices, invoiceData)) {
+        showNotification('Invoice generated and saved successfully!');
+        closeModal('invoiceModal');
+      } else {
+        showNotification('Error generating invoice', 'error');
+      }
+    }
+
+    function createTicket() {
+      const supportData = {
+        category: document.getElementById('supportCategory').value,
+        subject: document.getElementById('supportSubject').value,
+        message: document.getElementById('supportMessage').value,
+        priority: document.getElementById('supportPriority').value,
+        attachment: document.getElementById('supportAttachment').value
+      };
+      
+      if (saveData(storageKeys.support, supportData)) {
+        showNotification('Support ticket created and saved successfully! Ticket ID: #TKT-' + Math.floor(Math.random() * 10000));
+        closeModal('supportModal');
+      } else {
+        showNotification('Error creating support ticket', 'error');
+      }
+    }
+
+    // Handle report type change
+    document.getElementById('reportType').addEventListener('change', function() {
+      const customDateRange = document.getElementById('customDateRange');
+      if (this.value === 'custom') {
+        customDateRange.style.display = 'flex';
+      } else {
+        customDateRange.style.display = 'none';
+      }
+    });
+
+    // Handle export period change
+    document.getElementById('exportPeriod').addEventListener('change', function() {
+      const exportCustomRange = document.getElementById('exportCustomRange');
+      if (this.value === 'custom') {
+        exportCustomRange.style.display = 'flex';
+      } else {
+        exportCustomRange.style.display = 'none';
+      }
+    });
+
+    // Handle invoice booking change
+    document.getElementById('invoiceBooking').addEventListener('change', function() {
+      // In a real application, this would fetch the booking details
+      // For now, we'll just update the preview with dummy data
+      const selectedOption = this.options[this.selectedIndex];
+      const bookingId = selectedOption.value;
+      const bookingText = selectedOption.text;
+      
+      if (bookingId) {
+        // Update the preview
+        document.getElementById('invoiceBookingPreview').textContent = bookingId;
+        document.getElementById('invoiceClientPreview').textContent = bookingText.split(' - ')[1];
+        
+        // Extract package name from the booking text
+        const packageName = bookingText.split(' - ')[2];
+        document.getElementById('invoicePackagePreview').textContent = packageName;
+        
+        // Calculate a dummy amount based on the package
+        let amount = 0;
+        if (packageName.includes('Family')) amount = 350000;
+        else if (packageName.includes('Premium')) amount = 200000;
+        else if (packageName.includes('Diamond')) amount = 150000;
+        else if (packageName.includes('Golden')) amount = 125000;
+        else if (packageName.includes('Standard')) amount = 95000;
+        else if (packageName.includes('Economy')) amount = 75000;
+        
+        // Calculate GST and total
+        const gst = Math.round(amount * 0.05);
+        const total = amount + gst;
+        
+        document.getElementById('invoiceAmount').value = total;
+        document.getElementById('invoiceGSTPreview').textContent = '₹' + gst.toLocaleString('en-IN');
+        document.getElementById('invoiceTotalPreview').textContent = '₹' + total.toLocaleString('en-IN');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important Duas - Naaz Hajj Umrah Travels</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New:wght@400;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --green: #0a5f38;
+      --green-dark: #063d24;
+      --green-light: #1a7f54;
+      --gold: #d4af37;
+      --gold-light: #f2d36b;
+      --gold-dark: #b8941f;
+      --text: #222;
+      --muted: #6f6f6f;
+      --bg: #f7f8f6;
+      --white: #ffffff;
+      --accent-gold: linear-gradient(90deg, #cfae32, #f2d36b);
+      --accent-green: linear-gradient(90deg, #0a5f38, #1a7f54);
+      --max-width: 1400px;
+      --radius: 16px;
+      --card-shadow: 0 20px 40px rgba(10, 20, 10, 0.06);
+      --fast: 200ms cubic-bezier(.2, .9, .3, 1);
+      --header-height: 80px;
+      --topbar-height: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Cairo", "Poppins", system-ui, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Page wrapper */
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar - FIXED */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(10, 95, 56, 0.95), rgba(212, 175, 55, 0.9));
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 14px;
+      z-index: 1300;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .topbar small {
+      opacity: 1;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* Header - FIXED POSITION */
+    header {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      padding: 15px 0;
+      transition: all var(--fast);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    .brand img {
+      width: 120px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+
+    .brand .arabic {
+      font-family: 'Scheherazade New', serif;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1;
+      margin-left: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+      order: 2;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all var(--fast);
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: all var(--fast);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* Login section in header */
+    .login-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      order: 3;
+    }
+
+    .login-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .login-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .login-dropdown {
+      position: relative;
+    }
+
+    .login-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: white;
+      min-width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .login-dropdown-content a {
+      color: var(--text);
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background-color var(--fast);
+      font-weight: 500;
+    }
+
+    .login-dropdown-content a:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .login-dropdown:hover .login-dropdown-content {
+      display: block;
+    }
+
+    /* Mobile toggle */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 10px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 35px;
+      height: 35px;
+    }
+
+    .menu-toggle .bar {
+      width: 30px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 3px;
+      display: block;
+      transition: background var(--fast), transform var(--fast);
+    }
+
+    /* Page Content */
+    .page-content {
+      padding-top: calc(var(--header-height) + var(--topbar-height) + 80px);
+      padding-bottom: 80px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .page-subtitle {
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.2rem;
+    }
+
+    /* Dua Categories */
+    .dua-categories {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .dua-category-btn {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border: 2px solid rgba(212, 175, 55, 0.2);
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--green);
+      cursor: pointer;
+      transition: all var(--fast);
+      font-size: 1.1rem;
+    }
+
+    .dua-category-btn.active {
+      background: var(--accent-gold);
+      color: #231f12;
+      border-color: var(--gold);
+    }
+
+    .dua-category-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Dua Section */
+    .dua-section {
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border-radius: 20px;
+      padding: 50px;
+      margin: 60px auto;
+      max-width: 1200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dua-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230a5f38' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .dua-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .dua-card {
+      background: linear-gradient(135deg, rgba(10, 95, 56, 0.05), rgba(212, 175, 55, 0.05));
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: all var(--fast);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dua-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gold);
+    }
+
+    .dua-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .dua-arabic {
+      font-family: 'Scheherazade New', serif;
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .dua-transliteration {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .dua-translation {
+      color: var(--text);
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .dua-category {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    /* Audio Player */
+    .audio-player {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .play-btn {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--fast);
+      border: none;
+      color: #231f12;
+      font-size: 1.2rem;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Info Pop-up */
+    .info-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 20px;
+      padding: 50px;
+      max-width: 700px;
+      width: 90%;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      display: none;
+    }
+
+    .info-popup.active {
+      display: block;
+    }
+
+    .info-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .info-popup-title {
+      font-family: 'Scheherazade New', serif;
+      font-size: 2.2rem;
+      color: var(--green);
+    }
+
+    .info-popup-close {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .info-popup-content {
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .info-popup-content h3 {
+      color: var(--green);
+      margin: 25px 0 20px;
+    }
+
+    .info-popup-content ul {
+      padding-left: 20px;
+      margin-bottom: 25px;
+    }
+
+    .info-popup-content li {
+      margin-bottom: 12px;
+    }
+
+    /* Download Section */
+    .download-section {
+      background: linear-gradient(135deg, rgba(10, 95, 56, 0.05), rgba(212, 175, 55, 0.05));
+      border-radius: 20px;
+      padding: 50px;
+      margin: 60px auto;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .download-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--green);
+      margin-bottom: 30px;
+    }
+
+    .download-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .download-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      font-size: 1.1rem;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Footer - Full Width */
+    footer {
+      background: linear-gradient(90deg, var(--green), #063d24);
+      color: #fff;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .footer-top {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 25px 0;
+    }
+
+    .footer-top-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--fast);
+      font-size: 1.1rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-main {
+      padding: 60px 0;
+    }
+
+    .footer-main-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+
+    .footer-section h3 {
+      color: var(--gold-light);
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: var(--gold-light);
+    }
+
+    .footer-section p, .footer-section li {
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .footer-section ul li i {
+      margin-right: 15px;
+      color: var(--gold-light);
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 25px 0;
+      text-align: center;
+    }
+
+    .footer-bottom-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all var(--fast);
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      .header-inner { align-items: center; }
+      
+      .login-section { display: none; }
+      .menu-toggle { display: flex; }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 15px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        z-index: 1400;
+        max-width: 350px;
+        width: calc(100% - 40px);
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+        margin: 0 auto;
+      }
+      
+      nav.mobile-open ul { display: flex; }
+      nav a { padding: 15px 20px; }
+
+      .page-title { font-size: 2.2rem; }
+      
+      .footer-top-content {
+        flex-direction: column;
+        gap: 25px;
+      }
+      
+      .footer-bottom-content {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand .arabic { display: none; }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Top bar - FIXED -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <small><i class="fas fa-mosque"></i> بِسْمِ ٱللَّهِ — Journey with peace (Naaz Hajj Umrah Travels)</small>
+    </div>
+  </div>
+
+ <!-- Header - Now Fixed -->
+<header id="siteHeader" aria-hidden="false">
+  <div class="header-inner wrap">
+    <!-- Logo - Left Side -->
+    <a class="brand" href="index.html" aria-label="Naaz Hajj & Umrah Travels">
+      <img src="logo.png" alt="Naaz Hajj & Umrah Travels" class="logo">
+      <div style="display: flex; flex-direction: column; line-height: 1.2;">
+        <div style="font-weight: bold; font-size: 18px; font-family: 'Cairo', sans-serif; color: #0a5f38; white-space: nowrap;">Naaz Hajj Umrah Travels</div>
+        <div style="font-family: 'Scheherazade New', serif; font-size: 20px; color: #d4af37; font-weight: 600;">رحلة مباركة</div>
+      </div>
+    </a>
+
+    <!-- Navigation - Middle -->
+    <nav id="navMenu" class="nav" aria-label="Primary" role="navigation">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="documents.html"><i class="fas fa-file-alt"></i> Documents</a></li>
+        <li><a href="packages.html"><i class="fas fa-box"></i> Packages</a></li>
+        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="hajj-steps.html"><i class="fas fa-route"></i> Hajj Steps</a></li>
+        <li><a href="duas.html" class="active"><i class="fas fa-hands-praying"></i> Duas</a></li>
+        <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+      </ul>
+      <!-- Mobile Menu Toggle - Right Side -->
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </nav>
+
+ 
+</header>
+
+  <!-- Page Content -->
+  <div class="page-content">
+    <div class="wrap">
+      <div class="page-header">
+        <h1 class="page-title">Essential Duas for Your Journey</h1>
+        <p class="page-subtitle">Memorize these important prayers for Hajj and Umrah to enhance your spiritual experience. Each dua comes with Arabic text, transliteration, and translation.</p>
+      </div>
+
+      <!-- Dua Categories -->
+      <div class="dua-categories">
+        <div class="dua-category-btn active" data-category="all">All Duas</div>
+        <div class="dua-category-btn" data-category="hajj">Hajj Duas</div>
+        <div class="dua-category-btn" data-category="umrah">Umrah Duas</div>
+        <div class="dua-category-btn" data-category="general">General Duas</div>
+      </div>
+
+      <!-- Dua Section -->
+      <section class="dua-section">
+        <div class="dua-container">
+          <div class="dua-card" data-category="hajj umrah" onclick="showDuaDetails('talbiyah')">
+            <div class="dua-arabic">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيْكَ لَبَّيْكَ، إِنَّ الْحَمْدُ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيْكَ لَبَّيْكَ</div>
+            <div class="dua-transliteration">Labbaik Allahumma labbaik, labbaika la sharika laka labbaik, innal-hamda wan-ni'mata laka wal-mulk, la sharika lak</div>
+            <div class="dua-translation">Here I am at Your service, O Allah, here I am. Here I am, there is no partner for You, here I am. Verily all praise is for You, and every bounty is from You, and all dominion is Yours, there is no partner for You.</div>
+            <div class="dua-category">Talbiyah</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="umrah" onclick="showDuaDetails('tawaf')">
+            <div class="dua-arabic">بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ</div>
+            <div class="dua-transliteration">Bismillah wallahu akbar, Allahumma inni as'aluka min fadlik</div>
+            <div class="dua-translation">In the name of Allah, Allah is the Greatest. O Allah, I ask You for Your bounty</div>
+            <div class="dua-category">Dua for Tawaf</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="umrah" onclick="showDuaDetails('safa')">
+            <div class="dua-arabic">إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ</div>
+            <div class="dua-transliteration">Inna as-safa wal-marwata min sha'airillah</div>
+            <div class="dua-translation">Indeed, Safa and Marwah are among the symbols of Allah</div>
+            <div class="dua-category">Dua at Safa and Marwah</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="hajj" onclick="showDuaDetails('arafah')">
+            <div class="dua-arabic">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</div>
+            <div class="dua-transliteration">La ilaha illallah wahdahu la sharika lah, lahul-mulk wa lahul-hamd wa huwa 'ala kulli shay'in qadir</div>
+            <div class="dua-translation">There is no deity except Allah, alone, without any partner. To Him belongs the sovereignty and to Him belongs all praise, and He is over all things omnipotent</div>
+            <div class="dua-category">Dua on the Day of Arafah</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="general" onclick="showDuaDetails('travel')">
+            <div class="dua-arabic">سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنقَلِبُونَ</div>
+            <div class="dua-transliteration">Subhanalladhi sakhkhara lana hadha wa ma kunna lahu muqrinin wa inna ila rabbina lamunqalibun</div>
+            <div class="dua-translation">Glory be to Him Who has subjected this to us, and we ourselves were not capable of it. And to our Lord we shall surely return</div>
+            <div class="dua-category">Dua for Travel</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="general" onclick="showDuaDetails('mosque')">
+            <div class="dua-arabic">اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ</div>
+            <div class="dua-transliteration">Allahummaftah li abwaba rahmatik</div>
+            <div class="dua-translation">O Allah, open for me the doors of Your mercy</div>
+            <div class="dua-category">Dua upon Entering Mosque</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="hajj" onclick="showDuaDetails('mina')">
+            <div class="dua-arabic">اللَّهُمَّ هَذِهِ مِنَى فَامْنُنْ عَلَيَّ بِمَا مَنَنْتَ بِهِ عَلَى أَوْلِيَائِكَ</div>
+            <div class="dua-transliteration">Allahumma hadhihi minna famnun 'alayya bima mana'ta bihi 'ala awliya'ika</div>
+            <div class="dua-translation">O Allah, this is Mina, so bestow upon me what You have bestowed upon Your allies</div>
+            <div class="dua-category">Dua in Mina</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+          
+          <div class="dua-card" data-category="hajj" onclick="showDuaDetails('stoning')">
+            <div class="dua-arabic">بِسْمِ اللَّهِ، اللَّهُ أَكْبَرُ، رَغْمًا لِلشَّيْطَانِ وَرِضًا بِالرَّحْمَنِ</div>
+            <div class="dua-transliteration">Bismillah, Allahu akbar, raghman lish-shaytani wa ridan bir-rahman</div>
+            <div class="dua-translation">In the name of Allah, Allah is the Greatest, in defiance of Satan and pleasure in the Most Merciful</div>
+            <div class="dua-category">Dua for Stoning the Jamarat</div>
+            <div class="audio-player">
+              <button class="play-btn"><i class="fas fa-play"></i></button>
+              <span>Play Audio</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Download Section -->
+      <section class="download-section">
+        <h2 class="download-title">Download Dua Collection</h2>
+        <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 30px;">Get our complete collection of essential Hajj and Umrah duas in PDF format to carry with you during your journey.</p>
+        
+        <div class="download-buttons">
+          <a href="#" class="download-btn" onclick="downloadDuas('pdf')">
+            <i class="fas fa-file-pdf"></i> Download PDF
+          </a>
+          <a href="#" class="download-btn" onclick="downloadDuas('audio')">
+            <i class="fas fa-headphones"></i> Download Audio
+          </a>
+          <a href="#" class="download-btn" onclick="downloadDuas('mobile')">
+            <i class="fas fa-mobile-alt"></i> Mobile App
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Info Pop-up -->
+  <div class="info-popup" id="infoPopup">
+    <div class="info-popup-header">
+      <h3 class="info-popup-title" id="infoPopupTitle">Dua Details</h3>
+      <button class="info-popup-close" id="closeInfoPopup">&times;</button>
+    </div>
+    <div class="info-popup-content" id="infoPopupContent">
+      <!-- Content will be dynamically inserted here -->
+    </div>
+  </div>
+
+  <!-- Footer - Full Width -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-top-content">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="documents.html">Documents</a>
+          <a href="packages.html">Packages</a>
+          <a href="services.html">Services</a>
+        </div>
+        <h3 class="footer-arabic" style="font-family: 'Scheherazade New', serif; font-size: 24px; color: rgba(255, 245, 200, 0.95);">وَسِعْنَا لَكُمُ السَّبِيلَ</h3>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-main">
+      <div class="footer-main-content">
+        <div class="footer-section">
+          <h3>About Naaz Hajj & Umrah</h3>
+          <p>We are a trusted travel agency specializing in Hajj and Umrah pilgrimages. With years of experience, we provide comprehensive services to make your spiritual journey comfortable and memorable.</p>
+          <p>Our team of experienced guides and staff ensure that every aspect of your pilgrimage is taken care of, from visa processing to accommodation and transportation.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><i class="fas fa-angle-right"></i> <a href="packages.html">Hajj Packages</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="packages.html">Umrah Packages</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="services.html">Our Services</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="gallery.html">Photo Gallery</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#">Testimonials</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Information</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Near Itagi Petrol Pump, Old Takke Road, Vijayapura, Karnataka 586101</li>
+            <li><i class="fas fa-phone-alt"></i> +91 77954 83452</li>
+            <li><i class="fas fa-envelope"></i> naazhajjumrahtravels@gmail.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Sat: 9:30 AM - 7:30 PM, Sun: 10:00 AM - 4:00 PM</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <p>Stay connected with us for updates on special packages and pilgrimage information.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://facebook.com/naazhajjumrahtravels" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/naaz_hajj_umrah_travels" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@NaazHajjUmrahTravels" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/naazhajjumrahtravels" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:naazhajjumrahtravels@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          © 2025 Naaz Hajj & Umrah Travels. All Rights Reserved.
+        </div>
+        <div class="footer-arabic" style="font-family: 'Scheherazade New', serif; font-size: 24px; color: rgba(255, 245, 200, 0.95);">
+          وَسِعْنَا لَكُمُ السَّبِيلَ
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Primary contact details (single source of truth)
+    const CONTACT = {
+      phoneDisplay: "+91 77954 83452",
+      phoneE164: "+917795483452",
+      email: "naazhajjumrahtravels@gmail.com"
+    };
+    
+    // Dua details
+    const duaDetails = {
+      talbiyah: {
+        title: "Talbiyah (The Call of Response)",
+        arabic: "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيْكَ لَبَّيْكَ، إِنَّ الْحَمْدُ وَالنِّعْمَةَ لَكَ وَالْمُلْكُ، لَا شَرِيْكَ لَبَّيْكَ",
+        transliteration: "Labbaik Allahumma labbaik, labbaika la sharika laka labbaik, innal-hamda wan-ni'mata laka wal-mulk, la sharika lak",
+        translation: "Here I am at Your service, O Allah, here I am. Here I am, there is no partner for You, here I am. Verily all praise is for You, and every bounty is from You, and all dominion is Yours, there is no partner for You.",
+        when: "Recited continuously throughout Hajj and Umrah, especially during Tawaf and Sa'i",
+        virtue: "The Prophet (peace be upon him) said: 'The best supplication is the supplication on the day of Arafah, and the best that I and the prophets before me have said is: La ilaha illallah wahdahu la sharika lah.'"
+      },
+      tawaf: {
+        title: "Dua for Tawaf",
+        arabic: "بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+        transliteration: "Bismillah wallahu akbar, Allahumma inni as'aluka min fadlik",
+        translation: "In the name of Allah, Allah is the Greatest. O Allah, I ask You for Your bounty",
+        when: "Recited at the beginning of each circuit around the Kaaba",
+        virtue: "Tawaf is an act of worship that brings one closer to Allah. The Prophet (peace be upon him) said: 'Whoever performs Tawaf around the House seven times and prays two rak'ahs, it is as if he has freed a slave.'"
+      },
+      safa: {
+        title: "Dua at Safa and Marwah",
+        arabic: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ",
+        transliteration: "Inna as-safa wal-marwata min sha'airillah",
+        translation: "Indeed, Safa and Marwah are among the symbols of Allah",
+        when: "Recited when starting Sa'i between Safa and Marwah",
+        virtue: "Sa'i is one of the pillars of Umrah and an obligatory act of Hajj. The Prophet (peace be upon him) performed Sa'i and said: 'Start from where Allah started.'"
+      },
+      arafah: {
+        title: "Dua on the Day of Arafah",
+        arabic: "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+        transliteration: "La ilaha illallah wahdahu la sharika lah, lahul-mulk wa lahul-hamd wa huwa 'ala kulli shay'in qadir",
+        translation: "There is no deity except Allah, alone, without any partner. To Him belongs the sovereignty and to Him belongs all praise, and He is over all things omnipotent",
+        when: "Recited frequently on the Day of Arafah, especially during the standing (Wuquf)",
+        virtue: "The Prophet (peace be upon him) said: 'The best supplication is the supplication on the day of Arafah, and best that I and the prophets before me have said is: La ilaha illallah wahdahu la sharika lah.'"
+      },
+      travel: {
+        title: "Dua for Travel",
+        arabic: "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنقَلِبُونَ",
+        transliteration: "Subhanalladhi sakhkhara lana hadha wa ma kunna lahu muqrinin wa inna ila rabbina lamunqalibun",
+        translation: "Glory be to Him Who has subjected this to us, and we ourselves were not capable of it. And to our Lord we shall surely return",
+        when: "Recited when boarding any transportation for travel",
+        virtue: "This dua reminds us of Allah's power and our dependence on Him during travel. It's a sunnah to recite this when beginning a journey."
+      },
+      mosque: {
+        title: "Dua upon Entering Mosque",
+        arabic: "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+        transliteration: "Allahummaftah li abwaba rahmatik",
+        translation: "O Allah, open for me the doors of Your mercy",
+        when: "Recited upon entering any mosque",
+        virtue: "The Prophet (peace be upon him) taught this dua to be recited when entering the mosque, seeking Allah's mercy and blessings."
+      },
+      mina: {
+        title: "Dua in Mina",
+        arabic: "اللَّهُمَّ هَذِهِ مِنَى فَامْنُنْ عَلَيَّ بِمَا مَنَنْتَ بِهِ عَلَى أَوْلِيَائِكَ",
+        transliteration: "Allahumma hadhihi minna famnun 'alayya bima mana'ta bihi 'ala awliya'ika",
+        translation: "O Allah, this is Mina, so bestow upon me what You have bestowed upon Your allies",
+        when: "Recited upon arriving in Mina during Hajj",
+        virtue: "Mina is a blessed place where many prophets and righteous people have worshiped. This dua seeks Allah's blessings in this sacred location."
+      },
+      stoning: {
+        title: "Dua for Stoning the Jamarat",
+        arabic: "بِسْمِ اللَّهِ، اللَّهُ أَكْبَرُ، رَغْمًا لِلشَّيْطَانِ وَرِضًا بِالرَّحْمَنِ",
+        transliteration: "Bismillah, Allahu akbar, raghman lish-shaytani wa ridan bir-rahman",
+        translation: "In the name of Allah, Allah is the Greatest, in defiance of Satan and pleasure in the Most Merciful",
+        when: "Recited when stoning each of the three pillars in Mina",
+        virtue: "This act symbolizes rejecting evil and following the example of Prophet Ibrahim (peace be upon him) who stoned Satan when tempted."
+      }
+    };
+    
+    // Mobile menu toggle
+    const setupMobileMenu = () => {
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (!menuToggle || !navMenu) return;
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('mobile-open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking outside or on a link
+      document.addEventListener('click', (e) => {
+        if (!navMenu.classList.contains('mobile-open')) return;
+        const isClickInside = navMenu.contains(e.target) || menuToggle.contains(e.target);
+        if (!isClickInside) {
+          navMenu.classList.remove('mobile-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    };
+
+    // Header scroll effect
+    const setupHeaderScroll = () => {
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => { 
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }, { passive: true });
+    };
+
+    // Dua category filter
+    const setupDuaFilter = () => {
+      const categoryBtns = document.querySelectorAll('.dua-category-btn');
+      const duaCards = document.querySelectorAll('.dua-card');
+      
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          btn.classList.add('active');
+          
+          const category = btn.dataset.category;
+          
+          // Show/hide duas based on category
+          duaCards.forEach(card => {
+            if (category === 'all' || card.dataset.category.includes(category)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    };
+
+    // Dua popup logic
+    const showDuaDetails = (duaType) => {
+      const infoPopup = document.getElementById('infoPopup');
+      const infoPopupTitle = document.getElementById('infoPopupTitle');
+      const infoPopupContent = document.getElementById('infoPopupContent');
+      const closeInfoPopup = document.getElementById('closeInfoPopup');
+      
+      const dua = duaDetails[duaType];
+      if (!dua) return;
+      
+      infoPopupTitle.textContent = dua.title;
+      infoPopupContent.innerHTML = `
+        <div class="dua-arabic" style="font-family: 'Scheherazade New', serif; font-size: 2.2rem; color: var(--green); margin-bottom: 25px; line-height: 1.6; text-align: right;">${dua.arabic}</div>
+        <div class="dua-transliteration" style="font-style: italic; color: var(--muted); margin-bottom: 25px;">${dua.transliteration}</div>
+        <div class="dua-translation" style="color: var(--text); margin-bottom: 25px;">${dua.translation}</div>
+        
+        <h3>When to Recite:</h3>
+        <p>${dua.when}</p>
+        
+        <h3>Virtue:</h3>
+        <p>${dua.virtue}</p>
+      `;
+      
+      infoPopup.classList.add('active');
+      
+      // Close popup when clicking on close button
+      closeInfoPopup.onclick = () => {
+        infoPopup.classList.remove('active');
+      };
+      
+      // Close popup when clicking outside
+      window.onclick = (event) => {
+        if (event.target === infoPopup) {
+          infoPopup.classList.remove('active');
+        }
+      };
+    };
+
+    // Download function
+    const downloadDuas = (type) => {
+      // In a real implementation, this would trigger a file download
+      alert(`Downloading ${type} version of duas. In a real implementation, this would download the respective file.`);
+    };
+
+    // Function to update all contact links dynamically
+    const updateContactLinks = () => {
+      document.querySelectorAll('a[href^="tel:"]').forEach(a => a.setAttribute('href', 'tel:' + CONTACT.phoneE164));
+      document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.setAttribute('href', 'mailto:' + CONTACT.email));
+      document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.setAttribute('href', `https://wa.me/${CONTACT.phoneE164.replace(/\D/g,'')}?text=${encodeURIComponent('')}`));
+      document.querySelectorAll('.phone-display').forEach(el => el.textContent = CONTACT.phoneDisplay);
+    };
+
+    // --- INITIALIZATION ---
+    // Run all setup functions when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      setupMobileMenu();
+      setupHeaderScroll();
+      setupDuaFilter();
+      updateContactLinks();
+    });
+
+  </script>
+
+</body>
+</html>

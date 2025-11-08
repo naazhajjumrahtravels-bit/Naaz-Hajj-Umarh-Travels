@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hajj Steps - Naaz Hajj Umrah Travels</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Scheherazade+New:wght@400;600;700&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --green: #0a5f38;
+      --green-dark: #063d24;
+      --green-light: #1a7f54;
+      --gold: #d4af37;
+      --gold-light: #f2d36b;
+      --gold-dark: #b8941f;
+      --text: #222;
+      --muted: #6f6f6f;
+      --bg: #f7f8f6;
+      --white: #ffffff;
+      --accent-gold: linear-gradient(90deg, #cfae32, #f2d36b);
+      --accent-green: linear-gradient(90deg, #0a5f38, #1a7f54);
+      --max-width: 1400px;
+      --radius: 16px;
+      --card-shadow: 0 20px 40px rgba(10, 20, 10, 0.06);
+      --fast: 200ms cubic-bezier(.2, .9, .3, 1);
+      --header-height: 80px;
+      --topbar-height: 30px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: "Cairo", "Poppins", system-ui, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Page wrapper */
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar - FIXED */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(10, 95, 56, 0.95), rgba(212, 175, 55, 0.9));
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 14px;
+      z-index: 1300;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .topbar small {
+      opacity: 1;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* Header - FIXED POSITION */
+    header {
+      position: fixed;
+      top: var(--topbar-height);
+      left: 0;
+      right: 0;
+      z-index: 1200;
+      padding: 15px 0;
+      transition: all var(--fast);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-decoration: none;
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    .brand img {
+      width: 120px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+
+    .brand .arabic {
+      font-family: 'Scheherazade New', serif;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1;
+      margin-left: 10px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+      order: 2;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all var(--fast);
+      display: inline-block;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: all var(--fast);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* Login section in header */
+    .login-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      order: 3;
+    }
+
+    .login-btn {
+      background: var(--accent-gold);
+      color: #231f12;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      transition: all var(--fast);
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .login-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .login-dropdown {
+      position: relative;
+    }
+
+    .login-dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: white;
+      min-width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .login-dropdown-content a {
+      color: var(--text);
+      padding: 15px 20px;
+      text-decoration: none;
+      display: block;
+      transition: background-color var(--fast);
+      font-weight: 500;
+    }
+
+    .login-dropdown-content a:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+    }
+
+    .login-dropdown:hover .login-dropdown-content {
+      display: block;
+    }
+
+    /* Mobile toggle */
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 10px;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 35px;
+      height: 35px;
+    }
+
+    .menu-toggle .bar {
+      width: 30px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 3px;
+      display: block;
+      transition: background var(--fast), transform var(--fast);
+    }
+
+    /* Page Content */
+    .page-content {
+      padding-top: calc(var(--header-height) + var(--topbar-height) + 80px);
+      padding-bottom: 80px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .page-subtitle {
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 1.2rem;
+    }
+
+    /* Hajj Steps Section */
+    .hajj-steps {
+      background: linear-gradient(135deg, rgba(10, 95, 56, 0.05), rgba(212, 175, 55, 0.05));
+      border-radius: 20px;
+      padding: 50px;
+      margin: 60px auto;
+      max-width: 1400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hajj-steps::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 .895-3 3 .895 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%230a5f38" fill-opacity="0.07" fill-rule="evenodd"/></svg>');
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: all var(--fast);
+      position: relative;
+    }
+
+    .step-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent-gold);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .step-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .step-icon {
+      font-size: 3rem;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .step-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.5rem;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .step-desc {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Umrah Steps Section */
+    .umrah-steps {
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border-radius: 20px;
+      padding: 50px;
+      margin: 60px auto;
+      max-width: 1200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .umrah-steps::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230a5f38' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Video Section */
+    .video-section {
+      background: linear-gradient(135deg, #fff, #f9fff8);
+      border-radius: 20px;
+      padding: 50px;
+      margin: 60px auto;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .video-container {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 500px;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      background: rgba(212, 175, 55, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--fast);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .play-button:hover {
+      background: var(--gold);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .play-button i {
+      font-size: 40px;
+      color: white;
+      margin-left: 8px;
+    }
+
+    /* Tips Section */
+    .tips-section {
+      background: linear-gradient(135deg, rgba(10, 95, 56, 0.05), rgba(212, 175, 55, 0.05));
+      border-radius: 20px;
+      padding: 50px;
+      margin: 60px auto;
+      max-width: 1200px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .tip-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid var(--gold);
+    }
+
+    .tip-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 15px;
+    }
+
+    .tip-desc {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Footer - Full Width */
+    footer {
+      background: linear-gradient(90deg, var(--green), #063d24);
+      color: #fff;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .footer-top {
+      background: rgba(0, 0, 0, 0.1);
+      padding: 25px 0;
+    }
+
+    .footer-top-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--fast);
+      font-size: 1.1rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-main {
+      padding: 60px 0;
+    }
+
+    .footer-main-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+    }
+
+    .footer-section h3 {
+      color: var(--gold-light);
+      margin-bottom: 25px;
+      font-size: 1.5rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 3px;
+      background: var(--gold-light);
+    }
+
+    .footer-section p, .footer-section li {
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .footer-section ul li i {
+      margin-right: 15px;
+      color: var(--gold-light);
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 25px 0;
+      text-align: center;
+    }
+
+    .footer-bottom-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all var(--fast);
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 820px) {
+      .header-inner { align-items: center; }
+      
+      .login-section { display: none; }
+      .menu-toggle { display: flex; }
+      
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 15px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        z-index: 1400;
+        max-width: 350px;
+        width: calc(100% - 40px);
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+        margin: 0 auto;
+      }
+      
+      nav.mobile-open ul { display: flex; }
+      nav a { padding: 15px 20px; }
+
+      .page-title { font-size: 2.2rem; }
+      
+      .footer-top-content {
+        flex-direction: column;
+        gap: 25px;
+      }
+      
+      .footer-bottom-content {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand .arabic { display: none; }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Top bar - FIXED -->
+  <div class="topbar">
+    <div class="topbar-content">
+      <small><i class="fas fa-mosque"></i> بِسْمِ ٱللَّهِ — Journey with peace (Naaz Hajj Umrah Travels)</small>
+    </div>
+  </div>
+
+ <!-- Header - Now Fixed -->
+<header id="siteHeader" aria-hidden="false">
+  <div class="header-inner wrap">
+    <!-- Logo - Left Side -->
+    <a class="brand" href="index.html" aria-label="Naaz Hajj & Umrah Travels">
+      <img src="logo.png" alt="Naaz Hajj & Umrah Travels" class="logo">
+      <div style="display: flex; flex-direction: column; line-height: 1.2;">
+        <div style="font-weight: bold; font-size: 18px; font-family: 'Cairo', sans-serif; color: #0a5f38; white-space: nowrap;">Naaz Hajj Umrah Travels</div>
+        <div style="font-family: 'Scheherazade New', serif; font-size: 20px; color: #d4af37; font-weight: 600;">رحلة مباركة</div>
+      </div>
+    </a>
+
+    <!-- Navigation - Middle -->
+    <nav id="navMenu" class="nav" aria-label="Primary" role="navigation">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="documents.html"><i class="fas fa-file-alt"></i> Documents</a></li>
+        <li><a href="packages.html"><i class="fas fa-box"></i> Packages</a></li>
+        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="hajj-steps.html" class="active"><i class="fas fa-route"></i> Hajj Steps</a></li>
+        <li><a href="duas.html"><i class="fas fa-hands-praying"></i> Duas</a></li>
+        <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+      </ul>
+      <!-- Mobile Menu Toggle - Right Side -->
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </nav>
+
+  
+</header>
+
+  <!-- Page Content -->
+  <div class="page-content">
+    <div class="wrap">
+      <div class="page-header">
+        <h1 class="page-title">Steps of Hajj & Umrah</h1>
+        <p class="page-subtitle">Understand the sacred rituals and steps of Hajj and Umrah pilgrimages. Our experienced guides will help you perform each step correctly and with proper spiritual focus.</p>
+      </div>
+
+      <!-- Hajj Steps Section -->
+      <section class="hajj-steps">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--green); text-align: center; margin-bottom: 40px;">Steps of Hajj</h2>
+        
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-icon"><i class="fas fa-tshirt"></i></div>
+            <h3 class="step-title">Ihram</h3>
+            <p class="step-desc">Entering the state of consecration for pilgrimage by wearing the prescribed attire and making the intention (niyyah) for Hajj.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-icon"><i class="fas fa-mosque"></i></div>
+            <h3 class="step-title">Tawaf al-Qudum</h3>
+            <p class="step-desc">Arrival Tawaf - circumambulating the Kaaba seven times upon arrival in Makkah before proceeding to Mina.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-icon"><i class="fas fa-walking"></i></div>
+            <h3 class="step-title">Sa'i</h3>
+            <p class="step-desc">Walking seven times between the hills of Safa and Marwah, reenacting Hajar's search for water for her son Isma'il.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-icon"><i class="fas fa-campground"></i></div>
+            <h3 class="step-title">Stay in Mina</h3>
+            <p class="step-desc">Proceeding to Mina on the 8th of Dhul Hijjah and spending the day in prayer and preparation for the main rituals.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">5</div>
+            <div class="step-icon"><i class="fas fa-mountain"></i></div>
+            <h3 class="step-title">Wuquf at Arafat</h3>
+            <p class="step-desc">Standing at the plain of Arafat on the 9th of Dhul Hijjah, the most important ritual of Hajj, seeking Allah's forgiveness.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">6</div>
+            <div class="step-icon"><i class="fas fa-moon"></i></div>
+            <h3 class="step-title">Muzdalifah</h3>
+            <p class="step-desc">Spending the night at Muzdalifah after sunset from Arafat, collecting pebbles for the stoning ritual.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">7</div>
+            <div class="step-icon"><i class="fas fa-cube"></i></div>
+            <h3 class="step-title">Ramy al-Jamarat</h3>
+            <p class="step-desc">Stoning the three pillars in Mina, representing the rejection of evil and temptation, following Prophet Ibrahim's example.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">8</div>
+            <div class="step-icon"><i class="fas fa-cut"></i></div>
+            <h3 class="step-title">Halq/Taqsir</h3>
+            <p class="step-desc">Shaving the head (Halq) for men or trimming hair (Taqsir) for both men and women, symbolizing the end of the state of Ihram.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">9</div>
+            <div class="step-icon"><i class="fas fa-mosque"></i></div>
+            <h3 class="step-title">Tawaf al-Ifadah</h3>
+            <p class="step-desc">The Farewell Tawaf - circumambulating the Kaaba seven times before leaving Makkah, marking the completion of Hajj.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Umrah Steps Section -->
+      <section class="umrah-steps">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--green); text-align: center; margin-bottom: 40px;">Steps of Umrah</h2>
+        
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-icon"><i class="fas fa-tshirt"></i></div>
+            <h3 class="step-title">Ihram</h3>
+            <p class="step-desc">Entering the state of consecration by wearing the prescribed attire and making the intention (niyyah) for Umrah.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-icon"><i class="fas fa-mosque"></i></div>
+            <h3 class="step-title">Tawaf</h3>
+            <p class="step-desc">Circumambulating the Kaaba seven times in a counter-clockwise direction, starting and ending at the Black Stone.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-icon"><i class="fas fa-walking"></i></div>
+            <h3 class="step-title">Sa'i</h3>
+            <p class="step-desc">Walking seven times between the hills of Safa and Marwah, reenacting Hajar's search for water.</p>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-icon"><i class="fas fa-cut"></i></div>
+            <h3 class="step-title">Halq/Taqsir</h3>
+            <p class="step-desc">Shaving the head (Halq) for men or trimming hair (Taqsir) for both men and women to complete the Umrah.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Section -->
+      <section class="video-section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--green); margin-bottom: 20px;">Visual Guide to Hajj & Umrah</h2>
+        <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 30px;">Watch our comprehensive video guide to understand the proper way to perform Hajj and Umrah rituals.</p>
+        
+        <div class="video-container">
+          <div class="video-placeholder">
+            <img src="hajj-umrah-guide.jpg" alt="Hajj and Umrah Guide" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="play-button" onclick="playVideo()">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tips Section -->
+      <section class="tips-section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--green); text-align: center; margin-bottom: 40px;">Important Tips for Pilgrims</h2>
+        
+        <div class="tips-grid">
+          <div class="tip-card">
+            <h3 class="tip-title">Physical Preparation</h3>
+            <p class="tip-desc">Start physical exercises and walking practice at least 2-3 months before your journey to build stamina for the rituals.</p>
+          </div>
+          
+          <div class="tip-card">
+            <h3 class="tip-title">Learn the Rituals</h3>
+            <p class="tip-desc">Study and understand each step of Hajj/Umrah before your journey. Attend preparatory classes and workshops.</p>
+          </div>
+          
+          <div class="tip-card">
+            <h3 class="tip-title">Stay Hydrated</h3>
+            <p class="tip-desc">Drink plenty of water and Zam Zam water throughout your journey, especially during Tawaf and Sa'i.</p>
+          </div>
+          
+          <div class="tip-card">
+            <h3 class="tip-title">Patience is Key</h3>
+            <p class="tip-desc">Be prepared for crowds and delays. Maintain patience and focus on the spiritual aspects of your journey.</p>
+          </div>
+          
+          <div class="tip-card">
+            <h3 class="tip-title">Keep Important Documents Safe</h3>
+            <p class="tip-desc">Always keep your passport, visa, and other important documents in a secure but accessible place.</p>
+          </div>
+          
+          <div class="tip-card">
+            <h3 class="tip-title">Follow Your Guide</h3>
+            <p class="tip-desc">Listen carefully to your guide's instructions and follow the group schedule to ensure you don't miss any important rituals.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer - Full Width -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-top-content">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="documents.html">Documents</a>
+          <a href="packages.html">Packages</a>
+          <a href="services.html">Services</a>
+        </div>
+        <h3 class="footer-arabic" style="font-family: 'Scheherazade New', serif; font-size: 24px; color: rgba(255, 245, 200, 0.95);">وَسِعْنَا لَكُمُ السَّبِيلَ</h3>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-main">
+      <div class="footer-main-content">
+        <div class="footer-section">
+          <h3>About Naaz Hajj & Umrah</h3>
+          <p>We are a trusted travel agency specializing in Hajj and Umrah pilgrimages. With years of experience, we provide comprehensive services to make your spiritual journey comfortable and memorable.</p>
+          <p>Our team of experienced guides and staff ensure that every aspect of your pilgrimage is taken care of, from visa processing to accommodation and transportation.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><i class="fas fa-angle-right"></i> <a href="packages.html">Hajj Packages</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="packages.html">Umrah Packages</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="services.html">Our Services</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="gallery.html">Photo Gallery</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#">Testimonials</a></li>
+            <li><i class="fas fa-angle-right"></i> <a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Information</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Near Itagi Petrol Pump, Old Takke Road, Vijayapura, Karnataka 586101</li>
+            <li><i class="fas fa-phone-alt"></i> +91 77954 83452</li>
+            <li><i class="fas fa-envelope"></i> naazhajjumrahtravels@gmail.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Sat: 9:30 AM - 7:30 PM, Sun: 10:00 AM - 4:00 PM</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <p>Stay connected with us for updates on special packages and pilgrimage information.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="https://facebook.com/naazhajjumrahtravels" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/naaz_hajj_umrah_travels" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@NaazHajjUmrahTravels" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/naazhajjumrahtravels" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:naazhajjumrahtravels@gmail.com" aria-label="Email" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          © 2025 Naaz Hajj & Umrah Travels. All Rights Reserved.
+        </div>
+        <div class="footer-arabic" style="font-family: 'Scheherazade New', serif; font-size: 24px; color: rgba(255, 245, 200, 0.95);">
+          وَسِعْنَا لَكُمُ السَّبِيلَ
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Primary contact details (single source of truth)
+    const CONTACT = {
+      phoneDisplay: "+91 77954 83452",
+      phoneE164: "+917795483452",
+      email: "naazhajjumrahtravels@gmail.com"
+    };
+    
+    // Mobile menu toggle
+    const setupMobileMenu = () => {
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (!menuToggle || !navMenu) return;
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('mobile-open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking outside or on a link
+      document.addEventListener('click', (e) => {
+        if (!navMenu.classList.contains('mobile-open')) return;
+        const isClickInside = navMenu.contains(e.target) || menuToggle.contains(e.target);
+        if (!isClickInside) {
+          navMenu.classList.remove('mobile-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    };
+
+    // Header scroll effect
+    const setupHeaderScroll = () => {
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', () => { 
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }, { passive: true });
+    };
+
+    // Play video function
+    const playVideo = () => {
+      // In a real implementation, this would play a video
+      alert('Video player would open here. In a real implementation, this would play a comprehensive guide to Hajj and Umrah rituals.');
+    };
+
+    // Function to update all contact links dynamically
+    const updateContactLinks = () => {
+      document.querySelectorAll('a[href^="tel:"]').forEach(a => a.setAttribute('href', 'tel:' + CONTACT.phoneE164));
+      document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.setAttribute('href', 'mailto:' + CONTACT.email));
+      document.querySelectorAll('a[href*="wa.me"]').forEach(a => a.setAttribute('href', `https://wa.me/${CONTACT.phoneE164.replace(/\D/g,'')}?text=${encodeURIComponent('')}`));
+      document.querySelectorAll('.phone-display').forEach(el => el.textContent = CONTACT.phoneDisplay);
+    };
+
+    // --- INITIALIZATION ---
+    // Run all setup functions when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+      setupMobileMenu();
+      setupHeaderScroll();
+      updateContactLinks();
+    });
+
+  </script>
+
+</body>
+</html>
