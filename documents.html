@@ -1224,41 +1224,116 @@
             <div class="python-lab-content active" id="part-a">
               <h3 class="python-lab-section-title">Part A - Basic Python Programs</h3>
               
-              <h4>1. Python function to calculate the factorial of a number</h4>
+              <h4>1. ZAID BHAI TXT 01 </h4>
               <div class="python-lab-code-container">
                 <div class="python-lab-code">def factorial(n):
-    """Return the factorial of a non-negative integer."""
-    if n < 0:
-        return "Factorial is not defined for negative numbers"
-    elif n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n - 1)
+   Demonstrate any 5 operations 
 
-# Test the function
-num = int(input("Enter a non-negative integer: "))
-print(f"Factorial of {num} is {factorial(num)}")</div>
+def demonstrate_dict_operations(input_dict, description):
+    print("\n--- Demonstrating operations for:", description, "---")
+    print("Original dictionary:", input_dict)
+
+    # 1. Adding a new key-value pair
+    input_dict['language'] = 'Python'
+    print("After adding a new key 'language':", input_dict)
+
+    # 2. Updating an existing key
+    input_dict['author'] = 'Jane Doe'
+    print("After updating the value of 'author':", input_dict)
+
+    # 3. Accessing a value using get()
+    favorite_color = input_dict.get('color', 'No color specified')
+    print("Accessing the value of 'color' using get():", favorite_color)
+
+    # 4. Removing a key using pop()
+    if 'year' in input_dict:
+        removed_year = input_dict.pop('year')
+        print("After removing 'year', the dictionary is:", input_dict)
+        print("The value removed was:", removed_year)
+
+    # 5. Displaying keys and values
+    print("All keys in the final dictionary:", list(input_dict.keys()))
+    print("All values in the final dictionary:", list(input_dict.values()))
+    print("-" * 50)
+
+
+# Dictionary examples
+my_dict_1 = {
+    'title': 'The Great Gatsby',
+    'author': 'F. Scott Fitzgerald',
+    'year': 1925
+}
+
+my_dict_2 = {
+    1: 'apple',
+    2: 'banana',
+    3: 'cherry'
+}
+
+my_dict_3 = {}
+
+# Function calls
+demonstrate_dict_operations(my_dict_1, "Dictionary 1 (Strings and Integers)")
+demonstrate_dict_operations(my_dict_2, "Dictionary 2 (Integer Keys)")
+demonstrate_dict_operations(my_dict_3, "Dictionary 3 (Empty Dictionary)")</div>
                 <button class="copy-code-btn" onclick="copyCode(this)">
                   <i class="fas fa-copy"></i> Copy
                 </button>
               </div>
               
-              <h4>2. Python function that returns a new list with unique elements</h4>
+              <h4>2.ZAID BHAI TEXT 02 </h4>
               <div class="python-lab-code-container">
                 <div class="python-lab-code">def unique_elements(lst):
-    """Return a new list with unique elements from the input list."""
-    seen = set()
-    unique = []
-    for item in lst:
-        if item not in seen:
-            seen.add(item)
-            unique.append(item)
-    return unique
+    "First list 
 
-# Test the function
-original_list = [1, 2, 3, 2, 4, 1, 5, 3]
-print(f"Original list: {original_list}")
-print(f"List with unique elements: {unique_elements(original_list)}")</div>
+
+def get_unique_elements(input_list):
+    seen = set()
+    unique_list = []
+
+    for item in input_list:
+        if item not in seen:
+            unique_list.append(item)
+            seen.add(item)
+
+    return unique_list
+
+
+if __name__ == "__main__":
+    print("Testing get_unique_elements function:")
+
+    list1 = [1, 2, 2, 3, 4, 4, 5, 1]
+    unique1 = get_unique_elements(list1)
+    print("Original List 1:", list1)
+    print("Unique Elements 1:", unique1)
+
+    print("\n" + "*" * 30 + "\n")
+
+    list2 = ['apple', 'banana', 'orange', 'apple', 'grape', 'banana', 10, 20, 10]
+    unique2 = get_unique_elements(list2)
+    print("Original List 2:", list2)
+    print("Unique Elements 2:", unique2)
+
+    print("\n" + "*" * 30 + "\n")
+
+    list3 = [100, 200, 300]
+    unique3 = get_unique_elements(list3)
+    print("Original List 3:", list3)
+    print("Unique Elements 3:", unique3)
+
+    print("\n" + "*" * 30 + "\n")
+
+    list4 = []
+    unique4 = get_unique_elements(list4)
+    print("Original List 4 (empty):", list4)
+    print("Unique Elements 4:", unique4)
+
+    print("\n" + "*" * 30 + "\n")
+
+    list5 = [7, 7, 7, 7]
+    unique5 = get_unique_elements(list5)
+    print("Original List 5:", list5)
+    print("Unique Elements 5:", unique5)</div>
                 <button class="copy-code-btn" onclick="copyCode(this)">
                   <i class="fas fa-copy"></i> Copy
                 </button>
@@ -2058,3 +2133,4 @@ root.mainloop()</div>
 
 </body>
 </html>
+
