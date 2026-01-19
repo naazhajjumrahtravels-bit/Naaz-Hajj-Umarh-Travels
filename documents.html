@@ -1208,7 +1208,57 @@
           <div class="python-lab-section">
             <div class="python-lab-header">
               <h2 class="python-lab-title">Python Programming Lab Manual</h2>
-              <div class="python-lab-actions">
+          def demonstrate_exception_handling(input_value):
+
+print("Testing with input: {}'.format(input_value))
+
+try:
+
+#The code that might raise an exception is placed here.
+
+number int(input_value) result 100/number
+
+except ValueError:
+
+This block runs if a ValueError occurs (e.g., non-numeric Input).
+
+print("Except block: Invalid Input. Please enter a number.")
+
+except ZeroDivisionError:
+
+#This block runs if a ZeroDivisionError occurs (e.g., dividing by zero).
+
+print("Except block: Cannot divide by zero.")
+
+except Exception as e:
+
+A general except block to catch any other unexpected errors.
+
+print("Except block: An unexpected error occurred: {}".format(e))
+
+else:
+
+#This block runs ONLY If the code in the try block completes without any exceptions
+
+print("Else block: The result of the division is: ()".format(result))
+
+finally:
+
+This block ALWAYS runs, regardless of whether an exception occurred or not.
+
+print("Finally block: Execution of this block is complete.")
+
+print("-" 35)
+
+demonstrate_exception_handling("18")
+
+demonstrate_exception_handling("abc")
+
+demonstrate_exception_handling("0")
+
+demonstrate_exception_handling("50")
+
+demonstrate_exception_handling("")    <div class="python-lab-actions">
                 <button class="python-lab-btn" onclick="copyAllContent()">
                   <i class="fas fa-copy"></i> Copy All
                 </button>
@@ -1227,55 +1277,7 @@
               <h4>1. ZAID BHAI TXT 01 </h4>
               <div class="python-lab-code-container">
                 <div class="python-lab-code">def factorial(n):
-   Demonstrate any 5 operations 
-
-def demonstrate_dict_operations(input_dict, description):
-    print("\n--- Demonstrating operations for:", description, "---")
-    print("Original dictionary:", input_dict)
-
-    # 1. Adding a new key-value pair
-    input_dict['language'] = 'Python'
-    print("After adding a new key 'language':", input_dict)
-
-    # 2. Updating an existing key
-    input_dict['author'] = 'Jane Doe'
-    print("After updating the value of 'author':", input_dict)
-
-    # 3. Accessing a value using get()
-    favorite_color = input_dict.get('color', 'No color specified')
-    print("Accessing the value of 'color' using get():", favorite_color)
-
-    # 4. Removing a key using pop()
-    if 'year' in input_dict:
-        removed_year = input_dict.pop('year')
-        print("After removing 'year', the dictionary is:", input_dict)
-        print("The value removed was:", removed_year)
-
-    # 5. Displaying keys and values
-    print("All keys in the final dictionary:", list(input_dict.keys()))
-    print("All values in the final dictionary:", list(input_dict.values()))
-    print("-" * 50)
-
-
-# Dictionary examples
-my_dict_1 = {
-    'title': 'The Great Gatsby',
-    'author': 'F. Scott Fitzgerald',
-    'year': 1925
-}
-
-my_dict_2 = {
-    1: 'apple',
-    2: 'banana',
-    3: 'cherry'
-}
-
-my_dict_3 = {}
-
-# Function calls
-demonstrate_dict_operations(my_dict_1, "Dictionary 1 (Strings and Integers)")
-demonstrate_dict_operations(my_dict_2, "Dictionary 2 (Integer Keys)")
-demonstrate_dict_operations(my_dict_3, "Dictionary 3 (Empty Dictionary)")</div>
+   </div>
                 <button class="copy-code-btn" onclick="copyCode(this)">
                   <i class="fas fa-copy"></i> Copy
                 </button>
@@ -2133,4 +2135,5 @@ root.mainloop()</div>
 
 </body>
 </html>
+
 
