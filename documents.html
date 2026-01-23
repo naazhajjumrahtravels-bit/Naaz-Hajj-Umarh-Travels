@@ -29,6 +29,8 @@
       --fast: 200ms cubic-bezier(.2, .9, .3, 1);
       --header-height: 80px;
       --topbar-height: 30px;
+      --code-bg: #1e1e1e;
+      --code-text: #d4d4d4;
     }
 
     * {
@@ -378,6 +380,110 @@
       margin-top: 30px;
     }
 
+    /* --- NEW STYLES FOR JAVA LAB MANUAL SECTION --- */
+    
+    .lab-category-title {
+        font-family: 'Cairo', sans-serif;
+        font-size: 1.8rem;
+        color: var(--green);
+        margin: 40px 0 20px;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        padding-bottom: 10px;
+    }
+
+    .lab-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        margin-bottom: 30px;
+        overflow: hidden;
+        border: 1px solid #eee;
+    }
+
+    .lab-header {
+        padding: 20px 25px;
+        background: #f9f9f9;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .lab-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--green);
+        margin: 0;
+    }
+
+    .copy-btn {
+        background: var(--accent-gold);
+        color: #231f12;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .copy-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    }
+    
+    .copy-btn.copied {
+        background: var(--green);
+        color: white;
+    }
+
+    .code-container {
+        position: relative;
+    }
+
+    pre {
+        background: var(--code-bg);
+        color: var(--code-text);
+        padding: 20px;
+        overflow-x: auto;
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        max-height: 500px;
+    }
+
+    .output-section {
+        padding: 15px 25px;
+        background: #fdfdfd;
+        border-top: 1px dashed #ddd;
+    }
+
+    .output-label {
+        font-weight: 700;
+        color: var(--gold-dark);
+        display: block;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+
+    .output-content {
+        font-family: monospace;
+        background: #f0f0f0;
+        padding: 10px;
+        border-radius: 6px;
+        color: #333;
+        font-size: 0.9rem;
+    }
+    
+    /* ----------------------------------------------------- */
+
     .document-item {
       background: #fff;
       border-radius: 15px;
@@ -498,179 +604,6 @@
     .faq-item.active .faq-answer {
       padding: 0 25px 20px;
       max-height: 500px;
-    }
-
-    /* Python Lab Section */
-    .python-lab-section {
-      margin-top: 60px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-      background: linear-gradient(135deg, #fff, #f9fff8);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-    }
-
-    .python-lab-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .python-lab-title {
-      font-family: 'Cairo', sans-serif;
-      font-size: 2rem;
-      color: var(--green);
-    }
-
-    .python-lab-actions {
-      display: flex;
-      gap: 15px;
-    }
-
-    .python-lab-btn {
-      background: var(--accent-gold);
-      color: #231f12;
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-weight: 600;
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      text-decoration: none;
-      transition: all var(--fast);
-      border: none;
-      cursor: pointer;
-    }
-
-    .python-lab-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-    }
-
-    .python-lab-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-      padding-bottom: 15px;
-    }
-
-    .python-lab-tab {
-      padding: 8px 16px;
-      background: rgba(212, 175, 55, 0.1);
-      border-radius: 20px;
-      font-weight: 600;
-      color: var(--green);
-      cursor: pointer;
-      transition: all var(--fast);
-      font-size: 0.9rem;
-    }
-
-    .python-lab-tab.active {
-      background: var(--accent-gold);
-      color: #231f12;
-    }
-
-    .python-lab-content {
-      display: none;
-      background: #fff;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      overflow-x: auto;
-    }
-
-    .python-lab-content.active {
-      display: block;
-    }
-
-    .python-lab-code-container {
-      position: relative;
-      margin: 15px 0;
-    }
-
-    .python-lab-code {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 20px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      overflow-x: auto;
-      white-space: pre;
-      border-left: 4px solid var(--gold);
-    }
-
-    .python-lab-output {
-      background: #f0f7f0;
-      border-radius: 10px;
-      padding: 20px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      overflow-x: auto;
-      white-space: pre;
-      margin: 15px 0;
-      border-left: 4px solid var(--green);
-    }
-
-    .python-lab-section-title {
-      font-family: 'Cairo', sans-serif;
-      font-size: 1.5rem;
-      color: var(--green);
-      margin: 25px 0 15px;
-      border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-      padding-bottom: 10px;
-    }
-
-    .python-lab-description {
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .copy-code-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: var(--accent-gold);
-      color: #231f12;
-      padding: 8px 12px;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      text-decoration: none;
-      transition: all var(--fast);
-      border: none;
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-
-    .copy-code-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-    }
-
-    .copy-code-btn.copied {
-      background: var(--accent-green);
-      color: white;
-    }
-
-    .python-lab-screenshot {
-      max-width: 100%;
-      border-radius: 10px;
-      margin: 15px 0;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     /* Footer - Full Width */
@@ -919,8 +852,8 @@
   <div class="page-content">
     <div class="wrap">
       <div class="page-header">
-        <h1 class="page-title">Documents Required for Hajj & Umrah</h1>
-        <p class="page-subtitle">Complete guide to all the documents you need for your pilgrimage journey. Download checklists and forms to prepare for your trip.</p>
+        <h1 class="page-title">Documents Required & Lab Manual</h1>
+        <p class="page-subtitle">Complete guide to all the documents you need for your pilgrimage journey. Also find Java Lab Manual resources for students below.</p>
       </div>
 
       <!-- Document Tabs -->
@@ -930,11 +863,420 @@
         <div class="document-tab" data-category="umrah">Umrah Specific</div>
         <div class="document-tab" data-category="women">Women Pilgrims</div>
         <div class="document-tab" data-category="senior">Senior Citizens</div>
-        <div class="document-tab" data-category="pythonlab">Python Lab</div>
+        <!-- NEW TAB FOR JAVA LABS -->
+        <div class="document-tab" data-category="java-labs">Java Lab Manual</div>
       </div>
 
       <!-- Document Categories -->
       <div class="document-categories">
+        
+        <!-- ==================== JAVA LAB MANUAL SECTION (NEW) ==================== -->
+        <div class="document-category" id="java-labs">
+            <h2 style="text-align: center; color: var(--green); font-family: 'Playfair Display', serif; margin-bottom: 40px;">Advanced Java Programming Lab</h2>
+
+            <!-- JSP Programs -->
+            <h3 class="lab-category-title">Part B: JSP Programs</h3>
+
+            <!-- Program 1: Order Form -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">1. JSP Order Form</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>&lt;form method="post"&gt;
+Item: &lt;input name="item"&gt;&lt;br&gt; 
+Price: &lt;input name="price"&gt;&lt;br&gt; 
+Quantity: &lt;input name="qty"&gt;&lt;br&gt;
+&lt;input type="submit" value="Calculate"&gt;
+&lt;/form&gt;
+&lt;%
+if(request.getParameter("item") != null){
+    double price = Double.parseDouble(request.getParameter("price")); 
+    int qty = Integer.parseInt(request.getParameter("qty"));
+    double total = price * qty;
+%&gt;
+&lt;b&gt;Total Price: &lt;%= total %&gt;&lt;/b&gt;
+&lt;% } %&gt;</code></pre>
+                </div>
+                <div class="output-section">
+                    <span class="output-label">Expected Output:</span>
+                    <div class="output-content">
+                        Input: Item = Pen, Price = 200, Qty = 3<br>
+                        Total Price: 600.0
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 2: Login System -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">2. JSP Login System</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>&lt;form method="post"&gt;
+Username: &lt;input name="user"&gt;&lt;br&gt;
+&lt;input type="submit" value="Login"&gt;
+&lt;/form&gt;
+
+&lt;%
+if(request.getParameter("user") != null){ 
+    session.setAttribute("user", request.getParameter("user")); 
+    out.print("Welcome " + session.getAttribute("user"));
+}
+%&gt;</code></pre>
+                </div>
+                <div class="output-section">
+                    <span class="output-label">Expected Output:</span>
+                    <div class="output-content">
+                        (Displays "Welcome [Username]" after submission)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program 3: Currency Converter -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">3. Currency Converter (INR to USD)</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>&lt;form method="post"&gt;
+Amount: &lt;input name="amt"&gt;&lt;br&gt; 
+Convert to &lt;select name="cur"&gt;
+    &lt;option&gt;USD&lt;/option&gt;&lt;option&gt;INR&lt;/option&gt;
+&lt;/select&gt;
+&lt;input type="submit" value="Convert"&gt;
+&lt;/form&gt;
+
+&lt;%
+if(request.getParameter("amt") != null){
+    double amt = Double.parseDouble(request.getParameter("amt")); 
+    String cur = request.getParameter("cur");
+    // 1 USD = 83 INR (Example rate)
+    double res = cur.equals("USD") ? amt * 0.012 : amt * 83.0;
+    out.print("Converted Amount: " + res);
+}
+%&gt;</code></pre>
+                </div>
+                <div class="output-section">
+                    <span class="output-label">Expected Output:</span>
+                    <div class="output-content">
+                        Input: 100 INR to USD<br>
+                        Converted Amount: 1.2
+                    </div>
+                </div>
+            </div>
+
+            <!-- Java AWT/Swing Programs -->
+            <h3 class="lab-category-title">Java AWT & Swing Programs</h3>
+
+            <!-- Program 4: Mouse Events -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">4. Mouse Events (Adapter Class)</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class MouseEventAdapterDemo extends JFrame {
+    JLabel label;
+
+    public MouseEventAdapterDemo() {
+        label = new JLabel("Move or click the mouse");
+        label.setBounds(50, 50, 200, 30);
+        add(label);
+
+        setSize(300, 200);
+        setLayout(null);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                label.setText("Mouse Pressed at (" + e.getX() + ", " + e.getY() + ")");
+            }
+            public void mouseReleased(MouseEvent e) {
+                label.setText("Mouse Released at (" + e.getX() + ", " + e.getY() + ")");
+            }
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseMoved(MouseEvent e) {
+                label.setText("Mouse Moved at (" + e.getX() + ", " + e.getY() + ")");
+            }
+        });
+    }
+    public static void main(String[] args) {
+        new MouseEventAdapterDemo();
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Program 5: Keyboard Events -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">5. Keyboard Events</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>import java.awt.*;
+import java.awt.event.*;
+
+public class KeyboardEventDemo extends Frame {
+    Label label;
+
+    public KeyboardEventDemo() {
+        label = new Label("Press any key...");
+        label.setBounds(50, 80, 200, 30);
+        add(label);
+
+        setSize(300, 200);
+        setLayout(null);
+        setVisible(true);
+
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                label.setText("Key Pressed: " + e.getKeyChar());
+            }
+            public void keyReleased(KeyEvent e) {
+                label.setText("Key Released: " + e.getKeyChar());
+            }
+            public void keyTyped(KeyEvent e) {
+                label.setText("Key Typed: " + e.getKeyChar());
+            }
+        });
+
+        // Close window on click
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        new KeyboardEventDemo();
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Program 6: Basic Calculator -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">6. Basic Calculator</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>import java.awt.*;
+import java.awt.event.*;
+
+public class BasicCalculator extends Frame implements ActionListener {
+    TextField tf;
+    double num1 = 0, num2 = 0, result = 0;
+    char operator;
+
+    public BasicCalculator() {
+        setLayout(new BorderLayout());
+        tf = new TextField();
+        add(tf, BorderLayout.NORTH);
+
+        Panel panel = new Panel();
+        panel.setLayout(new GridLayout(4, 4, 5, 5));
+        String[] buttons = {"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "C", "=", "+"};
+
+        for (String b : buttons) {
+            Button btn = new Button(b);
+            btn.addActionListener(this);
+            panel.add(btn);
+        }
+        add(panel, BorderLayout.CENTER);
+        setTitle("Calculator");
+        setSize(300, 300);
+        setVisible(true);
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) { dispose(); }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String input = e.getActionCommand();
+        if (input.charAt(0) >= '0' && input.charAt(0) <= '9') {
+            tf.setText(tf.getText() + input);
+        } else if (input.equals("C")) {
+            tf.setText("");
+            num1 = num2 = result = 0;
+        } else if (input.equals("=")) {
+            num2 = Double.parseDouble(tf.getText());
+            switch (operator) {
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/': result = num2 != 0 ? num1 / num2 : 0; break;
+            }
+            tf.setText(String.valueOf(result));
+        } else {
+            num1 = Double.parseDouble(tf.getText());
+            operator = input.charAt(0);
+            tf.setText("");
+        }
+    }
+    public static void main(String[] args) { new BasicCalculator(); }
+}</code></pre>
+                </div>
+            </div>
+
+             <!-- Program 7: Ice Cream Menu -->
+             <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">7. Ice Cream Menu (Checkbox)</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>import java.awt.*;
+import java.awt.event.*;
+
+public class IceCreamMenu extends Frame implements ItemListener {
+    Label label;
+    Checkbox vanilla, chocolate, strawberry, mango;
+    CheckboxGroup flavors;
+
+    public IceCreamMenu() {
+        setTitle("Ice Cream Menu");
+        setLayout(new FlowLayout());
+        label = new Label("Select your favorite flavor:");
+        add(label);
+        flavors = new CheckboxGroup();
+        vanilla = new Checkbox("Vanilla", flavors, false);
+        chocolate = new Checkbox("Chocolate", flavors, false);
+        strawberry = new Checkbox("Strawberry", flavors, false);
+        mango = new Checkbox("Mango", flavors, false);
+        add(vanilla); add(chocolate); add(strawberry); add(mango);
+        
+        vanilla.addItemListener(this);
+        chocolate.addItemListener(this);
+        strawberry.addItemListener(this);
+        mango.addItemListener(this);
+
+        setSize(300, 200);
+        setVisible(true);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) { dispose(); }
+        });
+    }
+    public void itemStateChanged(ItemEvent e) {
+        Checkbox selected = flavors.getSelectedCheckbox();
+        label.setText("You selected: " + selected.getLabel());
+    }
+    public static void main(String[] args) { new IceCreamMenu(); }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Program 8: Radio Buttons -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">8. Gender Selection (Radio Button)</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class SimpleRadioButton extends JFrame implements ActionListener {
+    JRadioButton male, female;
+    ButtonGroup genderGroup;
+    JLabel resultLabel;
+
+    public SimpleRadioButton() {
+        setTitle("Gender Selection");
+        setSize(250, 150);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        male = new JRadioButton("Male");
+        female = new JRadioButton("Female");
+        genderGroup = new ButtonGroup();
+        genderGroup.add(male);
+        genderGroup.add(female);
+
+        male.addActionListener(this);
+        female.addActionListener(this);
+
+        resultLabel = new JLabel("Select your gender");
+        add(male); add(female); add(resultLabel);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (male.isSelected()) {
+            resultLabel.setText("You selected: Male");
+        } else if (female.isSelected()) {
+            resultLabel.setText("You selected: Female");
+        }
+    }
+    public static void main(String[] args) { new SimpleRadioButton(); }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Program 9: Hobbies (Checkbox) -->
+            <div class="lab-card">
+                <div class="lab-header">
+                    <h4 class="lab-title">9. Hobby Selector (Checkbox)</h4>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CheckBoxDemo extends JFrame implements ActionListener {
+    JCheckBox music, sports, reading;
+    JLabel label;
+
+    public CheckBoxDemo() {
+        setTitle("Hobby Selector");
+        setSize(300, 200);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        music = new JCheckBox("Music");
+        sports = new JCheckBox("Sports");
+        reading = new JCheckBox("Reading");
+
+        music.addActionListener(this);
+        sports.addActionListener(this);
+        reading.addActionListener(this);
+
+        label = new JLabel("Select your hobbies");
+        add(music); add(sports); add(reading); add(label);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String selected = "You selected: ";
+        if (music.isSelected()) selected += "Music ";
+        if (sports.isSelected()) selected += "Sports ";
+        if (reading.isSelected()) selected += "Reading ";
+        label.setText(selected.trim());
+    }
+    public static void main(String[] args) { new CheckBoxDemo(); }
+}</code></pre>
+                </div>
+            </div>
+
+        </div> <!-- End Java Lab Manual Section -->
+
+
         <!-- General Documents -->
         <div class="document-category active" id="general">
           <h2 class="section-title">General Documents Required</h2>
@@ -1202,635 +1544,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Python Lab -->
-        <div class="document-category" id="pythonlab">
-          <div class="python-lab-section">
-            <div class="python-lab-header">
-              <h2 class="python-lab-title">Python Programming Lab Manual</h2>
-          def demonstrate_exception_handling(input_value):
-
-print("Testing with input: {}'.format(input_value))
-
-try:
-
-#The code that might raise an exception is placed here.
-
-number int(input_value) result 100/number
-
-except ValueError:
-
-This block runs if a ValueError occurs (e.g., non-numeric Input).
-
-print("Except block: Invalid Input. Please enter a number.")
-
-except ZeroDivisionError:
-
-#This block runs if a ZeroDivisionError occurs (e.g., dividing by zero).
-
-print("Except block: Cannot divide by zero.")
-
-except Exception as e:
-
-A general except block to catch any other unexpected errors.
-
-print("Except block: An unexpected error occurred: {}".format(e))
-
-else:
-
-#This block runs ONLY If the code in the try block completes without any exceptions
-
-print("Else block: The result of the division is: ()".format(result))
-
-finally:
-
-This block ALWAYS runs, regardless of whether an exception occurred or not.
-
-print("Finally block: Execution of this block is complete.")
-
-print("-" 35)
-
-demonstrate_exception_handling("18")
-
-demonstrate_exception_handling("abc")
-
-demonstrate_exception_handling("0")
-
-demonstrate_exception_handling("50")
-
-demonstrate_exception_handling("")    <div class="python-lab-actions">
-                <button class="python-lab-btn" onclick="copyAllContent()">
-                  <i class="fas fa-copy"></i> Copy All
-                </button>
-              </div>
-            </div>
-
-            <div class="python-lab-tabs">
-              <div class="python-lab-tab active" data-lab="part-a">Part A</div>
-              <div class="python-lab-tab" data-lab="part-b">Part B</div>
-            </div>
-
-            <!-- Part A -->
-            <div class="python-lab-content active" id="part-a">
-              <h3 class="python-lab-section-title">Part A - Basic Python Programs</h3>
-              
-              <h4>1. ZAID BHAI TXT 01 </h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">def factorial(n):
-   </div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>2.ZAID BHAI TEXT 02 </h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">def unique_elements(lst):
-    "First list 
-
-
-def get_unique_elements(input_list):
-    seen = set()
-    unique_list = []
-
-    for item in input_list:
-        if item not in seen:
-            unique_list.append(item)
-            seen.add(item)
-
-    return unique_list
-
-
-if __name__ == "__main__":
-    print("Testing get_unique_elements function:")
-
-    list1 = [1, 2, 2, 3, 4, 4, 5, 1]
-    unique1 = get_unique_elements(list1)
-    print("Original List 1:", list1)
-    print("Unique Elements 1:", unique1)
-
-    print("\n" + "*" * 30 + "\n")
-
-    list2 = ['apple', 'banana', 'orange', 'apple', 'grape', 'banana', 10, 20, 10]
-    unique2 = get_unique_elements(list2)
-    print("Original List 2:", list2)
-    print("Unique Elements 2:", unique2)
-
-    print("\n" + "*" * 30 + "\n")
-
-    list3 = [100, 200, 300]
-    unique3 = get_unique_elements(list3)
-    print("Original List 3:", list3)
-    print("Unique Elements 3:", unique3)
-
-    print("\n" + "*" * 30 + "\n")
-
-    list4 = []
-    unique4 = get_unique_elements(list4)
-    print("Original List 4 (empty):", list4)
-    print("Unique Elements 4:", unique4)
-
-    print("\n" + "*" * 30 + "\n")
-
-    list5 = [7, 7, 7, 7]
-    unique5 = get_unique_elements(list5)
-    print("Original List 5:", list5)
-    print("Unique Elements 5:", unique5)</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>3. Python program of recursion list sum</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">def recursive_list_sum(lst):
-    """Return the sum of all elements in a list using recursion."""
-    if not lst:
-        return 0
-    return lst[0] + recursive_list_sum(lst[1:])
-
-# Test the function
-numbers = [1, 2, 3, 4, 5]
-print(f"List: {numbers}")
-print(f"Sum of list elements: {recursive_list_sum(numbers)}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>4. Python program to get the sum of digits of a non-negative integer</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">def sum_of_digits(n):
-    """Return the sum of digits of a non-negative integer."""
-    if n < 0:
-        return "Please enter a non-negative integer"
-    elif n == 0:
-        return 0
-    else:
-        return n % 10 + sum_of_digits(n // 10)
-
-# Test the function
-num = int(input("Enter a non-negative integer: "))
-print(f"Sum of digits of {num} is {sum_of_digits(num)}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>5. Python program to demonstrate string and list operations</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code"># String Operations
-text = "Hello, World!"
-print(f"Original string: {text}")
-print(f"Uppercase: {text.upper()}")
-print(f"Lowercase: {text.lower()}")
-print(f"Length: {len(text)}")
-print(f"Replace 'World' with 'Python': {text.replace('World', 'Python')}")
-print(f"Split by comma: {text.split(',')}")
-
-# List Operations
-numbers = [1, 2, 3, 4, 5]
-print(f"\nOriginal list: {numbers}")
-print(f"Append 6: {numbers + [6]}")
-print(f"Remove last element: {numbers[:-1]}")
-print(f"Sort in reverse: {sorted(numbers, reverse=True)}")
-print(f"Sum of elements: {sum(numbers)}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>6. Create an output tuple that converts the words to uppercase</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">def words_to_uppercase(words_tuple):
-    """Convert all words in a tuple to uppercase."""
-    return tuple(word.upper() for word in words_tuple)
-
-# Test the function
-input_words = ("hello", "world", "python", "programming")
-output_words = words_to_uppercase(input_words)
-print(f"Input tuple: {input_words}")
-print(f"Output tuple (uppercase): {output_words}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>7. Python program to demonstrate dictionary operations</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code"># Create a dictionary
-student = {
-    "name": "John Doe",
-    "age": 20,
-    "courses": ["Math", "Science", "English"]
-}
-
-# Dictionary Operations
-print(f"Original dictionary: {student}")
-print(f"Keys: {student.keys()}")
-print(f"Values: {student.values()}")
-print(f"Items: {student.items()}")
-
-# Add a new key-value pair
-student["grade"] = "A"
-print(f"After adding grade: {student}")
-
-# Update a value
-student["age"] = 21
-print(f"After updating age: {student}")
-
-# Remove a key-value pair
-removed_value = student.pop("courses", None)
-print(f"Removed courses: {removed_value}")
-print(f"Final dictionary: {student}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>8. Create a module Calculation.py with basic arithmetic operations</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code"># Calculation.py module
-def add(a, b):
-    """Return the sum of a and b."""
-    return a + b
-
-def subtract(a, b):
-    """Return the difference of a and b."""
-    return a - b
-
-def multiply(a, b):
-    """Return the product of a and b."""
-    return a * b
-
-def divide(a, b):
-    """Return the quotient of a and b."""
-    if b == 0:
-        return "Cannot divide by zero"
-    return a / b
-
-# Main.py - Importing and using the module
-import Calculation
-
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
-
-print(f"Addition: {Calculation.add(num1, num2)}")
-print(f"Subtraction: {Calculation.subtract(num1, num2)}")
-print(f"Multiplication: {Calculation.multiply(num1, num2)}")
-print(f"Division: {Calculation.divide(num1, num2)}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-            </div>
-
-            <!-- Part B -->
-            <div class="python-lab-content" id="part-b">
-              <h3 class="python-lab-section-title">Part B - Advanced Python Programs</h3>
-              
-              <h4>1. Python program to demonstrate modification of an existing table data from MySQL database</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">import mysql.connector
-
-# Establish connection to MySQL database
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="testdb"
-)
-
-cursor = conn.cursor()
-
-# Create a table if it doesn't exist
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS students (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    age INT,
-    grade VARCHAR(10)
-)
-""")
-
-# Insert sample data
-students_data = [
-    ("Alice", 20, "A"),
-    ("Bob", 21, "B"),
-    ("Charlie", 22, "C")
-]
-
-cursor.executemany("INSERT INTO students (name, age, grade) VALUES (%s, %s, %s)", students_data)
-conn.commit()
-
-# Display the table
-cursor.execute("SELECT * FROM students")
-print("Before update:")
-for row in cursor.fetchall():
-    print(row)
-
-# Update a record
-cursor.execute("UPDATE students SET grade = 'A+' WHERE name = 'Bob'")
-conn.commit()
-
-# Display the updated table
-cursor.execute("SELECT * FROM students")
-print("\nAfter update:")
-for row in cursor.fetchall():
-    print(row)
-
-# Close the connection
-cursor.close()
-conn.close()</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>2. Python class named Circle with methods to compute area and perimeter</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">import math
-
-class Circle:
-    def __init__(self, radius):
-        """Initialize a Circle with the given radius."""
-        self.radius = radius
-    
-    def area(self):
-        """Calculate and return the area of the circle."""
-        return math.pi * self.radius ** 2
-    
-    def perimeter(self):
-        """Calculate and return the perimeter (circumference) of the circle."""
-        return 2 * math.pi * self.radius
-
-# Test the Circle class
-radius = float(input("Enter the radius of the circle: "))
-circle = Circle(radius)
-
-print(f"Circle with radius {radius}:")
-print(f"Area: {circle.area():.2f}")
-print(f"Perimeter: {circle.perimeter():.2f}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>3. Python class named Rectangle with methods to compute area and perimeter</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">class Rectangle:
-    def __init__(self, length, width):
-        """Initialize a Rectangle with the given length and width."""
-        self.length = length
-        self.width = width
-    
-    def area(self):
-        """Calculate and return the area of the rectangle."""
-        return self.length * self.width
-    
-    def perimeter(self):
-        """Calculate and return the perimeter of the rectangle."""
-        return 2 * (self.length + self.width)
-
-class Box(Rectangle):
-    def __init__(self, length, width, height):
-        """Initialize a Box with the given dimensions."""
-        super().__init__(length, width)
-        self.height = height
-    
-    def volume(self):
-        """Calculate and return the volume of the box."""
-        return self.length * self.width * self.height
-    
-    def perimeter(self):
-        """Override the perimeter method to compute the perimeter of a box."""
-        return 4 * (self.length + self.width + self.height)
-
-# Test the Rectangle and Box classes
-length = float(input("Enter the length: "))
-width = float(input("Enter the width: "))
-height = float(input("Enter the height: "))
-
-rectangle = Rectangle(length, width)
-box = Box(length, width, height)
-
-print(f"\nRectangle with length {length} and width {width}:")
-print(f"Area: {rectangle.area()}")
-print(f"Perimeter: {rectangle.perimeter()}")
-
-print(f"\nBox with dimensions {length} x {width} x {height}:")
-print(f"Area: {box.area()}")
-print(f"Perimeter: {box.perimeter()}")
-print(f"Volume: {box.volume()}")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>4. Python program to show use of Regular expressions</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">import re
-
-string1 = "Python is a popular programming language."
-string2 = "I use Python for data analysis."
-string3 = "The numbers are 123 and 456, and also 789."
-string4 = "Hello, world! How are you today?"
-
-print("--- Using re.match() ---")
-match_result1 = re.match(r"Python", string1)
-if match_result1:
-    print("Match found at start of string:", match_result1.group())
-else:
-    print("No match found for 'Python' at start of string 1.")
-
-match_result2 = re.match(r"use", string2)
-if match_result2:
-    print("Match found at start of string:", match_result2.group())
-else:
-    print("No match found for 'use' at start of string 2.")
-
-print("-" * 30)
-print("--- Using re.search() ---")
-search_result1 = re.search(r"language", string1)
-if search_result1:
-    print("Search found:", search_result1.group())
-else:
-    print("Search did not find 'language' in string 1.")
-
-search_result2 = re.search(r"C++", string2)
-if search_result2:
-    print("Search found:", search_result2.group())
-else:
-    print("Search did not find 'C++' in string 2.")
-
-print("-" * 30)
-print("--- Using re.findall() ---")
-findall_result1 = re.findall(r"\d+", string3)
-print("Original string:", string3)
-print("Found all numbers:", findall_result1)
-
-findall_result2 = re.findall(r"p\w+", string1)
-print("Original string:", string1)
-print("Found all words starting with 'p':", findall_result2)
-
-print("-" * 30)
-print("--- Using re.sub() ---")
-sub_result1 = re.sub(r"Python", "Java", string1)
-print("Original string:", string1)
-print("After replacing 'Python':", sub_result1)
-
-sub_result2 = re.sub(r"is", "was", string2)
-print("Original string:", string2)
-print("After replacing 'is':", sub_result2)
-
-print("-" * 30)
-print("--- Using re.split() ---")
-split_result1 = re.split(r" ", string4)
-print("Original string:", string4)
-print("Split by space:", split_result1)
-
-split_result2 = re.split(r"[ ,!]+", string4)
-print("Original string:", string4)
-print("Split by multiple delimiters:", split_result2)</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>5. Python program to demonstrate Exception handling</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">try:
-    # Get user input
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    
-    # Perform division
-    result = num1 / num2
-    
-except ValueError:
-    print("Error: Please enter valid integers.")
-except ZeroDivisionError:
-    print("Error: Cannot divide by zero.")
-except Exception as e:
-    print(f"An unexpected error occurred: {e}")
-else:
-    print(f"The result of {num1} / {num2} is {result}")
-finally:
-    print("This block always executes, regardless of exceptions.")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>6. Python program to read a file line by line and store it into an array</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">def read_file_to_array(filename):
-    """Read a file line by line and store it in an array."""
-    try:
-        with open(filename, 'r') as file:
-            lines = file.readlines()
-            # Remove newline characters from each line
-            lines = [line.strip() for line in lines]
-            return lines
-    except FileNotFoundError:
-        print(f"Error: File '{filename}' not found.")
-        return []
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return []
-
-# Test the function
-filename = input("Enter the filename: ")
-file_lines = read_file_to_array(filename)
-
-if file_lines:
-    print(f"Contents of '{filename}':")
-    for i, line in enumerate(file_lines, 1):
-        print(f"Line {i}: {line}")
-else:
-    print("No content to display.")</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-              
-              <h4>7. Python GUI program to design Student Registration Form</h4>
-              <div class="python-lab-code-container">
-                <div class="python-lab-code">import tkinter as tk
-from tkinter import ttk
-
-def submit_form():
-    name = name_entry.get()
-    student_id = id_entry.get()
-    gender = gender_var.get()
-    course = course_combo.get()
-    status = "Active" if status_var.get() else "Inactive"
-    
-    print("--- Student Registration Details ---")
-    print(f"Name: {name}")
-    print(f"Student ID: {student_id}")
-    print(f"Gender: {gender}")
-    print(f"Course: {course}")
-    print(f"Status: {status}")
-    print("-" * 35)
-
-# Create the main window
-root = tk.Tk()
-root.title("Student Registration")
-root.geometry("400x300")
-root.configure(bg="#e0e0e0")
-
-# Create a frame for better organization
-main_frame = tk.Frame(root, padx=20, pady=20, bg="#e0e0e0")
-main_frame.pack(fill="both", expand=True)
-
-# Name field
-name_label = tk.Label(main_frame, text="Name:", bg="#e0e0e0")
-name_label.grid(row=0, column=0, sticky="w", pady=5)
-name_entry = tk.Entry(main_frame, width=30)
-name_entry.grid(row=0, column=1, pady=5)
-
-# Student ID field
-id_label = tk.Label(main_frame, text="Student ID:", bg="#e0e0e0")
-id_label.grid(row=1, column=0, sticky="w", pady=5)
-id_entry = tk.Entry(main_frame, width=30)
-id_entry.grid(row=1, column=1, pady=5)
-
-# Gender field
-gender_label = tk.Label(main_frame, text="Gender:", bg="#e0e0e0")
-gender_label.grid(row=2, column=0, sticky="w", pady=5)
-gender_var = tk.StringVar(value="Male")
-gender_male_rb = tk.Radiobutton(main_frame, text="Male", variable=gender_var, value="Male", bg="#e0e0e0")
-gender_female_rb = tk.Radiobutton(main_frame, text="Female", variable=gender_var, value="Female", bg="#e0e0e0")
-gender_male_rb.grid(row=2, column=1, sticky="w")
-gender_female_rb.grid(row=2, column=1, sticky="e")
-
-# Course field
-course_label = tk.Label(main_frame, text="Course:", bg="#e0e0e0")
-course_label.grid(row=3, column=0, sticky="w", pady=5)
-course_options = ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Physics"]
-course_combo = ttk.Combobox(main_frame, values=course_options, state="readonly", width=27)
-course_combo.grid(row=3, column=1, pady=5)
-course_combo.set(course_options[0])
-
-# Status field
-status_var = tk.BooleanVar(value=True)
-status_check = tk.Checkbutton(main_frame, text="Active Student", variable=status_var, bg="#e0e0e0")
-status_check.grid(row=4, columnspan=2, sticky="w", pady=10)
-
-# Submit button
-submit_button = tk.Button(main_frame, text="Submit", command=submit_form, bg="#4CAF50", fg="white")
-submit_button.grid(row=5, columnspan=2, pady=10)
-
-# Start the GUI event loop
-root.mainloop()</div>
-                <button class="copy-code-btn" onclick="copyCode(this)">
-                  <i class="fas fa-copy"></i> Copy
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- FAQ Section -->
@@ -2024,27 +1737,6 @@ root.mainloop()</div>
       });
     };
 
-    // Python Lab tabs functionality
-    const setupPythonLabTabs = () => {
-      const tabs = document.querySelectorAll('.python-lab-tab');
-      const contents = document.querySelectorAll('.python-lab-content');
-      
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          // Remove active class from all tabs and contents
-          tabs.forEach(t => t.classList.remove('active'));
-          contents.forEach(c => c.classList.remove('active'));
-          
-          // Add active class to clicked tab
-          tab.classList.add('active');
-          
-          // Show corresponding content
-          const labId = tab.dataset.lab;
-          document.getElementById(labId).classList.add('active');
-        });
-      });
-    };
-
     // FAQ accordion functionality
     const setupFAQ = () => {
       const faqItems = document.querySelectorAll('.faq-item');
@@ -2066,50 +1758,31 @@ root.mainloop()</div>
       });
     };
 
-    // Download document function
-    const downloadDocument = (type) => {
-      // In a real implementation, this would trigger a file download
-      alert(`Downloading ${type} document checklist. In a real implementation, this would download a PDF file.`);
-    };
-
-    // Copy code function
-    const copyCode = (button) => {
-      const codeContainer = button.parentElement;
-      const codeElement = codeContainer.querySelector('.python-lab-code');
-      const textContent = codeElement.textContent;
-      
-      navigator.clipboard.writeText(textContent)
-        .then(() => {
-          // Update button to show copied state
-          button.classList.add('copied');
-          button.innerHTML = '<i class="fas fa-check"></i> Copied';
-          
-          // Reset button after 2 seconds
-          setTimeout(() => {
-            button.classList.remove('copied');
-            button.innerHTML = '<i class="fas fa-copy"></i> Copy';
-          }, 2000);
-        })
-        .catch(err => {
-          console.error('Failed to copy: ', err);
-          alert('Failed to copy code. Please try again.');
+    // Copy code functionality for Java Labs
+    const copyCode = (btn) => {
+        const card = btn.closest('.lab-card');
+        const codeBlock = card.querySelector('code');
+        const textToCopy = codeBlock.innerText;
+        
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Visual feedback
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.classList.add('copied');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
         });
     };
 
-    // Copy all Python Lab content
-    const copyAllContent = () => {
-      const activeContent = document.querySelector('.python-lab-content.active');
-      if (activeContent) {
-        const textContent = activeContent.innerText;
-        navigator.clipboard.writeText(textContent)
-          .then(() => {
-            alert('Content copied to clipboard!');
-          })
-          .catch(err => {
-            console.error('Failed to copy: ', err);
-            alert('Failed to copy content. Please try again.');
-          });
-      }
+    // Download document function (placeholder)
+    const downloadDocument = (type) => {
+      // In a real implementation, this would trigger a file download
+      alert(`Downloading ${type} document checklist. In a real implementation, this would download a PDF file.`);
     };
 
     // Function to update all contact links dynamically
@@ -2126,7 +1799,6 @@ root.mainloop()</div>
       setupMobileMenu();
       setupHeaderScroll();
       setupDocumentTabs();
-      setupPythonLabTabs();
       setupFAQ();
       updateContactLinks();
     });
@@ -2135,5 +1807,3 @@ root.mainloop()</div>
 
 </body>
 </html>
-
-
