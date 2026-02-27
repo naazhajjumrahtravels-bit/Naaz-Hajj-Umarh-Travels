@@ -870,113 +870,7 @@
       <!-- Document Categories -->
       <div class="document-categories">
         
-        <!-- ==================== JAVA LAB MANUAL SECTION (NEW) ==================== -->
-        <div class="document-category" id="java-labs">
-            <h2 style="text-align: center; color: var(--green); font-family: 'Playfair Display', serif; margin-bottom: 40px;">Advanced Java Programming Lab</h2>
-
-            <!-- JSP Programs -->
-            <h3 class="lab-category-title">Part B: JSP Programs</h3>
-
-            <!-- Program 1: Order Form -->
-            <div class="lab-card">
-                <div class="lab-header">
-                    <h4 class="lab-title">1. JSP Order Form</h4>
-                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-                </div>
-                <div class="code-container">
-                    <pre><code>&lt;form method="post"&gt;
-Item: &lt;input name="item"&gt;&lt;br&gt; 
-Price: &lt;input name="price"&gt;&lt;br&gt; 
-Quantity: &lt;input name="qty"&gt;&lt;br&gt;
-&lt;input type="submit" value="Calculate"&gt;
-&lt;/form&gt;
-&lt;%
-if(request.getParameter("item") != null){
-    double price = Double.parseDouble(request.getParameter("price")); 
-    int qty = Integer.parseInt(request.getParameter("qty"));
-    double total = price * qty;
-%&gt;
-&lt;b&gt;Total Price: &lt;%= total %&gt;&lt;/b&gt;
-&lt;% } %&gt;</code></pre>
-                </div>
-                <div class="output-section">
-                    <span class="output-label">Expected Output:</span>
-                    <div class="output-content">
-                        Input: Item = Pen, Price = 200, Qty = 3<br>
-                        Total Price: 600.0
-                    </div>
-                </div>
-            </div>
-
-            <!-- Program 2: Login System -->
-            <div class="lab-card">
-                <div class="lab-header">
-                    <h4 class="lab-title">2. JSP Login System</h4>
-                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-                </div>
-                <div class="code-container">
-                    <pre><code>&lt;form method="post"&gt;
-Username: &lt;input name="user"&gt;&lt;br&gt;
-&lt;input type="submit" value="Login"&gt;
-&lt;/form&gt;
-
-&lt;%
-if(request.getParameter("user") != null){ 
-    session.setAttribute("user", request.getParameter("user")); 
-    out.print("Welcome " + session.getAttribute("user"));
-}
-%&gt;</code></pre>
-                </div>
-                <div class="output-section">
-                    <span class="output-label">Expected Output:</span>
-                    <div class="output-content">
-                        (Displays "Welcome [Username]" after submission)
-                    </div>
-                </div>
-            </div>
-
-            <!-- Program 3: Currency Converter -->
-            <div class="lab-card">
-                <div class="lab-header">
-                    <h4 class="lab-title">3. Currency Converter (INR to USD)</h4>
-                    <button class="copy-btn" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy Code</button>
-                </div>
-                <div class="code-container">
-                    <pre><code>&lt;form method="post"&gt;
-Amount: &lt;input name="amt"&gt;&lt;br&gt; 
-Convert to &lt;select name="cur"&gt;
-    &lt;option&gt;USD&lt;/option&gt;&lt;option&gt;INR&lt;/option&gt;
-&lt;/select&gt;
-&lt;input type="submit" value="Convert"&gt;
-&lt;/form&gt;
-
-&lt;%
-if(request.getParameter("amt") != null){
-    double amt = Double.parseDouble(request.getParameter("amt")); 
-    String cur = request.getParameter("cur");
-    // 1 USD = 83 INR (Example rate)
-    double res = cur.equals("USD") ? amt * 0.012 : amt * 83.0;
-    out.print("Converted Amount: " + res);
-}
-%&gt;</code></pre>
-                </div>
-                <div class="output-section">
-                    <span class="output-label">Expected Output:</span>
-                    <div class="output-content">
-                        Input: 100 INR to USD<br>
-                        Converted Amount: 1.2
-                    </div>
-                </div>
-            </div>
-
-            <!-- Java AWT/Swing Programs -->
-            <h3 class="lab-category-title">Java AWT & Swing Programs</h3>
-
-           
-    public static void main(String[] args) { new CheckBoxDemo(); }
-}</code></pre>
-           
-
+       
 
         <!-- General Documents -->
         <div class="document-category active" id="general">
@@ -1508,4 +1402,5 @@ if(request.getParameter("amt") != null){
 
 </body>
 </html>
+
 
